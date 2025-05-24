@@ -1,0 +1,43 @@
+.adBanner {
+    width: 100%;
+    background: var(--pink-color);
+    padding: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 1rem auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.adImage {
+    width: 100%;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Mobile First */
+@media (min-width: 768px) {
+    .adBanner {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    .adImage {
+        max-width: 728px;
+    }
+}
+
+/* Swiper overrides */
+.adBanner :global(.swiper) {
+    width: 100%;
+}
+
+.adBanner :global(.swiper-slide) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

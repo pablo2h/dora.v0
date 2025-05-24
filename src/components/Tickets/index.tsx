@@ -1,0 +1,186 @@
+'use client';
+import { useState, useEffect, useCallback } from 'react';
+import styles from './Tickets.module.css';
+import { tickets, combos } from '@/data/tickets';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+const PASSLINE_URL = "https://www.passline.com/eventos/dora-edicion-del-groove";
+const AUTO_PLAY_INTERVAL = 5000; // 5 segundos
+
+interface TicketProps {
+  title: string;
+  price: string;
+  features: string[];
+  isSoldOut?: boolean;
+  isCombo?: boolean;
+  type: 'presale' | 'general' | 'combo1' | 'combo2' | 'vip';
+}
+
+export default function Tickets() {
+  const [activeFilter, setActiveFilter] = useState<'individual' | 'grupal'>('individual');
+  const [currentTicketIndex, setCurrentTicketIndex] = useState(0);
+  const [currentComboIndex, setCurrentComboIndex] = useState(0);
+
+  const nextTicket = useCallback(() => {
+    if (activeFilter === 'individual') {
+      setCurrentTicketIndex((prevIndex) => 
+        prevIndex === visibleTickets.length - 1 ? 0 : prevIndex + 1
+      );
+    } else {
+      setCurrentComboIndex((prevIndex) => 
+        prevIndex === visibleCombos.length - 1 ? 0 : prevIndex + 1
+      );
+    }
+  }, [activeFilter]);
+
+  const prevTicket = useCallback(() => {
+    if (activeFilter === 'individual') {
+      setCurrentTicketIndex((prevIndex) => 
+        prevIndex === 0 ? visibleTickets.length - 1 : prevIndex - 1
+      );
+    } else {
+      setCurrentComboIndex((prevIndex) => 
+        prevIndex === 0 ? visibleCombos.length - 1 : prevIndex - 1
+      );
+    }
+  }, [activeFilter]);
+
+  useEffect(() => {
+    const timer = setInterval(nextTicket, AUTO_PLAY_INTERVAL);
+    return () => clearInterval(timer);
+  }, [nextTicket]);
+
+  useEffect(() => {
+    // Resetear los índices cuando se cambia el filtro
+    setCurrentTicketIndex(0);
+    setCurrentComboIndex(0);
+  }, [activeFilter]);
+
+
+
+  const visibleTickets = tickets.filter(ticket => ticket.availability.isVisible);
+  const visibleCombos = combos.filter(combo => combo.availability.isVisible);
+  const TicketCard = ({ ticket, isCombo = false }: { ticket: TicketProps, isCombo?: boolean }) => (
+    <div 
+      className={`
+        ${styles.ticketCard} 
+        ${isCombo ? styles.comboCard : ''} 
+        ${ticket.type === 'combo1' ? styles.comboCard1 : ''}
+        ${ticket.type === 'combo2' ? styles.comboCard2 : ''}
+        ${ticket.type === 'general' ? styles.generalTicket : ''}
+        ${ticket.isSoldOut ? styles.soldOut : ''}
+      `}
+    >
+      {ticket.isSoldOut && <div className={styles.soldOutBanner}>SOLD OUT</div>}
+      <h3>{ticket.title}</h3>
+      <p className={styles.price}>{ticket.price}</p>
+      <ul className={styles.ticketFeatures}>
+        {ticket.features.map((feature, idx) => (
+          <li key={idx}>{feature}</li>
+        ))}
+      </ul>
+      <a 
+        href={PASSLINE_URL} 
+        className={styles.buyButton}
+        {...(ticket.isSoldOut ? { 
+          'aria-disabled': true,
+          onClick: (e) => e.preventDefault()
+        } : {})}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {ticket.isSoldOut ? 'Agotado' : isCombo ? 'Comprar Combo' : 'Comprar'}
+      </a>
+    </div>
+  );
+
+  return (
+    <section className={styles.ticketsSection}>
+      <div className={styles.sectionContainer}>
+        <h2 className={styles.ingresoLibreTitle}>Ingreso Libre</h2>
+        
+        <div className={styles.filterButtons}>
+          <button
+            className={`${styles.filterButton} ${activeFilter === 'individual' ? styles.active : ''}`}
+            onClick={() => setActiveFilter('individual')}
+          >
+            Individuales
+          </button>
+          <button
+            className={`${styles.filterButton} ${activeFilter === 'grupal' ? styles.active : ''}`}
+            onClick={() => setActiveFilter('grupal')}
+          >
+            Grupales
+          </button>
+        </div>
+
+        {activeFilter === 'individual' && (
+          <>
+            <div className={styles.ticketsCarouselContainer}>
+              <button 
+                className={styles.carouselButton} 
+                onClick={prevTicket}
+                aria-label="Ticket anterior"
+              >
+                <FaChevronLeft />
+              </button>
+              <div className={styles.ticketsCarousel}>
+                <TicketCard ticket={visibleTickets[currentTicketIndex]} />
+              </div>
+              <button 
+                className={styles.carouselButton} 
+                onClick={nextTicket}
+                aria-label="Siguiente ticket"
+              >
+                <FaChevronRight />
+              </button>
+            </div>
+            <div className={styles.carouselIndicators}>
+              {visibleTickets.map((_, index) => (
+                <button
+                  key={index}
+                  className={`${styles.indicator} ${index === currentTicketIndex ? styles.active : ''}`}
+                  onClick={() => setCurrentTicketIndex(index)}
+                  aria-label={`Ir a ticket ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
+        {activeFilter === 'grupal' && (
+          <>
+            <div className={styles.ticketsCarouselContainer}>
+              <button 
+                className={styles.carouselButton} 
+                onClick={prevTicket}
+                aria-label="Combo anterior"
+              >
+                <FaChevronLeft />
+              </button>
+              <div className={styles.ticketsCarousel}>
+                <TicketCard ticket={visibleCombos[currentComboIndex]} isCombo={true} />
+              </div>
+              <button 
+                className={styles.carouselButton} 
+                onClick={nextTicket}
+                aria-label="Siguiente combo"
+              >
+                <FaChevronRight />
+              </button>
+            </div>
+            <div className={styles.carouselIndicators}>
+              {visibleCombos.map((_, index) => (
+                <button
+                  key={index}
+                  className={`${styles.indicator} ${index === currentComboIndex ? styles.active : ''}`}
+                  onClick={() => setCurrentComboIndex(index)}
+                  aria-label={`Ir a combo ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}

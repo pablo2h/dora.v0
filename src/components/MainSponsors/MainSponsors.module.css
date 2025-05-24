@@ -1,0 +1,79 @@
+.sponsorsSection {
+    padding: 0.3rem 0.2rem;
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin: 1rem auto;
+    width: 100%; /* Changed from 45% to be more mobile-friendly */
+}
+
+.sponsorsContainer {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.sponsorsTitle {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--blue-color);
+    margin-bottom: 0.2rem;
+    font-family: var(--font-primary);
+}
+
+.sponsorsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.sponsorLink {
+    transition: transform 0.3s ease;
+    padding: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sponsorLogo {
+
+    max-width: 50px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+@media (min-width: 768px) {
+    .sponsorsSection {
+        padding: 1rem 1rem;
+        width: 45%; /* Original desktop width */
+    }
+
+    .sponsorsTitle {
+        font-size: 2rem;
+    }
+
+    .sponsorsGrid {
+        gap: 2rem;
+    }
+
+    .sponsorLogo {
+        max-width: 50px;
+    }
+}
+/* Add mobile-specific styles */
+@media (max-width: 767px) {
+    .sponsorsGrid {
+        gap: 0.5rem;
+    }
+
+    .sponsorLogo {
+        max-width: 40px; /* Smaller logos for mobile */
+    }
+
+    .sponsorsTitle {
+        font-size: 0.9rem;
+    }
+}

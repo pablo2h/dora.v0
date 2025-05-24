@@ -1,0 +1,13 @@
+dora.com.ar/
+├── index.html
+├── seo-metadata.html
+├── .htaccess
+├── site.webmanifest
+├── entradas/
+│   └── index.html
+├── info/
+│   └── index.html
+├── lineup/
+│   └── index.html
+└── blog/
+    └── index.html

@@ -1,0 +1,50 @@
+.mapContainer {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mapContainer h3 {
+    color: var(--blue-color);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.address {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-text);
+}
+
+.mapWrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.mapWrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+.mapLink {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: fit-content;
+    margin: 1.5rem auto 0;
+    padding: 0.75rem 2rem;
+    background: var(--blue-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.mapLink:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
+}

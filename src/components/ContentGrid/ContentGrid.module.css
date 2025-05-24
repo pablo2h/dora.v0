@@ -1,0 +1,68 @@
+.contentGrid {
+    display: grid;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Versión móvil (vertical): imagen arriba, contenido abajo */
+.contentGrid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "image"
+        "content";
+}
+
+/* Versión tablet y desktop (horizontal) */
+@media (min-width: 768px) {
+    /* Alternancia: imagen izquierda, contenido derecha */
+    .contentGridLeft {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "image content";
+        align-items: center;
+    }
+    
+    /* Alternancia: contenido izquierda, imagen derecha */
+    .contentGridRight {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "content image";
+        align-items: center;
+    }
+}
+
+/* Áreas de la grilla */
+.imageArea {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contentArea {
+    grid-area: content;
+    width: 100%;
+}
+
+/* Estilos para las imágenes placeholder */
+.placeholderImage {
+    width: 50%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 767px) {
+    .placeholderImage {
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .contentGrid {
+        gap: 3rem;
+    }
+}

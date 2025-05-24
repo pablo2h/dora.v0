@@ -1,0 +1,101 @@
+.ticketCard {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.buyButton {
+    background: var(--green-color);
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    transition: transform 0.2s ease;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.comboCard1 {
+    background: linear-gradient(135deg, var(--blue-color) 0%, var(--purple-color) 100%);
+}
+
+.comboCard2 {
+    background: linear-gradient(135deg, var(--purple-color) 0%, var(--pink-color) 100%);
+}
+.soldOutBanner {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: #ff4444;
+    color: white;
+    padding: 8px 40px;
+    transform: rotate(45deg);
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 2;
+    display: none;
+}
+
+.ticketCard.soldOut .soldOutBanner {
+    display: block;
+}
+
+.ticketCard.soldOut {
+    opacity: 0.8;
+    filter: grayscale(30%);
+}
+
+.ticketTitle {
+    color: var(--blue-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-primary);
+    font-weight: bold;
+}
+
+.ticketPrice {
+    font-size: 2rem;
+    color: var(--blue-color);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.ticketDescription {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.ticketButton {
+    background: var(--blue-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.ticketButton:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.ticketButton:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.ticketGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}

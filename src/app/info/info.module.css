@@ -1,0 +1,85 @@
+.infoPage {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.infoPage h1 {
+    color: var(--blue-color);
+    font-family: var(--font-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.infoGrid {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Base styles for all sections */
+.mapSection,
+.grillaSection,
+.objetosSection,
+.flyerSection {
+    height: 100%;
+}
+
+.mapSection > div,
+.grillaSection > div,
+.objetosSection > div {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
+    height: 100%;
+}
+
+.flyerSection {
+    background: var(--pink-color);
+    border-radius: 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .infoGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mapSection > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mapSection :global(.mapWrapper) {
+        flex: 1;
+        margin-top: 1rem;
+    }
+
+    .objetosSection > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .objetosSection :global(.itemsGrid) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .flyerSection > div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        box-shadow: none;
+    }
+}
+.itemsSection {
+        grid-column: 1 / -1;
+    }

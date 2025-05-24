@@ -1,0 +1,82 @@
+.ctaSection {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: #FC95BB;
+    position: relative;
+    padding: 2rem 1rem;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ctaContainer {
+    background: #F7F5F6;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.ctaContainer h2 {
+    color: #0083CF;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: var(--font-primary);
+    font-weight: bold;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--font-text);
+}
+
+.termsGroup {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.termsGroup input[type="checkbox"] {
+    margin-top: 0.25rem;
+}
+
+.termsGroup label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.termsGroup a {
+    color: #0083CF;
+    text-decoration: none;
+}
+
+.ctaButton {
+    background: #0083CF;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.ctaButton:hover {
+    transform: scale(1.05);
+}
