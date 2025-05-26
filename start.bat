@@ -3,6 +3,11 @@ echo ===================================
 echo Iniciando Festival Dora - Web Local
 echo ===================================
 echo.
+echo Instalando dependencias...
+npm install
+echo.
+echo Dependencias instaladas correctamente!
+echo.
 echo 1. Modo desarrollo (con hot reload)
 echo 2. Construir para produccion
 echo 3. Iniciar version de produccion
