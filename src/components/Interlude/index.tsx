@@ -30,6 +30,31 @@ export default function Interlude() {
             <span className={styles.star}>★</span>
             <span>PARANÁ</span>
           </div>
+          {/* Duplicating content for continuous marquee */}
+          <div className={styles.marqueeContent}>
+            <span className={styles.star}>★</span>
+            <span>FESTIVAL DORA</span>
+            <span className={styles.star}>★</span>
+            <span>EDICIÓN GROOVE</span>
+            <span className={styles.star}>★</span>
+            <span>23 JULIO</span>
+            <span className={styles.star}>★</span>
+            <span>VIEJA USINA</span>
+            <span className={styles.star}>★</span>
+            <span>PARANÁ</span>
+          </div>
+          <div className={styles.marqueeContent}>
+            <span className={styles.star}>★</span>
+            <span>FESTIVAL DORA</span>
+            <span className={styles.star}>★</span>
+            <span>EDICIÓN GROOVE</span>
+            <span className={styles.star}>★</span>
+            <span>23 JULIO</span>
+            <span className={styles.star}>★</span>
+            <span>VIEJA USINA</span>
+            <span className={styles.star}>★</span>
+            <span>PARANÁ</span>
+          </div>
         </div>
       </div>
     </section>

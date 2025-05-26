@@ -4,7 +4,7 @@ echo Iniciando Festival Dora - Web Local
 echo ===================================
 echo.
 echo Instalando dependencias...
-npm install
+CALL npm install
 echo.
 echo Dependencias instaladas correctamente!
 echo.

@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import styles from './Tickets.module.css';
 import { tickets, combos } from '@/data/tickets';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 const PASSLINE_URL = "https://www.passline.com/eventos/dora-edicion-del-groove";
 const AUTO_PLAY_INTERVAL = 5000; // 5 segundos
 
@@ -20,6 +19,9 @@ export default function Tickets() {
   const [currentTicketIndex, setCurrentTicketIndex] = useState(0);
   const [currentComboIndex, setCurrentComboIndex] = useState(0);
 
+  const visibleTickets = tickets.filter(ticket => ticket.availability.isVisible);
+  const visibleCombos = combos.filter(combo => combo.availability.isVisible);
+
   const nextTicket = useCallback(() => {
     if (activeFilter === 'individual') {
       setCurrentTicketIndex((prevIndex) => 
@@ -30,19 +32,7 @@ export default function Tickets() {
         prevIndex === visibleCombos.length - 1 ? 0 : prevIndex + 1
       );
     }
-  }, [activeFilter]);
-
-  const prevTicket = useCallback(() => {
-    if (activeFilter === 'individual') {
-      setCurrentTicketIndex((prevIndex) => 
-        prevIndex === 0 ? visibleTickets.length - 1 : prevIndex - 1
-      );
-    } else {
-      setCurrentComboIndex((prevIndex) => 
-        prevIndex === 0 ? visibleCombos.length - 1 : prevIndex - 1
-      );
-    }
-  }, [activeFilter]);
+  }, [activeFilter, visibleTickets.length, visibleCombos.length]);
 
   useEffect(() => {
     const timer = setInterval(nextTicket, AUTO_PLAY_INTERVAL);
@@ -50,15 +40,10 @@ export default function Tickets() {
   }, [nextTicket]);
 
   useEffect(() => {
-    // Resetear los índices cuando se cambia el filtro
     setCurrentTicketIndex(0);
     setCurrentComboIndex(0);
   }, [activeFilter]);
 
-
-
-  const visibleTickets = tickets.filter(ticket => ticket.availability.isVisible);
-  const visibleCombos = combos.filter(combo => combo.availability.isVisible);
   const TicketCard = ({ ticket, isCombo = false }: { ticket: TicketProps, isCombo?: boolean }) => (
     <div 
       className={`
@@ -95,9 +80,7 @@ export default function Tickets() {
 
   return (
     <section className={styles.ticketsSection}>
-      <div className={styles.sectionContainer}>
-        <h2 className={styles.ingresoLibreTitle}>Ingreso Libre</h2>
-        
+      <div className={styles.sectionContainer}>        
         <div className={styles.filterButtons}>
           <button
             className={`${styles.filterButton} ${activeFilter === 'individual' ? styles.active : ''}`}
@@ -116,33 +99,24 @@ export default function Tickets() {
         {activeFilter === 'individual' && (
           <>
             <div className={styles.ticketsCarouselContainer}>
-              <button 
-                className={styles.carouselButton} 
-                onClick={prevTicket}
-                aria-label="Ticket anterior"
-              >
-                <FaChevronLeft />
-              </button>
-              <div className={styles.ticketsCarousel}>
-                <TicketCard ticket={visibleTickets[currentTicketIndex]} />
+              {/* Removed left carousel button */}
+              {/* New container for ticket card and indicators */}
+              <div className={styles.ticketAndIndicatorsContainer}>
+                <div className={styles.ticketsCarousel}>
+                  <TicketCard ticket={visibleTickets[currentTicketIndex]} />
+                </div>
+                <div className={styles.carouselIndicators}>
+                  {visibleTickets.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`${styles.indicator} ${index === currentTicketIndex ? styles.active : ''}`}
+                      onClick={() => setCurrentTicketIndex(index)}
+                      aria-label={`Ir a ticket ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
-              <button 
-                className={styles.carouselButton} 
-                onClick={nextTicket}
-                aria-label="Siguiente ticket"
-              >
-                <FaChevronRight />
-              </button>
-            </div>
-            <div className={styles.carouselIndicators}>
-              {visibleTickets.map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.indicator} ${index === currentTicketIndex ? styles.active : ''}`}
-                  onClick={() => setCurrentTicketIndex(index)}
-                  aria-label={`Ir a ticket ${index + 1}`}
-                />
-              ))}
+              {/* Removed right carousel button */}
             </div>
           </>
         )}
@@ -150,23 +124,11 @@ export default function Tickets() {
         {activeFilter === 'grupal' && (
           <>
             <div className={styles.ticketsCarouselContainer}>
-              <button 
-                className={styles.carouselButton} 
-                onClick={prevTicket}
-                aria-label="Combo anterior"
-              >
-                <FaChevronLeft />
-              </button>
+              {/* Removed left carousel button */}
               <div className={styles.ticketsCarousel}>
                 <TicketCard ticket={visibleCombos[currentComboIndex]} isCombo={true} />
               </div>
-              <button 
-                className={styles.carouselButton} 
-                onClick={nextTicket}
-                aria-label="Siguiente combo"
-              >
-                <FaChevronRight />
-              </button>
+              {/* Removed right carousel button */}
             </div>
             <div className={styles.carouselIndicators}>
               {visibleCombos.map((_, index) => (
