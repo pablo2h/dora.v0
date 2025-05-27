@@ -7,7 +7,14 @@ const nextConfig = {
         return config;
     },
     images: {
-        domains: ['www.mercadopago.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.mercadopago.com',
+                port: '',
+                pathname: '/**',
+            },
+        ],
     }
 }
 
