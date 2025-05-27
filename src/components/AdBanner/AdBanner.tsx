@@ -10,19 +10,19 @@ import 'swiper/css';
 const ads = [
     {
         id: 1,
-        image: '/assets/images/placeholder.png',
-        link: 'https://sponsor1.com',
+        image: '/assets/Banners/baner1.png',
+        link: 'https://www.instagram.com/festivaldora',
         alt: 'Sponsor 1'
     },
     {
         id: 2,
-        image: '/assets/images/placeholder.png',
+        image: '/assets/Banners/baner2.png',
         link: 'https://sponsor2.com',
         alt: 'Sponsor 2'
     },
     {
         id: 3,
-        image: '/assets/images/placeholder.png',
+        image: '/assets/Banners/adtoigdora.png',
         link: 'https://sponsor3.com',
         alt: 'Sponsor 3'
     },

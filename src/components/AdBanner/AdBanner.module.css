@@ -1,5 +1,5 @@
 .adBanner {
-    width: 100%;
+    width: 100% ;
     background: var(--pink-color);
     padding: 0.75rem;
     display: flex;
@@ -34,6 +34,7 @@
 /* Swiper overrides */
 .adBanner :global(.swiper) {
     width: 100%;
+
 }
 
 .adBanner :global(.swiper-slide) {
