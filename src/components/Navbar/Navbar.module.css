@@ -156,3 +156,11 @@ font-size: 1.5rem;
 text-decoration: none;
 transition: color 0.3s ease;
 }
+
+.abonosCta {
+    color: var(--orange-color); /* Example: using orange color */
+    font-size: 1.8rem; /* Example: slightly larger font size */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}

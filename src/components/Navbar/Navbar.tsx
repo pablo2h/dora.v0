@@ -45,15 +45,11 @@ export default function Navbar() {
 
 
        <div className={styles.navLinks}>
-       <Link href="/" className={styles.navLink} onClick={toggleMenu}>Proximamente</Link>
-       <Link href="/mvpsponsors" className={styles.cta_asistir} onClick={toggleMenu}>!Adelanto para sponsors!</Link>
-       {/* <Link href="https://www.passline.com/eventos/dora-edicion-del-groove" className={styles.cta_asistir} onClick={toggleMenu}>¡Quiero asistir!</Link>*/}
-        <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up</Link>
+        <Link href="https://www.passline.com/eventos/dora-edicion-del-groove" className={styles.abonosCta} onClick={toggleMenu}>Conseguir Abonos</Link>
+        <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up </Link>
         <Link href="/entradas" className={styles.navLink} onClick={toggleMenu}>Entradas</Link>
         <Link href="/faq" className={styles.navLink} onClick={toggleMenu}>Preguntas Frecuentes</Link>
         <Link href="/#footer" className={styles.navLink} onClick={toggleMenu}>Contacto</Link>
-        {/* <Link href="/info" className={styles.navLink} onClick={toggleMenu}>Información</Link>
-        <Link href="/blog" className={styles.navLink} onClick={toggleMenu}>Blog</Link> */}
         </div>
 
       </div>

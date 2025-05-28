@@ -10,25 +10,25 @@ import 'swiper/css';
 const ads = [
     {
         id: 1,
-        image: '/assets/Banners/baner1.png',
+        image: '/assets/Banners/adbanner1.png',
         link: 'https://www.instagram.com/festivaldora',
         alt: 'Sponsor 1'
     },
     {
         id: 2,
-        image: '/assets/Banners/baner2.png',
+        image: '/assets/Banners/adbanner2.png',
         link: 'https://sponsor2.com',
         alt: 'Sponsor 2'
     },
     {
         id: 3,
-        image: '/assets/Banners/adtoigdora.png',
+        image: '/assets/Banners/adbanner3.png',
         link: 'https://sponsor3.com',
         alt: 'Sponsor 3'
     },
     {
         id: 4,
-        image: '/assets/images/placeholder.png',
+        image: '/assets/Banners/adbanner4.png',
         link: 'https://sponsor4.com',
         alt: 'Sponsor 4'
     }
@@ -51,31 +51,32 @@ export default function AdBanner() {
     }, []);
 
     return (
-        <div className={styles.adBanner}>
-            <Swiper
-                modules={[Autoplay]}
-                slidesPerView={1}
-                loop={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-            >
-                {shuffledAds.map((ad) => (
-                    <SwiperSlide key={ad.id}>
-                        <Link href={ad.link} target="_blank" rel="noopener noreferrer">
-                            <Image
-                                src={ad.image}
-                                alt={ad.alt}
-                                width={728}
-                                height={90}
-                                className={styles.adImage}
-                                priority
-                            />
-                        </Link>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+        <div className={styles.banner_container}>
+            <div className={styles.banner_horizontal}>
+                <Swiper
+                    modules={[Autoplay]}
+                    slidesPerView={1}
+                    loop={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                >
+                    {shuffledAds.map((ad) => (
+                        <SwiperSlide key={ad.id}>
+                            <Link href={ad.link} target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src={ad.image}
+                                    alt={ad.alt}
+                                    width={932}
+                                    height={130}
+                                    priority
+                                />
+                            </Link>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </div>
     );
 }

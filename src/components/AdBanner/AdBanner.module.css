@@ -1,44 +1,57 @@
-.adBanner {
-    width: 100% ;
-    background: var(--pink-color);
-    padding: 0.75rem;
+.banner_container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.banner_horizontal {
+    width: 100%;
+    max-width: 932px;
+    height: auto;
+    aspect-ratio: 932/130;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
     overflow: hidden;
-    margin: 1rem auto;
-    border-radius: 15px;
+    background: var(--pink-color);
+    padding: 0.75rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.adImage {
+.banner_horizontal img {
     width: 100%;
-    height: auto;
-    max-height: 90px;
+    height: 100%;
     object-fit: contain;
     border-radius: 10px;
 }
 
-/* Mobile First */
-@media (min-width: 768px) {
-    .adBanner {
-        padding: 1rem;
-        max-width: 90%;
+/* Media queries para banners responsivos */
+@media (max-width: 768px) {
+    .banner_container {
+        padding: 0.5rem;
     }
-
-    .adImage {
-        max-width: 728px;
+    
+    .banner_horizontal {
+        max-width: 430px;
+        aspect-ratio: 430/130;
+        padding: 0.5rem;
     }
 }
 
 /* Swiper overrides */
-.adBanner :global(.swiper) {
+.banner_horizontal :global(.swiper) {
     width: 100%;
-
+    height: 100%;
 }
 
-.adBanner :global(.swiper-slide) {
+.banner_horizontal :global(.swiper-slide) {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }

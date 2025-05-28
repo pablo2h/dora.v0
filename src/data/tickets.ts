@@ -19,17 +19,19 @@ export const ingresoLibre = {
     "Toma tu bebida favorita con amigos o familia",
     "Vive una experiencia única en Dora Edición del Groove"
   ],
-  descripcionLarga: "Sumate a Dora: Edición Groove y viví una experiencia única en la ciudad. El ingreso libre te permite disfrutar del patio de comidas, puestos interactivos y juegos, mientras ves los shows en pantalla gigante y compartís momentos inolvidables con amigos, familia o pareja. ¡No te lo pierdas!"
+ /* descripcionLarga: "Sumate a Dora: Edición Groove y viví una experiencia única en la ciudad. El ingreso libre te permite disfrutar del patio de comidas, puestos interactivos y juegos, mientras ves los shows en pantalla gigante y compartís momentos inolvidables con amigos, familia o pareja. ¡No te lo pierdas!"*/
 };
 
 export const tickets: TicketProps[] = [
     {
       title: "Preventa 1", 
-      price: "$4.999",
+      price: "$6.599",
       features: [
-        "Acceso general al festival",
-        "Entrada anticipada",
-        "Precio promocional"
+        "Acceso al escenario",
+        "Acceso al sector techado vip",
+        "Pack de stickers",
+        "Pasaporte Dora",
+        "Precio promocional (45% OFF)"
       ],
       isSoldOut: false,
       type: 'presale',
@@ -41,11 +43,14 @@ export const tickets: TicketProps[] = [
     },
     {
       title: "Preventa 2", 
-      price: "$6.999",
+      price: "$7.999",
       features: [
-        "Acceso general al festival",
-        "Zona general",
-        "Beneficios exclusivos"
+        "Acceso al escenario",
+        "Acceso al sector techado vip",
+        "Pack de stickers",
+        "Pasaporte Dora",
+        "Participacion en sorteos",
+        "Precio promocional (35% OFF)"
       ],
       isSoldOut: false,
       type: 'presale',
@@ -59,9 +64,11 @@ export const tickets: TicketProps[] = [
       title: "Entrada General",
       price: "$11.999",
       features: [
-        "Acceso general al festival",
-        "Zona general",
-        "Beneficios básicos"
+        "Acceso al escenario",
+        "Acceso al sector techado vip",
+        "Pack de stickers",
+        "Pasaporte Dora",
+        "Participacion en sorteos",
       ],
       isSoldOut: false,
       type: 'general',
@@ -74,12 +81,13 @@ export const tickets: TicketProps[] = [
   
 export const combos: TicketProps[] = [
     {
-      title: "Combo Amigos",
-      price: "$50.000",
+      title: "Combo Grupo",
+      price: "$28.999",
       features: [
-        "3 Entradas regulares",
-        "Descuento grupal",
-        "Kit de bienvenida"
+        "3 Accesos al escenario",
+        "3 Accesos al sector techado vip",
+        "3 Kits de bienvenida",
+        "15% de descuento por Combo amigos"
       ],
       isCombo: true,
       type: 'combo1',
@@ -90,13 +98,13 @@ export const combos: TicketProps[] = [
       }
     },
     {
-      title: "Combo VIP Grupal",
-      price: "$80.000",
+      title: "Combo Mano a Mano",
+      price: "$19.999",
       features: [
-        "3 Entradas VIP",
-        "Acceso zona exclusiva",
-        "Meet & Greet grupal",
-        "Kits exclusivos"
+        "2 Accesos al escenario",
+        "2 Accesos al sector techado vip",
+        "2 Kits de bienvenida",
+        "20% de descuento por Combo Mano a Mano"
       ],
       isCombo: true,
       type: 'combo2',

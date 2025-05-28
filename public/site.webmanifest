@@ -1,43 +1,23 @@
-{
-    "name": "Festival Dora - Edición Groove",
-    "short_name": "Festival Dora",
-    "description": "El mejor festival de música electrónica en Paraná, Entre Ríos",
-    "start_url": "/",
-    "scope": "/",
-    "display": "standalone",
-    "background_color": "#FFDF57",
-    "theme_color": "#FF6B35",
-    "orientation": "portrait",
-    "icons": [
-        {
-            "src": "/assets/icons/icon-72x72.png",
-            "sizes": "72x72",
-            "type": "image/png",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "/assets/icons/icon-126x126.png",
-            "sizes": "126x126",
-            "type": "image/png",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "/assets/icons/icon-384x384.png",
-            "sizes": "384x384",
-            "type": "image/png",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "/assets/icons/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
-        }
-    ],
-    "protocol_handlers": [
-        {
-            "protocol": "web+festivaldora",
-            "url": "/handler?type=%s"
-        }
-    ]
+{ "name": "Festival Dora - Edición Groove",
+  "short_name": "Festival Dora",
+  "description": "El mejor festival de música electrónica en Paraná, Entre Ríos",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFDF57",
+  "theme_color": "#FF6B35",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/public/assets/images/logo-small.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/assets/images/logo-small.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+
 }

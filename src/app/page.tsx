@@ -145,7 +145,7 @@ export default function Home() {
             </div>
           </div>
           
-          <Link href="/entradas" className="tickets-button">Entradas</Link>
+          <Link href="/entradas" className="tickets-button">ABONOS</Link>
         </section>
         <Interlude />
         
@@ -154,7 +154,7 @@ export default function Home() {
             imageSrc="/assets/images/Dora 3.svg" 
             imageAlt="Ingreso libre Dora"
           >
-            <IngresoLibre />
+          <IngresoLibre />
           </ContentGrid>
           
           <AdBanner />
