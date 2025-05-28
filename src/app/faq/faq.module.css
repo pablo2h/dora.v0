@@ -1,0 +1,45 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.faqList {
+    margin-top: 2rem;
+}
+
+.faqItem {
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+}
+
+.question {
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.answer {
+    margin-top: 0.5rem;
+    /* Initially hidden, will be toggled later */
+    display: none;
+}
+
+.answer.active {
+    display: block;
+}
+
+.termsContainer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.termsContainer h2 {
+    margin-bottom: 1rem;
+}

@@ -47,15 +47,7 @@ export default function ArtistCard({ artist }: { artist: ArtistCardProps }) {
                 onClick={handleExpand}
             >
                 <h2>{artist.name}</h2>
-                <div className={styles.artistImage}>
-                    <Image
-                        src={artist.image}
-                        alt={artist.name}
-                        width={60}
-                        height={60}
-                        className={styles.bandImage}
-                    />
-                </div>
+
             </button>
             <div className={styles.artistContent}>
                 <p>{artist.description}</p>

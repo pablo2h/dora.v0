@@ -1,5 +1,5 @@
 .ticketsSection {
-    background: #F7F5F6;
+    background: var(--white-color);
     padding: 2rem 1rem;
 }
 
@@ -32,13 +32,18 @@
 }
 
 .ticketsCarouselContainer {
-    display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     max-width: 900px;
     margin: 0 auto;
     position: relative;
+}
+
+.ticketAndIndicatorsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ticketsCarousel {
@@ -94,8 +99,7 @@
 }
 
 .freeEntrySection {
-    margin-bottom: 3rem;
-    background: #2DB092;
+    background: var(--green-color);
     color: whitesmoke;
     border-radius: 20px;
     padding: 2rem;
@@ -129,7 +133,7 @@
 
 .ingresoLibreTitle {
     font-size: 2.2rem;
-    color: #0083CF;
+    color: var(--blue-color);
     margin: 2.5rem 0 1.5rem 0;
     text-align: left;
     font-family: var(--font-primary);
@@ -183,7 +187,6 @@
         text-align: center;
     }
 }
-
 /* Ajustes para la imagen y frase animada */
 .freeEntryImage {
     width: 100%;
@@ -264,7 +267,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-35deg);
-    background: #ff4444;
+    background: var(--red-color);
     color: white;
     padding: 10px;
     font-weight: bold;
@@ -431,4 +434,118 @@ rgba(0,0,0,0.2);
 
 .generalTicket .buyButton {
     background: var(--green-color) !important;
+}
+
+.accessTypes {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.accessContainer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.accessGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.accessType {
+  padding: 2rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.freeAccessType {
+  background: var(--orange-color);
+}
+
+.subscriberAccessType {
+  background: var(--green-color);
+}
+
+.accessType h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--font-primary);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+}
+
+.freeAccessType .featuresList li {
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.freeAccessType .featuresList li:before {
+  content: '•';
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.subscriberAccessType .featuresList li {
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.subscriberAccessType .featuresList li:before {
+  content: '✓';
+  color: #ffffff;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .accessContainer {
+    padding: 1rem;
+  }
+
+  .accessGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .accessType {
+    padding: 1.5rem;
+  }
+
+  .accessType h2 {
+    font-size: 1.75rem;
+  }
+
+  .featuresList li {
+    font-size: 1rem;
+  }
+}
+.featuresList li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.featuresList li:before {
+    content: '✓';
+    color: var(--primary-color);
 }

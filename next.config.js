@@ -1,14 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    webpack: (config) => {
-        config.externals = [...(config.externals || []), {
-            'mercadopago': 'MercadoPago'
-        }];
-        return config;
-    },
-    images: {
-        domains: ['www.mercadopago.com'],
-    }
-}
+const nextConfig = {}
 
 module.exports = nextConfig

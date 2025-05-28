@@ -1,13 +1,13 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 
 export const metadata: Metadata = {
-  title: 'Festival Dora - Edición Groove | 26 de Julio',
+  title: 'Festival Dora - Edición Groove | Sab 26 de Jul | Paraná, ER',
   description: 'Festival Dora - El mejor festival musical y gastronómico en Paraná, Entre Ríos',
-  keywords: 'Festival Dora, jazz, rock, rap, blues, swing, gastronomía, Paraná, Entre Ríos, festival, música en vivo, eventos',
+  keywords: 'Festival Dora, rock, ,Jazz, rap, swing, comida, gastronomia, Bebida, Patio de comidas, Paraná, Entre Ríos, festival, música en vivo, eventos',
   openGraph: {
     title: 'Festival Dora - Tu día para Divertirte | 26 de Julio',
     description: 'El mejor festival musical y gastronómico en Paraná, Entre Ríos',

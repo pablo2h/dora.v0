@@ -37,7 +37,7 @@ export default function CtaDiscount() {
               required
             />
             <label htmlFor="terms">
-              Acepto recibir novedades y acepto los <a href="/terms">términos y condiciones</a>
+              Acepto recibir novedades y acepto los <a href="/faq">términos y condiciones</a>
             </label>
           </div>
           <button type="submit" className={styles.ctaButton}>

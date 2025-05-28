@@ -10,20 +10,25 @@
 
 /* Odd cards (1st, 3rd, etc) */
 .artistCard:global(:nth-of-type(odd)) {
-    background: linear-gradient(135deg, var(--pink-color) 0%, var(--blue-color) 100%);
+    background:var(--orange-color);
 }
 
 /* Even cards (2nd, 4th, etc) */
 .artistCard:global(:nth-of-type(even)) {
-    background: linear-gradient(135deg, var(--green-color) 0%, var(--orange-color) 100%);
+    background: var(--green-color);
 }
 
-.expanded {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), var(--image-url) !important;
+.expanded:global(:nth-of-type(odd)) {
+    background: linear-gradient(var(--orange-color), rgba(0,0,0,0.8)), var(--image-url) !important;
     background-size: cover !important;
     background-position: center !important;
 }
-
+.expanded:global(:nth-of-type(even))
+ {
+    background: linear-gradient(var(--green-color), rgba(0,0,0,0.8)), var(--image-url) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
 .artistHeader {
     position: relative;
     z-index: 1;
@@ -40,8 +45,8 @@
 .artistHeader h2 {
     margin-right: 1rem;
     flex: 1;
-    font-size: 1.5rem;
-    color: white;
+    font-size: var(--h2-size);
+    color: var(--text-color);
     font-family: var(--font-secondary);
 }
 
@@ -100,8 +105,8 @@
 }
 .instagramLink {
     padding: 0.8rem 1rem;
-    background: #E1306C;
-    color: white;
+    background: var(--pink-color);
+    color: var(--font-color);
     text-decoration: none;
     border-radius: 5px;
     transition: transform 0.2s ease;

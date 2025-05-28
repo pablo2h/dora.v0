@@ -1,2 +1,0 @@
-# dora-casa
-dora home
