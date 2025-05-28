@@ -1,42 +1,48 @@
 export const faqData = [
     {
-        question: '¿Qué es Ingreso Libre?',
-        answer: 'Ingreso Libre se refiere a la entrada general al festival, permitiendo el acceso a todas las áreas comunes y escenarios, excepto las zonas VIP.'
+        question: '¿Puedo ingresas gratis?',
+        answer: 'El ingreso Libre se refiere a la entrada general al festival, permitiendo el acceso al patio de comidas con carpa y estufas, pantallas led, los foodtrucks, la barra de bebidas, juegos, stands y baños'
     },
     {
         question: '¿Cómo funcionan los abonos?',
-        answer: 'Los abonos permiten el acceso al festival durante todos los días del evento a un precio reducido en comparación con la compra de entradas individuales por día.'
+        answer: 'Los abonos permiten el acceso al escenario del festival, al sector interior techado VIP, al sector de juegos interior, sorteo y promociones exclusivas. Los abonos se pueden adquirir en el predio del festival o por la web.'
     },
     {
         question: '¿Habrá opciones de comida y bebida?',
-        answer: 'Sí, el festival contará con una amplia variedad de puestos de comida y bebida, incluyendo opciones vegetarianas y veganas.'
+        answer: 'Sí, el festival contará con una amplia variedad de foodtrucks de comida y una barra bebida de jugos y tragos.'
     },
     {
         question: '¿Cuál es la ubicación y horario del festival?',
-        answer: 'El festival se realizará en la Vieja Usina de Paraná el 23 de Julio. Los horarios específicos se anunciarán próximamente.'
+        answer: 'El festival se realizará en la Vieja Usina de Paraná, Entre Rios. El Sabado 26 de Julio. De 18:00 a 23:00 .'
     },
     {
-        question: '¿Se permite el reingreso al festival?',
-        answer: 'Las políticas de reingreso se comunicarán cerca de la fecha del evento. Generalmente, una vez que sales del predio, no se permite el reingreso con la misma entrada.'
-    },
-    {
-        question: '¿Hay estacionamiento disponible?',
-        answer: 'Información sobre estacionamiento y opciones de transporte público se proporcionará en nuestra sección de información o preguntas frecuentes.'
-    },
-    {
-        question: '¿Qué objetos no están permitidos?',
-        answer: 'Una lista detallada de objetos prohibidos se encuentra disponible en la sección de Objetos Permitidos en nuestro sitio web.'
-    },
-    {
-        question: '¿Puedo comprar entradas en la puerta?',
-        answer: 'La disponibilidad de entradas en la puerta dependerá del aforo y se anunciará si es posible. Se recomienda comprar entradas anticipadas para asegurar tu lugar.'
-    },
-    {
-        question: '¿Hay áreas accesibles para personas con discapacidad?',
-        answer: 'Sí, el festival contará con infraestructura y áreas designadas para garantizar la accesibilidad. Por favor, contacta a nuestro equipo para más detalles.'
+        question: '¿Donde puedo comprar mis abonos?',
+        answer: 'Pueden adquirir sus abonos en el predio del festival o en Https://Dora.com.ar/abonos. Puedes encontrar más información en nuestra sección de abonos en nuestro sitio web. '
     },
     {
         question: '¿Cómo puedo contactar al soporte?',
-        answer: 'Puedes contactarnos a través del formulario en nuestra sección de contacto o enviando un correo electrónico a [dirección de correo electrónico de soporte].'
+        answer: 'Puedes contactarnos a través del formulario en nuestra sección de contacto o enviando un correo electrónico a hornodebarroer@gmail.com.'
     }
 ];
+
+export const termsAndConditions = {
+    title: "Términos y Condiciones",
+    sections: [
+        {
+            title: "Recopilación y Tratamiento de Datos Personales",
+            content: "Horno de Barro recopila datos personales a través de los formularios de este sitio web con el fin de ofrecerle contenido de su interés. Estos datos incluyen, pero no se limitan a, nombre, apellido, correo electrónico y cualquier otra información que usted decida proporcionarnos."
+        },
+        {
+            title: "Finalidad del Tratamiento de Datos",
+            content: "Los datos recopilados serán tratados para: distribución de comunicaciones comerciales, uso personal y futuras ocasiones, y colaboración con terceros."
+        },
+        {
+            title: "Compromiso de Horno de Barro",
+            content: "Horno de Barro se compromete a administrar sus datos personales de forma segura y confidencial."
+        },
+        {
+            title: "Sus Derechos",
+            content: "Usted tiene derecho a acceder, rectificar, cancelar y oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, contacte a hornodebarroer@gmail.com."
+        }
+    ]
+};

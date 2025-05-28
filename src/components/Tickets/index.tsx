@@ -7,8 +7,8 @@ const AUTO_PLAY_INTERVAL = 5000; // 5 segundos
 
 interface TicketProps {
   title: string;
-  price: string;
   features: string[];
+  price: string;
   isSoldOut?: boolean;
   isCombo?: boolean;
   type: 'presale' | 'general' | 'combo1' | 'combo2' | 'vip';
@@ -57,11 +57,11 @@ export default function Tickets() {
     >
       {ticket.isSoldOut && <div className={styles.soldOutBanner}>SOLD OUT</div>}
       <h3>{ticket.title}</h3>
-      <p className={styles.price}>{ticket.price}</p>
       <ul className={styles.ticketFeatures}>
         {ticket.features.map((feature, idx) => (
           <li key={idx}>{feature}</li>
         ))}
+      <p className={styles.price}>{ticket.price}</p>
       </ul>
       <a 
         href={PASSLINE_URL} 

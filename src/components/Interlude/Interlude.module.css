@@ -31,23 +31,29 @@
 
 .marqueeContent span {
     font-family: var(--font-primary);
-    font-size: 1.5rem;
+    font-size: var(--h3-size);
     font-weight: bold;
     line-height: 2rem;
     text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
     padding: 0.2rem;
+    color: var(--text-color);
 }
 
 .star {
     color: var(--orange-color);
-    font-size: 2rem;
+    font-size: var(--h2-size);
 }
 
 @keyframes marquee {
-    from {
-        transform: translateX(0);
+    from { transform: translateX(0); }
+    to { transform: translateX(-25%); }
+}
+
+@media (max-width: 768px) {
+    .marqueeContent span {
+        font-size: var(--text-large);
     }
-    to {
-        transform: translateX(-25%); /* Adjusted percentage for continuous loop */
+    .star {
+        font-size: var(--h3-size);
     }
 }

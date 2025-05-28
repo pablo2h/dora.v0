@@ -2,33 +2,33 @@ export const artists = [
     {
         id: 1,
         name: "Rosario Smowing",
-        description: "Rosario Smowing es una banda de swing y ska argentina, oriunda de la ciudad de Rosario. Con 18 años de recorrido y 4 discos editados de forma independiente",
+        description: "🎷 Swing, Ska, Rock, Crooner, Fiesta 🎉",
         instagram: "https://www.instagram.com/rosariosmowing/",
         spotifyId: "6qCuLVlvJkLRpPJFYRO2mG",
-        image: "/assets/images/placeholder.png"
+        image: "/assets/Artistas/rosariosmowing-logo.jpg"
     },
     {
         id: 2,
-        name: "Jam de Racing",
-        description: "",
-        instagram: "https://www.instagram.com/jam_de_racing/",
-        instagramPostId: "DE5_IlvxKju",
-        image: "/assets/images/placeholder.png"
+        name: "La tercera fase del plan",
+        description: "🎸 Rock, Crudo, Joven, Surf, Arder 🔥",
+        instagram: "https://www.instagram.com/latercerafasedelplan/",
+        spotifyId: "5ZCuJKdQYpuZ5odGaJBCDQ",
+        image: "/assets/Artistas/latercerafase-logo.png"
     },
     {
         id: 3,
         name: "Zacaro y los Puerkos",
-        description: "",
+        description: "🎭 Teatral, Energetica, Fusion, Festivo 🕺🏼",
         instagram: "https://www.instagram.com/zacaroylospuerkos/",
         spotifyId: "0laV1xchpqQ9rCoooWioos",
-        image: "/assets/images/placeholder.png"
+        image: "/assets/Artistas/Zacaroylospuerkos-logo.jpg"
     },
-    {
+   /* {
         id: 4,
-        name: "Saccreblue",
+        name: "Shows sorpresas",
         description: "",
-        instagram: "https://www.instagram.com/saccreblue/",
-        youtubeId: "knZ3J1yDY3A?si=wsMd28dk6BYC5gXd",
+        instagram: "",
+        youtubeId:",
         image: "/assets/images/placeholder.png"
-    },
+    },*/
 ];

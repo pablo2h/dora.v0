@@ -7,13 +7,33 @@
     --card-gradient-2: #FC95BB;
     --background-gradient: none;
     --orange-color: #FA8632;
+    --red-color:#F05B31;
     --blue-color: #0083CF;
     --green-color: #2DB092;
     --pink-color: #FC95BB;
     --yellow-color: #F5C92B;
+    --text-color: #000000;
     --font-primary: 'DynaPuff', cursive;
     --font-secondary: 'Baloo 2', cursive;
     --font-text: 'Poppins', sans-serif;
+}
+
+/* Jerarquía Tipográfica */
+h1, .h1 {
+    font-family: var(--font-primary);
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+h2, .h2 {
+    font-family: var(--font-secondary);
+    font-weight: 800; /* extrabold */
+    color: var(--text-color);
+}
+
+p, .body-text {
+    font-family: var(--font-text);
+    color: var(--text-color);
 }
 
 
@@ -34,37 +54,6 @@ body {
     position: relative;
 }
 
-/* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 1rem 2rem;
-    z-index: 1000;
-    background: transparent;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.menu-toggle {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: none;
-    cursor: pointer;
-}
-
-.hamburger {
-    display: block;
-    width: 35px;
-    height: 4px;
-    background: #000;
-    position: relative;
-}
 
 .hamburger::before,
 .hamburger::after {

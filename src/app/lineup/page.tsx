@@ -4,18 +4,20 @@ import AdBanner from '@/components/AdBanner/AdBanner';
 import MainSponsors from '@/components/MainSponsors/MainSponsors';
 import ArtistCard from '@/components/ArtistCard/ArtistCard';
 import { artists } from '@/data/artists';
+import { style } from 'framer-motion/client';
 
 export default function LineUpPage() {
     return (
         <main className={styles.lineupPage}>
-            <h1>Line Up</h1>
-            <MainSponsors />
+            <AdBanner />
+            <h1>Line Up</h1>  
             <div className={styles.artistList}>
                 {artists.map((artist) => (
                     <ArtistCard key={artist.id} artist={artist} />
                 ))}
             </div>
-            <AdBanner />
+            <MainSponsors />
         </main>
+        
     );
 }

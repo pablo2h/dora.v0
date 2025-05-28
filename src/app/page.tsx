@@ -7,6 +7,7 @@ import LineUp from "@/components/LineUp/LineUp";
 import IngresoLibre from "@/components/Tickets/IngresoLibre/IngresoLibre";
 import ContentGrid from "@/components/ContentGrid/ContentGrid";
 import AdBanner from "@/components/AdBanner/AdBanner";
+import TextBanner from "@/components/AdBanner/TextBanner";
 
 export default function Home() {
   return (
@@ -117,7 +118,7 @@ export default function Home() {
               />
             </div>
           </div>
-          
+        
           {/* Decoración inferior - solo visible en modo horizontal */}
           <div className="hero-decoration hero-decoration-bottom">
             <div className="flowers-row">
@@ -145,37 +146,42 @@ export default function Home() {
             </div>
           </div>
           
-          <Link href="/entradas" className="tickets-button">ABONOS</Link>
+          <Link href="/entradas" className="tickets-button">MIS ABONOS</Link>
         </section>
         <Interlude />
-        
+        <AdBanner />
+
         <section className="section-container">
           <ContentGrid 
             imageSrc="/assets/images/Dora 3.svg" 
             imageAlt="Ingreso libre Dora"
           >
+                    <h1 className="section-title">
+          <span>¿Ingreso Libre o Abono?</span>
+        </h1>
           <IngresoLibre />
           </ContentGrid>
-          
-          <AdBanner />
-          
+          <TextBanner/>
+    
           <ContentGrid 
             imageSrc="/assets/images/Dora 4.svg"
             imageAlt="Tickets Dora"
             imageOnRight={true}
           >
+                  <h1 className="section-title">
+          <span>Abonos y Combos</span>
+        </h1> 
             <Tickets />
           </ContentGrid>
           
           <AdBanner />
-          
+
           <ContentGrid 
             imageSrc="/assets/images/Dora 2.svg"
             imageAlt="Descuentos Dora"
           >
             <CtaDiscount />
           </ContentGrid>
-          
           {/* Se ha eliminado la invocación al componente Sponsors */}
         </section>
         <Interlude />

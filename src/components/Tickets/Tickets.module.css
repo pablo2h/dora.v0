@@ -1,5 +1,5 @@
 .ticketsSection {
-    background: #F7F5F6;
+    background: var(--white-color);
     padding: 2rem 1rem;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .freeEntrySection {
-    background: #2DB092;
+    background: var(--green-color);
     color: whitesmoke;
     border-radius: 20px;
     padding: 2rem;
@@ -133,7 +133,7 @@
 
 .ingresoLibreTitle {
     font-size: 2.2rem;
-    color: #0083CF;
+    color: var(--blue-color);
     margin: 2.5rem 0 1.5rem 0;
     text-align: left;
     font-family: var(--font-primary);
@@ -187,7 +187,6 @@
         text-align: center;
     }
 }
-
 /* Ajustes para la imagen y frase animada */
 .freeEntryImage {
     width: 100%;
@@ -268,7 +267,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-35deg);
-    background: #ff4444;
+    background: var(--red-color);
     color: white;
     padding: 10px;
     font-weight: bold;
@@ -444,11 +443,25 @@ rgba(0,0,0,0.2);
   flex-wrap: wrap;
 }
 
-.accessType {
-  flex: 1;
-  min-width: 280px;
+.accessContainer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
   padding: 2rem;
-  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.accessGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.accessType {
+  padding: 2rem;
+  border-radius: 16px;
   position: relative;
   overflow: hidden;
 }
@@ -459,14 +472,14 @@ rgba(0,0,0,0.2);
 
 .subscriberAccessType {
   background: var(--green-color);
-  min-height: 320px;
 }
 
-.accessType h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+.accessType h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #ffffff;
   text-align: center;
+  font-family: var(--font-primary);
 }
 
 .featuresList {
@@ -474,7 +487,7 @@ rgba(0,0,0,0.2);
   padding: 0;
 }
 
-.featuresList li {
+.freeAccessType .featuresList li {
   padding: 0.8rem 0;
   display: flex;
   align-items: center;
@@ -483,52 +496,44 @@ rgba(0,0,0,0.2);
   font-size: 1.1rem;
 }
 
-.featuresList li:before {
+.freeAccessType .featuresList li:before {
+  content: '•';
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.subscriberAccessType .featuresList li {
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.subscriberAccessType .featuresList li:before {
   content: '✓';
   color: #ffffff;
   font-weight: bold;
 }
-.starTopLeft,
-.starTopRight,
-.starBottomLeft,
-.starBottomRight {
-  position: absolute;
-  z-index: 1;
-}
-
-.starTopLeft {
-  top: 10px;
-  left: 10px;
-  fill: gold;
-}
-
-.starTopRight {
-  top: 10px;
-  right: 10px;
-  fill: gold;
-}
-
-.starBottomLeft {
-  bottom: 10px;
-  left: 10px;
-  transform: rotate(180deg);
-}
-
-.starBottomRight {
-  bottom: 10px;
-  right: 10px;
-
-}
 
 @media (max-width: 768px) {
+  .accessContainer {
+    padding: 1rem;
+  }
+
+  .accessGrid {
+    grid-template-columns: 1fr;
+  }
+
   .accessType {
     padding: 1.5rem;
   }
-  
-  .accessType h3 {
-    font-size: 1.5rem;
+
+  .accessType h2 {
+    font-size: 1.75rem;
   }
-  
+
   .featuresList li {
     font-size: 1rem;
   }

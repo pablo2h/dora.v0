@@ -1,7 +1,7 @@
 export interface TicketProps {
   title: string;
-  price: string;
   features: string[];
+  price: string;
   isSoldOut?: boolean;
   isCombo?: boolean;
   type: 'presale' | 'general' | 'combo1' | 'combo2' | 'vip';
@@ -19,13 +19,29 @@ export const ingresoLibre = {
     "Toma tu bebida favorita con amigos o familia",
     "Vive una experiencia única en Dora Edición del Groove"
   ],
- /* descripcionLarga: "Sumate a Dora: Edición Groove y viví una experiencia única en la ciudad. El ingreso libre te permite disfrutar del patio de comidas, puestos interactivos y juegos, mientras ves los shows en pantalla gigante y compartís momentos inolvidables con amigos, familia o pareja. ¡No te lo pierdas!"*/
+  features: [
+    "Patio de comidas con carpa y estufas",
+    "Foodtrucks",
+    "Barra de bebidas",
+    "Pantalla exterior",
+    "Puesto de hidratación",
+    "Baños, Stands y Juegos"
+  ],
+  abonadoFeatures: [
+    "Acceso al escenario",
+    "Sector interior techado",
+    "Livings chills",
+    "Pantalla interior",
+    "Sector de juegos interior",
+    "Kit de bienvenida",
+    "Sorteos exclusivos"
+  ]
 };
+/* descripcionLarga: "Sumate a Dora: Edición Groove y viví una experiencia única en la ciudad. El ingreso libre te permite disfrutar del patio de comidas, puestos interactivos y juegos, mientras ves los shows en pantalla gigante y compartís momentos inolvidables con amigos, familia o pareja. ¡No te lo pierdas!"*/
 
 export const tickets: TicketProps[] = [
     {
-      title: "Preventa 1", 
-      price: "$6.599",
+      title: "Preventa Abono 1",  
       features: [
         "Acceso al escenario",
         "Acceso al sector techado vip",
@@ -33,17 +49,18 @@ export const tickets: TicketProps[] = [
         "Pasaporte Dora",
         "Precio promocional (45% OFF)"
       ],
+      price: "$6.599",
       isSoldOut: false,
       type: 'presale',
       availability: {
-        startDate: "2024-03-01",
-        endDate: "2024-04-20",
+        startDate: "2025-04-15",
+        endDate: "2025-06-15",
         isVisible: true
       }
     },
     {
-      title: "Preventa 2", 
-      price: "$7.999",
+      title: "Preventa Abono 2", 
+      
       features: [
         "Acceso al escenario",
         "Acceso al sector techado vip",
@@ -52,17 +69,17 @@ export const tickets: TicketProps[] = [
         "Participacion en sorteos",
         "Precio promocional (35% OFF)"
       ],
+      price: "$7.999",
       isSoldOut: false,
       type: 'presale',
       availability: {
-        startDate: "2024-04-20",
-        endDate: "2024-05-20",
+        startDate: "2024-06-15",
+        endDate: "2024-06-30",
         isVisible: false
       }
     },
     {
-      title: "Entrada General",
-      price: "$11.999",
+      title: "Abono General",
       features: [
         "Acceso al escenario",
         "Acceso al sector techado vip",
@@ -70,10 +87,11 @@ export const tickets: TicketProps[] = [
         "Pasaporte Dora",
         "Participacion en sorteos",
       ],
+      price: "$11.999",
       isSoldOut: false,
       type: 'general',
       availability: {
-        startDate: "2024-05-20",
+        startDate: "2024-06-30",
         isVisible: false
       }
     },
@@ -81,36 +99,36 @@ export const tickets: TicketProps[] = [
   
 export const combos: TicketProps[] = [
     {
-      title: "Combo Grupo",
-      price: "$28.999",
+      title: "Combo Equipo",
       features: [
         "3 Accesos al escenario",
         "3 Accesos al sector techado vip",
         "3 Kits de bienvenida",
-        "15% de descuento por Combo amigos"
+        "Descuento por Combo amigos (15% OFF)"
       ],
+      price: "$28.999",
       isCombo: true,
       type: 'combo1',
       isSoldOut: false,
       availability: {
-        startDate: "2024-03-01",
+        startDate: "2025-03-01",
         isVisible: true
       }
     },
     {
       title: "Combo Mano a Mano",
-      price: "$19.999",
       features: [
         "2 Accesos al escenario",
         "2 Accesos al sector techado vip",
         "2 Kits de bienvenida",
-        "20% de descuento por Combo Mano a Mano"
+        "Descuento por Combo Mano a Mano (20% OFF)"
       ],
+      price: "$19.999",
       isCombo: true,
       type: 'combo2',
       isSoldOut: false,
       availability: {
-        startDate: "2024-03-01",
+        startDate: "2025-03-01",
         isVisible: true
       }
     }
