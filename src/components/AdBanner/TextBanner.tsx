@@ -15,7 +15,7 @@ export default function TextBanner() {
     }, 3000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [phrases, phrases.length]); // Añadir phrases.length como dependencia
 
   return (
     <div className={styles.text_banner_container}>

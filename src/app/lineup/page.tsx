@@ -4,7 +4,6 @@ import AdBanner from '@/components/AdBanner/AdBanner';
 import MainSponsors from '@/components/MainSponsors/MainSponsors';
 import ArtistCard from '@/components/ArtistCard/ArtistCard';
 import { artists } from '@/data/artists';
-import { style } from 'framer-motion/client';
 
 export default function LineUpPage() {
     return (
