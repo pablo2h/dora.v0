@@ -1,6 +1,15 @@
+.CardTitle {
+    color: var(--text-color);
+    margin: 0.5rem 0;
+    font-size: 2rem;   
+    font-family: var(--font-secondary);
+    font-weight: bold;
+
+}
 .ticketsSection {
     background: var(--white-color);
     padding: 2rem 1rem;
+
 }
 
 .filterButtons {
@@ -244,6 +253,12 @@
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: self-end;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .ticketsSection h2 {
@@ -363,6 +378,7 @@ rgba(0,0,0,0.2);
 }
 
 .ticketFeatures li {
+    color: var(--text-color);
     margin: 0.5rem 0;
     font-size: 1rem;
     font-family: var(--font-text);
@@ -370,7 +386,20 @@ rgba(0,0,0,0.2);
 
 .buyButton {
     background: var(--orange-color);
-    color: white;
+    color: var(--text-color);;
+    padding: 1rem 3rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    transition: transform 0.2s ease;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.buyButton_ingreoslibre {
+    background: var(--green-color);
+    color: var(--text-color);;
     padding: 1rem 3rem;
     border-radius: 25px;
     text-decoration: none;
@@ -449,6 +478,31 @@ rgba(0,0,0,0.2);
   border-radius: 24px;
   padding: 2rem;
   margin: 2rem 0;
+  display: flex;
+      flex-direction: row-reverse;
+      align-items: self-end;
+      align-content: center;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.imageContainer {
+  margin-bottom: 1rem;
+  max-width: 300px;
+}
+
+.decorativeImage {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
 }
 
 .accessGrid {
@@ -459,6 +513,16 @@ rgba(0,0,0,0.2);
   margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .sectionHeader {
+    margin-bottom: 3rem;
+  }
+  
+  .imageContainer {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .accessType {
   padding: 2rem;
   border-radius: 16px;
@@ -467,53 +531,51 @@ rgba(0,0,0,0.2);
 }
 
 .freeAccessType {
-  background: var(--orange-color);
+  background: var(--green-color);
 }
 
 .subscriberAccessType {
-  background: var(--green-color);
+  background: var(--orange-color);
 }
 
 .accessType h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #ffffff;
+  color: var(--text-color);
   text-align: center;
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
 }
 
 .featuresList {
   list-style: none;
   padding: 0;
+
 }
 
 .freeAccessType .featuresList li {
-  padding: 0.8rem 0;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 1.1rem;
 }
 
 .freeAccessType .featuresList li:before {
   content: '•';
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 1.5rem;
 }
 
 .subscriberAccessType .featuresList li {
-  padding: 0.8rem 0;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 1.1rem;
 }
 
 .subscriberAccessType .featuresList li:before {
   content: '✓';
-  color: #ffffff;
+  color: var(--text-color);
   font-weight: bold;
 }
 

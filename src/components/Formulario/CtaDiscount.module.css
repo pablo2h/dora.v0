@@ -6,8 +6,40 @@
     padding: 2rem 1rem;
     min-height: 50vh;
     display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    border-radius: 5%;
+}
+
+.sectionHeader {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.imageContainer {
+    margin-bottom: 1rem;
+    max-width: 300px;
+}
+
+.decorativeImage {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+@media (min-width: 768px) {
+    .sectionHeader {
+        margin-bottom: 3rem;
+    }
+    
+    .imageContainer {
+        margin-bottom: 1.5rem;
+    }
 }
 
 .ctaContainer {
@@ -16,7 +48,6 @@
     border-radius: 20px;
     max-width: 500px;
     width: 90%;
-    margin: 0 auto;
 }
 
 .ctaContainer h2 {
@@ -78,5 +109,55 @@
 }
 
 .ctaButton:hover {
+    transform: scale(1.05);
+}
+
+.ctaButton:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submitResult {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.submitResult p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.submitResult strong {
+    color: #0083CF;
+}
+
+.success {
+    background-color: #e6ffe6;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+}
+
+.error {
+    background-color: #ffe6e6;
+    color: #F44336;
+    border: 1px solid #F44336;
+}
+
+.resetButton {
+    margin-top: 1rem;
+    background: #0083CF;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.resetButton:hover {
     transform: scale(1.05);
 }

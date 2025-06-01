@@ -1,7 +1,7 @@
 'use client';
 import styles from './lineup.module.css';
 import AdBanner from '@/components/AdBanner/AdBanner';
-import MainSponsors from '@/components/MainSponsors/MainSponsors';
+/* import MainSponsors from '@/components/MainSponsors/MainSponsors'; */
 import ArtistCard from '@/components/ArtistCard/ArtistCard';
 import { artists } from '@/data/artists';
 
@@ -15,7 +15,7 @@ export default function LineUpPage() {
                     <ArtistCard key={artist.id} artist={artist} />
                 ))}
             </div>
-            <MainSponsors />
+        {/* <MainSponsors /> */}
         </main>
         
     );

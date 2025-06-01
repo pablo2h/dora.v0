@@ -41,7 +41,7 @@ export const ingresoLibre = {
 
 export const tickets: TicketProps[] = [
     {
-      title: "Preventa Abono 1",  
+      title: "Preventa 1",  
       features: [
         "Acceso al escenario",
         "Acceso al sector techado vip",
@@ -59,7 +59,7 @@ export const tickets: TicketProps[] = [
       }
     },
     {
-      title: "Preventa Abono 2", 
+      title: "Preventa 2", 
       
       features: [
         "Acceso al escenario",
@@ -116,7 +116,7 @@ export const combos: TicketProps[] = [
       }
     },
     {
-      title: "Combo Mano a Mano",
+      title: "Combo De a 2",
       features: [
         "2 Accesos al escenario",
         "2 Accesos al sector techado vip",

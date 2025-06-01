@@ -12,7 +12,7 @@ const FAQPage = () => {
   };
 
   return (
-    <main>  
+    <main className={styles.faqpage}>  
     <AdBanner /> 
     <div className={styles.container}>
       <h1>Preguntas Frecuentes</h1>

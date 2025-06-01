@@ -49,7 +49,7 @@ export default function ArtistCard({ artist }: { artist: ArtistCardProps }) {
 
             </button>
             <div className={styles.artistContent}>
-                <p>{artist.description}</p>
+                <p className={styles.description}>{artist.description}</p>
                 <div className={styles.artistActions}>
                     {artist.spotifyId ? (
                         <div className={styles.embedContainer}>

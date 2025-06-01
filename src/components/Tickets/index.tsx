@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import styles from './Tickets.module.css';
 import { tickets, combos } from '@/data/tickets';
 const PASSLINE_URL = "https://www.passline.com/eventos/dora-edicion-del-groove";
@@ -56,7 +57,7 @@ export default function Tickets() {
       `}
     >
       {ticket.isSoldOut && <div className={styles.soldOutBanner}>SOLD OUT</div>}
-      <h3>{ticket.title}</h3>
+      <h3 className={styles.CardTitle}>{ticket.title}</h3>
       <ul className={styles.ticketFeatures}>
         {ticket.features.map((feature, idx) => (
           <li key={idx}>{feature}</li>
@@ -80,7 +81,23 @@ export default function Tickets() {
 
   return (
     <section className={styles.ticketsSection}>
-      <div className={styles.sectionContainer}>        
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionHeader}>
+          <div className={styles.imageContainer}>
+            <Image 
+              src="/assets/images/Dora 4.svg" 
+              alt="Tickets Dora" 
+              width={300} 
+              height={300} 
+              className={styles.decorativeImage}
+            />
+          </div>
+        </div>
+        <div> 
+        <h1 className="section-title">
+            <span>Abonos y Combos</span>
+          </h1>
+          <div>
         <div className={styles.filterButtons}>
           <button
             className={`${styles.filterButton} ${activeFilter === 'individual' ? styles.active : ''}`}
@@ -142,6 +159,8 @@ export default function Tickets() {
             </div>
           </>
         )}
+      </div>
+      </div>
       </div>
     </section>
   );

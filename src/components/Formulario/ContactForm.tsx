@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import styles from './ContactForm.module.css';
+/* import { sendEmail } from '@/services/emailService'; */
 
 interface ContactFormProps {
   formType?: 'general' | 'prensa';
@@ -15,7 +16,7 @@ export default function ContactForm({ formType = 'general' }: ContactFormProps) 
     mediaOutlet: formType === 'prensa' ? '' : undefined,
   });
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting] = useState(false);
   const [submitResult, setSubmitResult] = useState<{
     success: boolean;
     message: string;
@@ -31,29 +32,7 @@ export default function ContactForm({ formType = 'general' }: ContactFormProps) 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Aquí iría la lógica para enviar el formulario
-      // Por ejemplo, usando fetch para enviar a una API
-      
-      // Simulación de envío exitoso
-      setTimeout(() => {
-        setSubmitResult({
-          success: true,
-          message: 'Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.'
-        });
-        setIsSubmitting(false);
-      }, 1500);
-      
-    } catch (error) {
-      console.error('Error al enviar el formulario:', error);
-      setSubmitResult({
-        success: false,
-        message: 'Ha ocurrido un error al enviar el formulario. Por favor, intenta nuevamente.'
-      });
-      setIsSubmitting(false);
-    }
+
   };
 
   return (
