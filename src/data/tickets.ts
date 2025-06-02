@@ -49,7 +49,7 @@ export const tickets: TicketProps[] = [
         "Pasaporte Dora",
         "Precio promocional (45% OFF)"
       ],
-      price: "$6.599",
+      price: "$6.499",
       isSoldOut: false,
       type: 'presale',
       availability: {
