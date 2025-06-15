@@ -1,16 +1,16 @@
 .ctaSection {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background: #FC95BB;
+    background: #f5f5f5;
     position: relative;
-    padding: 2rem 1rem;
+    padding: 2rem;
     min-height: 50vh;
     display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
-    border-radius: 5%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
 }
 
 .sectionHeader {

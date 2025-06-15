@@ -25,24 +25,36 @@ export const faqData = [
     }
 ];
 
-export const termsAndConditions = {
-    title: "Términos y Condiciones",
-    sections: [
+export const termsAndConditions = [
+    {
+        titulo: 'Recopilación y Tratamiento de Datos Personales',
+        contenido: 'Horno de Barro recopila datos personales a través de los formularios de este sitio web con el fin de ofrecerle contenido de su interés. Estos datos incluyen, pero no se limitan a, nombre, apellido, correo electrónico y cualquier otra información que usted decida proporcionarnos.'
+    },
+    {
+        titulo: 'Finalidad del Tratamiento de Datos',
+        contenido: 'Los datos recopilados serán tratados para: distribución de comunicaciones comerciales, uso personal y futuras ocasiones, y colaboración con terceros.'
+    },
+    {
+        titulo: 'Compromiso de Horno de Barro',
+        contenido: 'Horno de Barro se compromete a administrar sus datos personales de forma segura y confidencial.'
+    },
+    {
+        titulo: 'Sus Derechos',
+        contenido: 'Usted tiene derecho a acceder, rectificar, cancelar y oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, contacte a hornodebarroer@gmail.com.'
+    }
+];
+
+export const contactInfo = {
+    title: 'Contacto',
+    description: 'Para cualquier duda o consulta, no dudes en contactarnos:',
+    emails: [
         {
-            title: "Recopilación y Tratamiento de Datos Personales",
-            content: "Horno de Barro recopila datos personales a través de los formularios de este sitio web con el fin de ofrecerle contenido de su interés. Estos datos incluyen, pero no se limitan a, nombre, apellido, correo electrónico y cualquier otra información que usted decida proporcionarnos."
+            type: 'General',
+            email: 'hornodebarroer@gmail.com'
         },
         {
-            title: "Finalidad del Tratamiento de Datos",
-            content: "Los datos recopilados serán tratados para: distribución de comunicaciones comerciales, uso personal y futuras ocasiones, y colaboración con terceros."
-        },
-        {
-            title: "Compromiso de Horno de Barro",
-            content: "Horno de Barro se compromete a administrar sus datos personales de forma segura y confidencial."
-        },
-        {
-            title: "Sus Derechos",
-            content: "Usted tiene derecho a acceder, rectificar, cancelar y oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, contacte a hornodebarroer@gmail.com."
+            type: 'Comercial',
+            email: 'comercial@dora.com.ar'
         }
     ]
 };

@@ -7,6 +7,7 @@ const PASSLINE_URL = "https://www.passline.com/eventos/dora-edicion-del-groove";
 
 export default function IngresoLibre() {
   return (
+    <div className={`${styles.global} section-block`}>
     <div className={styles.accessContainer}>
       <div className={styles.sectionHeader}>
         <div className={styles.imageContainer}>
@@ -50,6 +51,7 @@ export default function IngresoLibre() {
         </div>
       </div>
       </div>
+    </div>
     </div>
   );
 }

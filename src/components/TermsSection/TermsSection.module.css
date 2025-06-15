@@ -1,0 +1,47 @@
+.termsContainer {
+    margin-bottom: 0.5rem;
+}
+
+.termsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.termsItem {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.title {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    background-color: var(--background);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.title:hover {
+    background-color: var(--red-color);
+    color: white;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+}
+
+.content.active {
+    max-height: 500px;
+    padding: 1rem;
+}
+
+.content p {
+    margin: 0;
+    line-height: 1.5;
+}

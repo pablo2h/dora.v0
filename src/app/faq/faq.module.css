@@ -1,13 +1,31 @@
 .faqpage {
-    padding: 2rem 1rem;
+    padding-top: 8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background: #f5f5f5;
-    scroll-padding-top: 2rem; /* Add padding for fixed headers if any */
+    scroll-padding-top: 2rem;
     scroll-behavior: smooth;
 }
+
 .container {
     max-width: 800px;
-    margin: 2rem auto;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+    }
+
+    .container > :first-child {
+        grid-column: 1 / -1;
+    }
 }
 
 .faqList {
@@ -32,12 +50,38 @@
 
 .answer {
     margin-top: 0.5rem;
-    /* Initially hidden, will be toggled later */
     display: none;
 }
 
 .answer.active {
     display: block;
+}
+
+.emailList {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contactEmail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.emailType {
+    font-weight: bold;
+    color: #666;
+}
+
+.contactEmail a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.contactEmail a:hover {
+    text-decoration: underline;
 }
 
 .termsContainer {
@@ -48,4 +92,36 @@
 
 .termsContainer h2 {
     margin-bottom: 1rem;
+}
+.contactContainer {
+    background-color: var(--blue-color);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+
+}
+.contactEmail {
+    color: var(--red-color) !important  ;
+    background-color: var(--background);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align:center;
+    margin-top: 0.7rem;
+
+}
+.contactContainer h2{
+    color: var(--background);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;   
+}
+.contactContainer p{
+    color: var(--background);
+    font-size: 1rem;
+    margin-bottom: 1rem;   
 }

@@ -1,42 +1,52 @@
+
 'use client';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from './CtaDiscount.module.css';
 
+
+interface SubmitResult {
+  success: boolean;
+  message: string;
+}
+
 export default function CtaDiscount() {
-  const [formData, setFormData] = useState({
-    email: '',
-    acceptTerms: false
-  });
-
+  const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState<{ success: boolean; message: string; promoCode?: string } | null>(null);
+  const [submitResult, setSubmitResult] = useState<SubmitResult | null>(null);
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitResult(null);
 
     try {
-      const response = await fetch('/api/subscribe', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ 
+          email,
+          formType: 'discount',
+          subject: 'Solicitud de descuento',
+          message: 'Usuario solicitó descuento del 15%'
+        }),
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitResult({ success: true, message: data.message, promoCode: data.promoCode });
-        setFormData({ email: '', acceptTerms: false }); // Limpiar formulario
-      } else {
-        setSubmitResult({ success: false, message: data.message || 'Error al suscribirse.' });
+      if (!response.ok) {
+        throw new Error('Error al guardar el email');
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitResult({ success: false, message: 'Error de red o del servidor.' });
+
+      setSubmitResult({
+        success: true,
+        message: '¡el codigo es BARRO.RGKAIT!'
+      });
+    } catch (err) {
+      console.error('Error en el formulario:', err);
+      setSubmitResult({
+        success: false,
+        message: 'Ocurrió un error inesperado. Por favor, intenta más tarde.'
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -54,19 +64,15 @@ export default function CtaDiscount() {
             className={styles.decorativeImage}
           />
         </div>
-
       </div>
       <div className={styles.ctaContainer}>
-      <h1 className="section-title">
+        <h1 className="section-title">
           <span>Descuentos</span>
         </h1>
         <h2>¡Obtené un 15% de descuento!</h2>
         {submitResult ? (
           <div className={`${styles.submitResult} ${submitResult.success ? styles.success : styles.error}`}>
             <p>{submitResult.message}</p>
-            {submitResult.promoCode && (
-              <p>Tu código de descuento es: <strong>{submitResult.promoCode}</strong></p>
-            )}
             <button 
               onClick={() => setSubmitResult(null)}
               className={styles.resetButton}
@@ -80,22 +86,10 @@ export default function CtaDiscount() {
               <input
                 type="email"
                 placeholder="Tu correo electrónico"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
-            </div>
-            <div className={styles.termsGroup}>
-              <input
-                type="checkbox"
-                id="terms"
-                checked={formData.acceptTerms}
-                onChange={(e) => setFormData({ ...formData, acceptTerms: e.target.checked })}
-                required
-              />
-              <label htmlFor="terms">
-                Acepto recibir novedades y acepto los <a href="/faq">términos y condiciones</a>
-              </label>
             </div>
             <button type="submit" className={styles.ctaButton} disabled={isSubmitting}>
               {isSubmitting ? 'Enviando...' : 'Quiero mi descuento'}

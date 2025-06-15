@@ -1,8 +1,30 @@
 import '../styles/globals.css'
 import type { Metadata } from 'next'
+import { DynaPuff, Baloo_2, Poppins } from 'next/font/google'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
+
+const dynaPuff = DynaPuff({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-dynapuff'
+})
+
+const baloo2 = Baloo_2({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-baloo2'
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-poppins'
+})
 
 export const metadata: Metadata = {
   title: 'Festival Dora - Edición Groove | Sab 26 de Jul | Paraná, ER',
@@ -29,12 +51,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <head>
-      <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-      <link rel="preconnect" href="https://fonts.gstatic.com" ></link>
-      <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700&family=Baloo+2:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"></link>
-      </head>
+    <html lang="es" className={`${dynaPuff.variable} ${baloo2.variable} ${poppins.variable}`}>
       <body>
         <ServiceWorkerRegistration />
         <Navbar />

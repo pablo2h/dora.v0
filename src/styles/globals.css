@@ -13,31 +13,28 @@
     --pink-color: #FC95BB;
     --yellow-color: #F5C92B;
     --text-color: #000000;
-    --font-primary: 'DynaPuff', cursive;
-    --font-secondary: 'Baloo 2', cursive;
-    --font-text: 'Poppins', sans-serif;
 }
 
 /* Jerarquía Tipográfica */
 h1, .h1 {
-    font-family: var(--font-primary);
+    font-family: var(--font-dynapuff);
     font-weight: bold;
     color: var(--text-color);
 }
 
 h2, .h2 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-baloo2);
     font-weight: 800; /* extrabold */
     color: var(--text-color);
 }
 
 p, .body-text {
-    font-family: var(--font-text);
+    font-family: var(--font-poppins);
     color: var(--text-color);
 }
 
 .section-title {
-    font-family: var(--font-primary);
+    font-family: var(--font-dynapuff);
     color: var(--text-color);
     font-size: 2rem;
     font-weight: bold;
@@ -45,7 +42,13 @@ p, .body-text {
     text-align: center;
 
 }
-
+.section-block {
+    background: #f5f5f5;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+  }
 * {
     margin: 0;
     padding: 0;
@@ -54,7 +57,7 @@ p, .body-text {
 }
 
 body {
-    font-family: var(--font-text);
+    font-family: var(--font-poppins);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -142,20 +145,6 @@ body {
     aspect-ratio: 1/1;
 }
 
-/* Sección Hero */
-.hero {
-    min-height: 85vh;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    padding: 2rem 1rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .background-images {
     position: fixed;
     top: 0;
@@ -166,101 +155,7 @@ body {
     z-index: -2;
 }
 
-/* Estilos base para las decoraciones del hero */
-.hero-decoration {
-    position: absolute;
-    z-index: 1;
-    display: block; /* Visibles en todos los formatos */
-}
 
-/* Posicionamiento de las decoraciones */
-.hero-decoration-top {
-    top: 0.5rem;
-    left: 0;
-    width: 100%;
-}
-
-.hero-decoration-bottom {
-    bottom: 0.5rem;
-    left: 0;
-    width: 100%;
-}
-
-.hero-decoration-left {
-    left: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.hero-decoration-right {
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* Contenido central del hero */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Filas y columnas de flores */
-.flowers-row {
-    display: flex; /* Visible por defecto en móviles para flores laterales */
-    justify-content: center;
-    z-index: 1;
-    gap: 1rem; /* Add gap */
-}
-
-.flowers-column {
-    display: none; /* Oculto por defecto en móviles para flores superiores/inferiores */
-    flex-direction: column;
-        z-index: 1;
-    gap: 1rem; /* Add gap */
-}
-
-.flower-img {
-    width: 90px;
-    height: 90px;
-}
-
-/* Estilos responsive */
-@media (min-width: 600px) {
-    .flower-img {
-        width: 150px;
-        height: 150px;
-    }
-    .flowers-row {
-        gap: 3rem; /* Adjust gap for larger screens */
-    }
-}
-
-@media (min-width: 768px) {
-    .flowers-row {
-        display: none; /* Ocultar horizontalmente en tablets y pantallas grandes */
-    }
-    .flowers-column {
-        display: flex; /* Mostrar verticalmente en tablets y pantallas grandes */
-        gap: 1rem; /* Adjust gap for tablets and desktop */
-    }
-    .flower-img {
-        width: 200px;
-        height: 200px;
-    }   
-    /*.flowers-column {
-        gap: 1rem;
-    }*/
-}
-
-@media (min-width: 1024px) {
-    /* Mantenemos el mismo comportamiento que en tablets */
-}
 .circles-container {
     position: absolute;
     width: 100%;
