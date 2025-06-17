@@ -2,13 +2,12 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  serverExternalPackages: [],
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
   images: {
     domains: [],
     unoptimized: false,
-  },
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
   },
 }
 
