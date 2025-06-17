@@ -1,5 +1,4 @@
-'use client';
-import styles from './lineup.module.css';
+import styles from './page.module.css';
 import AdBanner from '@/components/AdBanner/AdBanner';
 /* import MainSponsors from '@/components/MainSponsors/MainSponsors'; */
 import ArtistList from '@/components/ArtistList/ArtistList';

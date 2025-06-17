@@ -81,9 +81,11 @@ export default function Navbar() {
 
        <div className={styles.navLinks}>
         <Link href="https://www.passline.com/eventos/dora-edicion-del-groove" className={styles.abonosCta} onClick={toggleMenu}>Conseguir Abonos</Link>
-        <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up </Link>
+        <Link href="/inicio" className={styles.navLink} onClick={toggleMenu}>Inicio</Link>
+        <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up</Link>
         <Link href="/entradas" className={styles.navLink} onClick={toggleMenu}>Entradas</Link>
-        <Link href="/faq" className={styles.navLink} onClick={toggleMenu}>Preguntas Frecuentes</Link>
+        <Link href="/faq" className={styles.navLink} onClick={toggleMenu}>FAQ</Link>
+        <Link href="/sponsors" className={styles.navLink} onClick={toggleMenu}>Sponsors</Link>
         <Link href="/#footer" className={styles.navLink} onClick={handleContactClick}>Contacto</Link>
         </div>
 

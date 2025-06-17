@@ -1,3 +1,4 @@
+
 .welcomeContainer {
   position: relative;
   width: 100vw;
@@ -75,10 +76,11 @@
 
 .festivalLogo {
   max-width: 360px;
-  width: auto !important;
-  height: auto !important;
+  width: 300px !important;
+  height: 150px !important;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
 .festivalLogo:hover {
@@ -90,8 +92,11 @@
   font-size: 3.2rem;
   font-weight: bold;
   margin: 0 0 1.5rem 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-shadow:rgba(0, 0, 0, 0.8) 0px 0px 10px;
+  text-decoration-line: underline;
   animation: titleGlow 2s ease-in-out infinite alternate;
+
 }
 
 .eventInfo {
@@ -107,6 +112,9 @@
   font-weight: 800;
   margin: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
 }
 
 .location {
@@ -115,12 +123,15 @@
   margin: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   opacity: 0.9;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
 }
 
 .enterButton {
-  background: linear-gradient(45deg, #FA8632, #F05B31);
-  color: white;
-  border: none;
+  background: #f5f5f5;
+  color: var(--text-color);
+  border: none; 
   padding: 1rem 3rem;
   border-radius: 50px;
   font-size: 1.2rem;
@@ -128,7 +139,7 @@
   font-family: var(--font-baloo2, 'Baloo 2', cursive);
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(250, 134, 50, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;

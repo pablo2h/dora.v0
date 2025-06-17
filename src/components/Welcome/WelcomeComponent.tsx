@@ -15,9 +15,9 @@ interface WelcomeComponentProps {
 }
 
 export default function WelcomeComponent({
-  title = "¡Bienvenidos!",
+  title = " ¡Bienvenidos! ",
   date = "26 de Julio 2025",
-  location = "Vieja Usina, Paraná",
+  location = " Vieja Usina, Paraná ",
   logoSrc = "/assets/images/LogoEdicionGroove-Horizontal.svg",
   onEnter,
   redirectTo = "/inicio"

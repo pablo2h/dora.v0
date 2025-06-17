@@ -1,6 +1,5 @@
-'use client';
 import React from 'react';
-import styles from './faq.module.css';
+import styles from './page.module.css';
 import AdBanner from '@/components/AdBanner/AdBanner';
 import FAQSection from '@/components/FAQSection/FAQSection';
 import TermsSection from '@/components/TermsSection/TermsSection';

@@ -1,4 +1,3 @@
-'use client';
 import Tickets from "@/components/Tickets";
 import IngresoLibre from '@/components/Tickets/IngresoLibre/IngresoLibre';
 import styles from './page.module.css';

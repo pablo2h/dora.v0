@@ -1,5 +1,3 @@
-'use client';
-
 import FestivalInfo from '@/components/FestivalInfo/FestivalInfo';
 import SponsorshipPlans from '@/components/SponsorshipPlans/SponsorshipPlans';
 import SponsorsForm from '@/components/Formulario/SponsorsForm/SponsorsForm';

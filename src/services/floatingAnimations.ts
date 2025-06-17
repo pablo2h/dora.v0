@@ -19,28 +19,21 @@ const doraSvgs = [
   '/assets/images/Dora 1-2.svg',
 ];
 
-const geometricSvgs = [
-  '/assets/SVG/estrella.svg',
-  '/assets/SVG/estrellas-1.svg',
-  '/assets/SVG/estrellita.svg'
-];
+
 
 export class FloatingAnimationService {
   static generateElements(count: number = 15): FloatingElement[] {
     const elements: FloatingElement[] = [];
     
     for (let i = 0; i < count; i++) {
-      const isDora = Math.random() > 0.3; // Mayor probabilidad de doras
-      const svgArray = isDora ? doraSvgs : geometricSvgs;
-      
       elements.push({
         id: i,
-        type: isDora ? 'dora' : 'geometric',
-        svg: svgArray[Math.floor(Math.random() * svgArray.length)],
+        type: 'dora',
+        svg: doraSvgs[Math.floor(Math.random() * doraSvgs.length)],
         x: Math.random() * 100,
         y: Math.random() * 100,
         opacity: 0,
-        scale: 0.8 + Math.random() * 0.7,
+        scale: 1.2 + Math.random() * 0.8, // Más grandes: de 1.2 a 2.0
         rotation: Math.random() * 360,
         animationDuration: 3 + Math.random() * 4
       });
