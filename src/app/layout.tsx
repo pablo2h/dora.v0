@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import '../styles/globals.css'
 
 export const metadata: Metadata = {
-  title: 'Dora Festival',
-  description: 'Festival de música y comida en Paraná',
+  title: 'Festival Dora - Edición Groove',
+  description: 'Festival de música electrónica en Argentina',
 }
 
+// Los layouts específicos están en (conNavbar) y (sinNavbar)
 export default function RootLayout({
   children,
 }: {
