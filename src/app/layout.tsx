@@ -1,9 +1,20 @@
-// Este layout raíz es mínimo para evitar conflictos con los Route Groups
-// Los layouts específicos están en (conNavbar) y (sinNavbar)
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Dora Festival',
+  description: 'Festival de música y comida en Paraná',
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <html lang="es">
+      <body>
+        {children}
+      </body>
+    </html>
+  )
 }
