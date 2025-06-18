@@ -1,33 +1,18 @@
 /* Move the styles from LineUp.module.css to this file */
 .artistCard {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
     transition: all 0.3s ease;
-    scroll-margin-top: 100px; /* Aumentamos el margen para el navbar */
+    scroll-margin-top: 80px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Odd cards (1st, 3rd, etc) */
-.artistCard:global(:nth-of-type(odd)) {
-    background:var(--orange-color);
-}
-
-/* Even cards (2nd, 4th, etc) */
-.artistCard:global(:nth-of-type(even)) {
-    background: var(--green-color);
-}
-
-.expanded:global(:nth-of-type(odd)) {
-    background: linear-gradient(var(--orange-color), rgba(0,0,0,0.8)), var(--image-url) !important;
-    background-size: cover !important;
-    background-position: center !important;
-}
-.expanded:global(:nth-of-type(even))
- {
-    background: linear-gradient(var(--green-color), rgba(0,0,0,0.8)), var(--image-url) !important;
-    background-size: cover !important;
-    background-position: center !important;
+.expanded {
+    min-height: 300px;
+    padding: 30px;
 }
 .artistHeader {
     position: relative;

@@ -32,9 +32,9 @@ export default function WelcomeComponent({
 
   // Generar elementos flotantes
   useEffect(() => {
-    const newElements = FloatingAnimationService.generateElements(15);
+    const newElements = FloatingAnimationService.generateElements(5); // Reducido aún más para mejor experiencia visual
     setElements(newElements);
-  }, []);
+  }, []); 
 
   // Animar elementos flotantes
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function WelcomeComponent({
       setElements(prev => FloatingAnimationService.animateElements(prev));
     };
 
-    const interval = setInterval(animateElements, 2000);
+    const interval = setInterval(animateElements, 33); // ~30 FPS para optimizar memoria
     return () => clearInterval(interval);
   }, []);
 
@@ -124,6 +124,7 @@ export default function WelcomeComponent({
             height={150}
             className={styles.festivalLogo}
             priority={true}
+            onClick={handleEnter}
           />
         </div>
         

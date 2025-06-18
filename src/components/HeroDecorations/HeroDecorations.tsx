@@ -136,7 +136,7 @@ const HeroDecorations = () => {
         </div>
       </div>
       
-      <Link href="/entradas" className="tickets-button">MIS ABONOS</Link>
+      <Link href="https://www.passline.com/eventos/dora-edicion-del-groove" className="tickets-button">MIS ABONOS</Link>
     </div>
   );
 };

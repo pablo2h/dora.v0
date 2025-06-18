@@ -1,28 +1,70 @@
 .lineup {
-    font-family: var(--font-primary);
-    color: var(--text-color);
-    background: #f5f5f5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
-/* Tamaños responsive */
 .lineup p {
-    font-size: 2rem;
-    line-height: 1;
-    margin: 0.5rem 0;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: white;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.artistName {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Colores diferentes para cada artista */
+.artistName:nth-child(1) { background: var(--orange-color); }
+.artistName:nth-child(2) { background: var(--blue-color); }
+.artistName:nth-child(3) { background: var(--green-color); }
+.artistName:nth-child(4) { background: var(--pink-color); }
+.artistName:nth-child(5) { background: var(--red-color); }
+.artistName:nth-child(6) { background: var(--yellow-color); }
+.artistName:nth-child(7) { background: var(--orange-color); }
+.artistName:nth-child(8) { background: var(--blue-color); }
+.artistName:nth-child(9) { background: var(--green-color); }
+.artistName:nth-child(10) { background: var(--pink-color); }
+.artistName:nth-child(11) { background: var(--red-color); }
+.artistName:nth-child(12) { background: var(--yellow-color); }
+
+.artistName:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.artistName:active {
+  transform: translateY(-1px) scale(1.02);
 }
 
 @media (min-width: 768px) {
-    .lineup p {
-        font-size: 3rem;
-    }
+  .lineup p {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .lineup {
+    gap: 1rem;
+  }
 }
 
 @media (min-width: 1024px) {
-    .lineup p {
-        font-size: 2.5rem;
-    }
+  .lineup p {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+  }
 }

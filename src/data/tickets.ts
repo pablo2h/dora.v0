@@ -4,7 +4,8 @@ export interface TicketProps {
   price: string;
   isSoldOut?: boolean;
   isCombo?: boolean;
-  type: 'presale' | 'general' | 'combo1' | 'combo2' | 'vip';
+  isComingSoon?: boolean;
+  type: 'presale1' | 'presale2' |'general' | 'combo1' | 'combo2' | 'vip';
   availability: {
     startDate: string;
     endDate?: string;
@@ -51,16 +52,15 @@ export const tickets: TicketProps[] = [
       ],
       price: "$6.499",
       isSoldOut: false,
-      type: 'presale',
+      type: 'presale1',
       availability: {
-        startDate: "2025-04-15",
-        endDate: "2025-06-15",
+        startDate: "2025-06-10",
+        endDate: "2025-06-28",
         isVisible: true
       }
     },
     {
       title: "Preventa 2", 
-      
       features: [
         "Acceso al escenario",
         "Acceso al sector techado vip",
@@ -71,11 +71,11 @@ export const tickets: TicketProps[] = [
       ],
       price: "$7.999",
       isSoldOut: false,
-      type: 'presale',
+      type: 'presale2',
       availability: {
-        startDate: "2024-06-15",
-        endDate: "2024-06-30",
-        isVisible: false
+        startDate: "2025-06-28",
+        endDate: "2025-07-15",
+        isVisible: true
       }
     },
     {
@@ -85,16 +85,16 @@ export const tickets: TicketProps[] = [
         "Acceso al sector techado vip",
         "Pack de stickers",
         "Pasaporte Dora",
-        "Participacion en sorteos",
+        "Participacion en sorteos"
       ],
       price: "$11.999",
       isSoldOut: false,
       type: 'general',
       availability: {
-        startDate: "2024-06-30",
-        isVisible: false
+        startDate: "2025-07-15",
+        isVisible: true
       }
-    },
+    }
 ];
   
 export const combos: TicketProps[] = [
@@ -141,12 +141,22 @@ export function updateTicketAvailability(tickets: TicketProps[]): TicketProps[] 
     const startDate = new Date(ticket.availability.startDate);
     const endDate = ticket.availability.endDate ? new Date(ticket.availability.endDate) : null;
     
-    // Actualizar visibilidad basada en las fechas
-    ticket.availability.isVisible = currentDate >= startDate;
-    
-    // Actualizar soldOut si ha pasado la fecha final
-    if (endDate && currentDate > endDate) {
+    // Determinar el estado del ticket
+    if (currentDate < startDate) {
+      // Antes del startDate - mostrar como "próximamente"
+      ticket.isComingSoon = true;
+      ticket.availability.isVisible = true;
+      ticket.isSoldOut = false;
+    } else if (endDate && currentDate > endDate) {
+      // Después del endDate - marcar como agotado
+      ticket.isComingSoon = false;
+      ticket.availability.isVisible = true;
       ticket.isSoldOut = true;
+    } else {
+      // Entre startDate y endDate (o sin endDate) - disponible para compra
+      ticket.isComingSoon = false;
+      ticket.availability.isVisible = true;
+      ticket.isSoldOut = false;
     }
     
     return ticket;

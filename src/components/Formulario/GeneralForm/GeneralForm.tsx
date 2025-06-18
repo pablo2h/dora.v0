@@ -63,7 +63,7 @@ export default function GeneralForm({ formType = 'general' }: GeneralFormProps) 
           <div className={styles.gridContainer}>
             <div className={styles.inputGroup}>
               <label htmlFor="name" className={styles.label}>
-                Nombre Completo *
+                ¿Como te llamas? *
               </label>
               <input
                 type="text"
@@ -79,7 +79,7 @@ export default function GeneralForm({ formType = 'general' }: GeneralFormProps) 
 
             <div className={styles.inputGroup}>
               <label htmlFor="email" className={styles.label}>
-                Email *
+                ¿Cual es tu email? *
               </label>
               <input
                 type="email"
@@ -106,7 +106,7 @@ export default function GeneralForm({ formType = 'general' }: GeneralFormProps) 
               onChange={handleInputChange}
               required
               className={styles.input}
-              placeholder="¿De qué se trata tu mensaje?"
+              placeholder="¿Que motivo?"
             />
           </div>
 

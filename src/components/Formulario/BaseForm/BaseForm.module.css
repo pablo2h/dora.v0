@@ -61,11 +61,11 @@
 }
 
 .successIcon {
-  color: #10b981;
+  color: var(--green-color);
 }
 
 .errorIcon {
-  color: #ef4444;
+  color: var(--red-color);
 }
 
 .resultMessage {
@@ -75,11 +75,11 @@
 }
 
 .successMessage {
-  color: #065f46;
+  color: var(--green-color);
 }
 
 .errorMessage {
-  color: #991b1b;
+  color:var(--red-color);
 }
 
 .resetButton {
@@ -98,7 +98,7 @@
 }
 
 .formContent {
-  background-color: #f9fafb;
+  background-color: var(--yellow-color);
   border-radius: 0.75rem;
   padding: 2rem;
 }

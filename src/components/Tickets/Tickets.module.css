@@ -7,8 +7,8 @@
 
 }
 .ticketsSection {
-    background: #f5f5f5;
-    padding: 2rem;
+    background: var(--pink-color);
+    padding: 1rem;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 2rem 0;
@@ -25,7 +25,7 @@
     padding: 0.8rem 2rem;
     border: 2px solid var(--green-color);
     border-radius: 25px;
-    background: transparent;
+    background: #f5f5f5;
     color: var(--green-color);
     font-weight: bold;
     cursor: pointer;
@@ -49,6 +49,51 @@
     max-width: 900px;
     margin: 0 auto;
     position: relative;
+    display: block;
+}
+
+/* Desktop Grid Layouts */
+.ticketsGridDesktop {
+    display: none;
+}
+
+.combosGridDesktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .ticketsCarouselContainer {
+        display: none;
+    }
+    
+    .ticketsGridDesktop {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    
+    .combosGridDesktop {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    
+    .sectionContainer {
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 3rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+
+    }
 }
 
 .ticketAndIndicatorsContainer {
@@ -108,12 +153,14 @@
 .typingPhrase {
     color: #f5f5f5;
 }
-
+.ingresolibresection{
+    background-color: var(--blue-color);
+}
 .freeEntrySection {
     background: var(--green-color);
     color: whitesmoke;
     border-radius: 20px;
-    padding: 2rem;
+    padding: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
@@ -219,15 +266,6 @@
     animation: fadeIn 0.5s ease;
 }
 
-.freeEntryDescription {
-    color: #f5f5f5;
-    text-align: left;
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--dark-color);
-    max-width: 600px;
-    margin: 0 auto;
-}
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -249,18 +287,23 @@
     }
 }
 
+.componetContainer{
+    background: #f5f5f5;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+}
+
 .sectionContainer {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
     box-sizing: border-box;
     display: flex;
-    flex-direction: row-reverse;
-    align-items: self-end;
-    align-content: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    
 }
 
 .ticketsSection h2 {
@@ -292,8 +335,23 @@
     z-index: 2;
     width: 150%;
     text-align: center;
-    box-shadow: 0 2px 4px 
-rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.comingSoonBanner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    background: var(--yellow-color);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 2;
+    width: 150%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .ticketCard {
@@ -324,6 +382,30 @@ rgba(0,0,0,0.2);
 .soldOut .buyButton:hover {
     transform: none;
 }
+
+.comingSoon {
+    opacity: 0.85;
+    position: relative;
+}
+.comingSoon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 165, 0, 0.1);
+    z-index: 1;
+}
+.comingSoon .buyButton {
+    background: var(--orange-color) !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.comingSoon .buyButton:hover {
+    transform: none;
+}
 .ticketCard {
     background: var(--green-color);
     border-radius: 20px;
@@ -335,6 +417,8 @@ rgba(0,0,0,0.2);
     color: #f5f5f5;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 100%;
+    min-height: 450px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     .cardImage {
         position: absolute;
         top: -20px;
@@ -360,11 +444,11 @@ rgba(0,0,0,0.2);
 }
 
 .comboCard1 {
-    background: var(--card-gradient-1);
+    background: var(--yellow-color);
 }
 
 .comboCard2 {
-    background: var(--card-gradient-2);
+    background: var(--green-color);
 }
 
 .price {
@@ -448,6 +532,11 @@ rgba(0,0,0,0.2);
         max-width: 900px;
         margin: 1rem auto;
     }
+    
+    .ticketCard:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
 }
 
 @media (max-width: 767px) {
@@ -456,7 +545,8 @@ rgba(0,0,0,0.2);
     }
     
     .sectionContainer {
-        padding: 0 1rem;
+        flex-direction: column;
+        align-items: center;
     }
 }
 .generalTicket {
@@ -475,36 +565,85 @@ rgba(0,0,0,0.2);
 }
 
 .accessContainer {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 2rem;
-  margin: 2rem 0;
   display: flex;
-      flex-direction: row-reverse;
-      align-items: self-end;
-      align-content: center;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .accessContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .accessContainer {
+    flex-direction: column;
+  }
+  
+  .sectionHeader {
+    order: -1;
+    width: 100%;
+  }
+  
+  .contentWrapper {
+    order: 1;
+    width: 100%;
+  }
+}
+
+.contentWrapper {
+  flex: 1;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .contentWrapper {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+  }
 }
 
 .sectionHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+
   text-align: center;
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .sectionHeader {
+ 
+    order: -1;
+    width: 100%;
+  }
 }
 
 .imageContainer {
   margin-bottom: 1rem;
-  max-width: 300px;
+  max-width: 250px;
+}
+
+@media (min-width: 768px) {
+  .imageContainer {
+    max-width: 300px;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .decorativeImage {
   width: 100%;
   height: auto;
-  max-width: 300px;
+  max-width: 20vh;
 }
 
 .accessGrid {
@@ -516,10 +655,7 @@ rgba(0,0,0,0.2);
 }
 
 @media (min-width: 768px) {
-  .sectionHeader {
-    margin-bottom: 3rem;
-  }
-  
+
   .imageContainer {
     margin-bottom: 1.5rem;
   }
@@ -582,8 +718,13 @@ rgba(0,0,0,0.2);
 }
 
 @media (max-width: 768px) {
+    .decorativeImage {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+  }
   .accessContainer {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .accessGrid {

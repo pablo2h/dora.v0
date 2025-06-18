@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import styles from './TermsSection.module.css';
 import { termsAndConditions } from '@/data/faq';

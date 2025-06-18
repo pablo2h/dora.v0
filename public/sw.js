@@ -1,18 +1,8 @@
 const CACHE_NAME = 'dora-festival-cache-v2';
 const urlsToCache = [
   '/',
-  '/assets/images/logo-dora.png',
-  '/assets/images/logo-small.png',
-  '/assets/images/main-circle.png',
-  '/assets/images/circle-1.png',
-  '/assets/images/circle-2.png',
-  '/assets/images/circle-3.png',
-  '/assets/images/Flyer-Dora-Groove.jpg',
-  '/styles/globals.css',
-  '/prensa',
-  '/downloads/dora-logos.zip',
-  '/downloads/dora-press-kit.zip',
-  '/downloads/dora-dossier.pdf'
+  '/static/js/bundle.js',
+  '/static/css/main.css'
 ];
 
 self.addEventListener('install', (event) => {

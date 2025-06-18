@@ -1,0 +1,40 @@
+/* Sección de fondo con los componentes HeroDecorations e Interlude */
+.backgroundSection {
+ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+.blurbackground{
+    backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco más prominente */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+}
+
+/* Overlay transparente para el Welcome component */
+.welcomeOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.1); /* Fondo blanco muy sutil para el overlay */
+}
+
+/* Clase legacy mantenida por compatibilidad */
+.welcomesection {
+  position: fixed;
+}
+
+.sectionfixed {
+  position: fixed;
+}

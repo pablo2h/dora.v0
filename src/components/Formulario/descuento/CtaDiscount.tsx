@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './CtaDiscount.module.css';
+import { Span } from 'next/dist/trace';
 
 
 interface SubmitResult {
@@ -73,6 +74,13 @@ export default function CtaDiscount() {
         {submitResult ? (
           <div className={`${styles.submitResult} ${submitResult.success ? styles.success : styles.error}`}>
             <p>{submitResult.message}</p>
+            {submitResult.success && (
+              <p>
+               Cangealo -&gt; <a href="https://www.passline.com/eventos/dora-edicion-del-groove" target="_blank" rel="noopener noreferrer">Aqui</a> &lt;-  
+                 O en <a href="https://www.passline.com/eventos/dora-edicion-del-groove" target="_blank" rel="noopener noreferrer">Passline.com</a>
+              </p>
+
+            )}
             <button 
               onClick={() => setSubmitResult(null)}
               className={styles.resetButton}

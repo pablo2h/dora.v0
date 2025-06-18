@@ -9,7 +9,9 @@ export default function ArtistList() {
             <h1>Conoce las propuestas: </h1>  
             <div className={styles.artistList}>
                 {artists.map((artist) => (
-                    <ArtistCard key={artist.id} artist={artist} />
+                    <div key={artist.id} id={`artist-${artist.id}`}>
+                        <ArtistCard artist={artist} />
+                    </div>
                 ))}
             </div>
         </section>

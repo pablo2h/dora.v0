@@ -9,6 +9,7 @@
   justify-content: center;
   font-family: var(--font-poppins, 'Poppins', sans-serif);
   transition: opacity 0.8s ease-in-out;
+  background: transparent; /* Fondo completamente transparente */
 }
 
 .welcomeContainer.transitioning {
@@ -23,6 +24,7 @@
   height: 100%;
   transition: background 4s ease-in-out;
   z-index: 1;
+  opacity: 0.3; /* Reducir opacidad para mayor transparencia */
 }
 
 .floatingElements {
@@ -37,8 +39,8 @@
 
 .floatingElement {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   pointer-events: none;
   will-change: transform, opacity;
 }
@@ -287,8 +289,8 @@
   }
   
   .floatingElement {
-    width: 30px;
-    height: 30px;
+    width: 70px;
+    height: 70px;
   }
   
   .mainContent {
@@ -329,8 +331,8 @@
   }
   
   .floatingElement {
-    width: 25px;
-    height: 25px;
+    width: 45px;
+    height: 45px;
   }
   
   .mainContent {

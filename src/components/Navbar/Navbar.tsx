@@ -46,7 +46,7 @@ export default function Navbar() {
     <>
       <nav suppressHydrationWarning className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
         <div suppressHydrationWarning className={`${styles.navLogo} ${isMounted && isMenuOpen ? styles.hidden : ''}`}>
-          <Link href="/">
+          <Link href="/inicio">
             <Image
               src="/assets/images/logo-small.png"
               alt="Festival Dora"
@@ -80,13 +80,13 @@ export default function Navbar() {
 
 
        <div className={styles.navLinks}>
-        <Link href="https://www.passline.com/eventos/dora-edicion-del-groove" className={styles.abonosCta} onClick={toggleMenu}>Conseguir Abonos</Link>
+        <button className={styles.abonosCta_button}> <Link href="https://www.passline.com/eventos/dora-edicion-del-groove" className={styles.abonosCta} onClick={toggleMenu}>Conseguir Abonos</Link></button>
         <Link href="/inicio" className={styles.navLink} onClick={toggleMenu}>Inicio</Link>
         <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up</Link>
         <Link href="/entradas" className={styles.navLink} onClick={toggleMenu}>Entradas</Link>
         <Link href="/faq" className={styles.navLink} onClick={toggleMenu}>FAQ</Link>
-        <Link href="/sponsors" className={styles.navLink} onClick={toggleMenu}>Sponsors</Link>
-        <Link href="/#footer" className={styles.navLink} onClick={handleContactClick}>Contacto</Link>
+{/*         <Link href="/sponsors" className={styles.navLink} onClick={toggleMenu}>Empresas</Link>
+        <Link href="/#footer" className={styles.navLink} onClick={handleContactClick}>Contacto</Link> */}
         </div>
 
       </div>}

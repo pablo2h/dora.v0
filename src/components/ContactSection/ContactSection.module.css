@@ -1,41 +1,130 @@
 .contactContainer {
     margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.contactContainer h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.contactContainer p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666;
+    line-height: 1.6;
+    padding: 0 1rem;
 }
 
 .emailList {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+/* Lógica de colores rotativa para cada email */
+.contactEmail:nth-child(1) {
+    background: linear-gradient(135deg, var(--orange-color), #ff9a5a);
+    border-left: 5px solid var(--orange-color);
+}
+
+.contactEmail:nth-child(2) {
+    background: linear-gradient(135deg, var(--green-color), #4bc5a8);
+    border-left: 5px solid var(--green-color);
+}
+
+.contactEmail:nth-child(3) {
+    background: linear-gradient(135deg, var(--blue-color), #339bd9);
+    border-left: 5px solid var(--blue-color);
+}
+
+.contactEmail:nth-child(4) {
+    background: linear-gradient(135deg, var(--pink-color), #fda8c7);
+    border-left: 5px solid var(--pink-color);
 }
 
 .contactEmail {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contactEmail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .contactEmail:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.contactEmail:hover::before {
+    opacity: 1;
 }
 
 .emailType {
-    font-weight: 500;
-    color: var(--red-color);
-    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .contactEmail a {
-    color: var(--text-color);
+    color: white;
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
 }
 
 .contactEmail a:hover {
-    color: var(--red-color);
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .contactContainer {
+        padding: 1.5rem 1rem;
+    }
+    
+    .contactContainer h2 {
+        font-size: 1.8rem;
+    }
+    
+    .emailList {
+        padding: 0;
+        gap: 1rem;
+    }
+    
+    .contactEmail {
+        padding: 1.5rem 1rem;
+    }
+    
+    .contactEmail a {
+        font-size: 1.1rem;
+    }
 }

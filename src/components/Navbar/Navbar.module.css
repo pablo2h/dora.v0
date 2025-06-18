@@ -174,10 +174,14 @@ font-size: 1.5rem;
 text-decoration: none;
 transition: color 0.3s ease;
 }
-
-.abonosCta {
+.abonosCta_button {
+    background-color: var(--blue-color); /* Example: using blue color */
     color: var(--orange-color); /* Example: using orange color */
     font-size: 1.8rem; /* Example: slightly larger font size */
+    width: 100%; /* Example: full width */ ;
+    
+}
+.abonosCta {
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;

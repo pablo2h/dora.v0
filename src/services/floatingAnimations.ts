@@ -8,6 +8,8 @@ export interface FloatingElement {
   scale: number;
   rotation: number;
   animationDuration: number;
+  velocityX: number;
+  velocityY: number;
 }
 
 // Doras sin cabeza y elementos geométricos del directorio SVG
@@ -30,12 +32,14 @@ export class FloatingAnimationService {
         id: i,
         type: 'dora',
         svg: doraSvgs[Math.floor(Math.random() * doraSvgs.length)],
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        opacity: 0,
-        scale: 1.2 + Math.random() * 0.8, // Más grandes: de 1.2 a 2.0
+        x: Math.random() * 95, // Evitar bordes iniciales
+        y: Math.random() * 95,
+        opacity: 0.4 + Math.random() * 0.4,
+        scale: 2.5 + Math.random() * 0.8, // Escala mayor para flores más grandes
         rotation: Math.random() * 360,
-        animationDuration: 3 + Math.random() * 4
+        animationDuration: 0.033, // 30 FPS optimizado
+        velocityX: (Math.random() > 0.5 ? 1 : -1) * (0.1 + Math.random() * 0.15), // Velocidad más lenta
+        velocityY: (Math.random() > 0.5 ? 1 : -1) * (0.1 + Math.random() * 0.15)
       });
     }
     
@@ -43,13 +47,43 @@ export class FloatingAnimationService {
   }
 
   static animateElements(elements: FloatingElement[]): FloatingElement[] {
-    return elements.map(element => ({
-      ...element,
-      opacity: Math.random() > 0.3 ? 0.3 + Math.random() * 0.7 : 0,
-      x: Math.max(5, Math.min(95, element.x + (Math.random() - 0.5) * 10)),
-      y: Math.max(5, Math.min(95, element.y + (Math.random() - 0.5) * 10)),
-      rotation: element.rotation + (Math.random() - 0.5) * 30
-    }));
+    return elements.map(element => {
+      // Movimiento vectorial simple tipo DVD
+      let newX = element.x + element.velocityX;
+      let newY = element.y + element.velocityY;
+      let newVelocityX = element.velocityX;
+      let newVelocityY = element.velocityY;
+      let newSvg = element.svg;
+      
+      // Rebote en bordes horizontales (izquierda/derecha)
+      if (newX <= 0 || newX >= 95) {
+        newVelocityX = -newVelocityX; // Invertir dirección X
+        newX = newX <= 0 ? 0 : 95; // Corregir posición
+        // Cambiar por otra flor al rebotar
+        newSvg = doraSvgs[Math.floor(Math.random() * doraSvgs.length)];
+      }
+      
+      // Rebote en bordes verticales (arriba/abajo)
+      if (newY <= 0 || newY >= 95) {
+        newVelocityY = -newVelocityY; // Invertir dirección Y
+        newY = newY <= 0 ? 0 : 95; // Corregir posición
+        // Cambiar por otra flor al rebotar
+        newSvg = doraSvgs[Math.floor(Math.random() * doraSvgs.length)];
+      }
+      
+      // Rotación simple basada en velocidad (ajustada para 30 FPS)
+        const rotationChange = (newVelocityX + newVelocityY) * 1;
+      
+      return {
+        ...element,
+        x: newX,
+        y: newY,
+        svg: newSvg,
+        rotation: element.rotation + rotationChange,
+        velocityX: newVelocityX,
+        velocityY: newVelocityY
+      };
+    });
   }
 
   static getBackgroundColors(): string[] {
@@ -71,6 +105,12 @@ export class FloatingAnimationService {
   }
 
   static createSolidBackground(colors: string[], currentIndex: number): string {
-    return colors[currentIndex];
+    // Convertir color hex a rgba con 10% de opacidad
+    const color = colors[currentIndex];
+    const hex = color.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    return `rgba(${r}, ${g}, ${b}, 1)`;
   }
 }
