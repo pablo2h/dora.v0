@@ -2,6 +2,9 @@
 .sponsorshipSection {
   padding: 4rem 0;
   background: var(--background);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .container {
@@ -20,14 +23,14 @@
   font-family: var(--font-primary);
   font-size: 2.5rem;
   font-weight: bold;
-  color: var(--text-color);
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
 }
 
 .description {
   font-family: var(--font-text);
   font-size: 1.25rem;
-  color: var(--text-color);
+  color: var(--text-secondary);
   max-width: 48rem;
   margin: 0 auto;
 }
@@ -46,50 +49,61 @@
   border-radius: 0.75rem;
   font-family: var(--font-secondary);
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
 }
 
 .categoryButton.active {
-  background: var(--orange-color);
-  color: white;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-lg);
 }
 
 .categoryButton:not(.active) {
-  background: white;
-  color: var(--text-color);
+  background: var(--background-card);
+  color: var(--text-secondary);
 }
 
 .categoryButton:hover:not(.active) {
-  background: var(--orange-color);
-  color: white;
-  opacity: 0.9;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Grid de planes */
 .plansGrid {
-    display: flex ;
-    flex-wrap: wrap;
-     justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Tarjeta de plan */
 .planCard {
-  background: white;
+  background: var(--background-card);
   border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  border: 3px solid var(--border-color); /* Borde más grueso para mejor visibilidad */
+  position: relative;
 }
 
 .planCard:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  /* Removemos border-color: var(--primary-color); para que use el color dinámico */
 }
 
 .highlightBadge {
-  background: var(--orange-color);
-  color: white;
+  /* Removemos background: var(--orange-color); para usar color dinámico */
+  color: var(--dora-white);
   text-align: center;
   padding: 0.5rem;
   font-family: var(--font-secondary);
@@ -104,13 +118,14 @@
   font-family: var(--font-secondary);
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--text-color);
+  /* Removemos color: var(--text-primary); para usar color dinámico */
   margin-bottom: 0.5rem;
+  transition: color var(--transition-normal);
 }
 
 .planDescription {
   font-family: var(--font-text);
-  color: var(--text-color);
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
 
@@ -121,13 +136,21 @@
 .discountPrice {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--green-color);
+  /* Removemos color: var(--green-color); para usar color dinámico */
+  transition: color var(--transition-normal);
+}
+
+.discountBadge {
+  font-size: 0.875rem;
+  /* Removemos color: var(--green-color); para usar color dinámico */
+  font-weight: 600;
+  transition: color var(--transition-normal);
 }
 
 .originalPrice {
   font-size: 1.25rem;
   text-decoration: line-through;
-  color: #6B7280;
+  color: var(--text-secondary);
   margin-left: 0.5rem;
 }
 
@@ -149,40 +172,48 @@
 }
 
 .featureIcon {
-  background: var(--green-color);
-  color: white;
+  /* Removemos background: var(--green-color); para usar color dinámico */
+  color: var(--dora-white);
   border-radius: 50%;
   padding: 0.25rem;
   flex-shrink: 0;
+  transition: background-color var(--transition-normal);
 }
 
 .featureText {
   font-family: var(--font-text);
-  color: var(--text-color);
+  color: var(--text-primary);
   font-size: 0.875rem;
 }
 
 .actionButton {
   width: 100%;
-  background: var(--orange-color);
-  color: white;
+  /* Removemos background: var(--primary-color); para usar color dinámico */
+  color: var(--dora-white);
   padding: 0.75rem;
   border-radius: 0.75rem;
   font-family: var(--font-secondary);
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: all var(--transition-normal);
+  border: none;
+  cursor: pointer;
 }
 
 .actionButton:hover {
+  /* Removemos background: var(--green-dark-color); para mantener el color dinámico */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
   opacity: 0.9;
 }
 
 /* Servicios adicionales */
 .additionalServices {
-  background: white;
+  background: var(--background-card);
   border-radius: 1.25rem;
   padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+  margin-top: 4rem;
+  border-top: 2px solid var(--border-color);
 }
 
 .servicesGrid {
@@ -191,23 +222,26 @@
 }
 
 .serviceCard {
-  border: 1px solid #E5E7EB;
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  transition: box-shadow 0.3s ease;
+  transition: all var(--transition-normal);
 }
 
 .serviceCard:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
 }
 
 /* Opciones de pago */
 .paymentOptions {
   margin-top: 3rem;
-  background: linear-gradient(to right, var(--green-color), var(--blue-color));
+  background: var(--background-secondary);
   border-radius: 1.25rem;
   padding: 2rem;
-  color: white;
+  text-align: center;
 }
 
 .paymentGrid {
@@ -220,7 +254,8 @@
 }
 
 .paymentIcon {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -237,26 +272,28 @@
 }
 
 .ctaCard {
-  background: var(--orange-color);
-  color: white;
+  background: var(--primary-color);
+  color: var(--text-inverse);
   border-radius: 1.25rem;
   padding: 2rem;
 }
 
 .ctaButton {
-  background: white;
-  color: var(--orange-color);
+  background: var(--background-card);
+  color: var(--primary-color);
   padding: 0.75rem 2rem;
   border-radius: 0.75rem;
   font-family: var(--font-secondary);
   font-weight: 600;
   display: inline-block;
   margin-top: 1.5rem;
-  transition: background-color 0.3s ease;
+  transition: all var(--transition-normal);
+  text-decoration: none;
 }
 
 .ctaButton:hover {
-  background: #f3f4f6;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Responsive */

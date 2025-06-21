@@ -6,7 +6,7 @@ h1.ppp {
 }
 .festivalInfo {
   padding: 4rem 0;
-  background: #f4f4f4;
+  background: var(--background);
 }
 
 .container {
@@ -39,8 +39,8 @@ h1.ppp {
   border-radius: 15px;
   padding: 1.5rem;
   display: inline-block;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-lg);
 }
 
 .dateText {
@@ -64,10 +64,10 @@ h1.ppp {
 }
 
 .infoCard {
-  background: var(--background);
+  background: var(--background-card);
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .cardTitle {
@@ -88,11 +88,11 @@ h1.ppp {
 }
 
 .audienceItem {
-  background: white;
+  background: var(--background-card);
   border-radius: 12px;
   padding: 1rem;
   border-left: 4px solid var(--blue-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
 }
 
 .audienceItem:nth-child(2) {
@@ -112,7 +112,7 @@ h1.ppp {
 
 .audienceItemDescription {
   font-family: var(--font-text);
-  color: #6B7280;
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -131,7 +131,7 @@ h1.ppp {
 
 .experienceIcon {
   background: var(--blue-color);
-  color: white;
+  color: var(--text-inverse);
   border-radius: 50%;
   padding: 0.5rem;
   margin-top: 0.25rem;
@@ -152,13 +152,14 @@ h1.ppp {
 
 .experienceContent p {
   font-family: var(--font-text);
-  color: #6B7280;
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
 /* Características Especiales */
 .specialFeatures {
-  background: linear-gradient(to right, rgb(238, 242, 255), rgb(250, 245, 255));
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   padding: 2rem;
   margin-bottom: 3rem;
@@ -188,7 +189,8 @@ h1.ppp {
 }
 
 .featureIcon {
-  background: white;
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
@@ -211,7 +213,7 @@ h1.ppp {
 
 .featureDescription {
   font-family: var(--font-text);
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 /* Call to Action */
@@ -221,7 +223,7 @@ h1.ppp {
 
 .ctaCard {
   background: var(--blue-color);
-  color: white;
+  color: var(--text-inverse);
   border-radius: 0.75rem;
   padding: 2rem;
 }
@@ -243,18 +245,19 @@ h1.ppp {
 }
 
 .ctaButton {
-  background: white;
+  background: var(--background-card);
   color: var(--blue-color);
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  transition: background-color 0.3s ease;
+  transition: var(--transition-normal);
 }
 
 .ctaButton:hover {
-  background: #f3f4f6;
+  background: var(--background);
+  transform: translateY(-2px);
 }
 
 /* Responsive Design */

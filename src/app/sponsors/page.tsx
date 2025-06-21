@@ -2,6 +2,8 @@ import FestivalInfo from '@/components/FestivalInfo/FestivalInfo';
 import SponsorshipPlans from '@/components/SponsorshipPlans/SponsorshipPlans';
 import SponsorsForm from '@/components/Formulario/SponsorsForm/SponsorsForm';
 import Sponsors from '@/components/Sponsors';
+import PDFViewer from '@/components/PDFViewer';
+import { pdfDocuments } from '@/data/pdfDocuments';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -28,48 +30,14 @@ export default function SponsorsPage() {
             <p className="body-text">
               Conecta tu marca con una experiencia cultural única en Paraná, Entre Ríos
             </p>
-            <div className={styles.heroActions}>
-              <a href="#planes" className={styles.primaryButton}>
-                📋 Ver Planes
-              </a>
-              <a href="#que-es-dora" className={styles.secondaryButton}>
-                📖 ¿Qué es DORA?
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ¿Qué es DORA? */}
-      <section id="que-es-dora" className="section-block">
-        <div className={styles.container}>
-          <h2 className="section-title">¿Qué es el Festival DORA?</h2>
-          <div className={styles.doraInfo}>
-            <div className={styles.doraCard}>
-              <p className="body-text">
-                Descarga nuestro dossier completo para conocer más sobre el festival, 
-                su historia, alcance y oportunidades de patrocinio.
-              </p>
-              <div className={styles.downloadActions}>
-                <a 
-                  href="/downloads/Que es FestivalDora.pdf" 
-                  target="_blank"
-                  className={styles.downloadButton}
-                >
-                  📄 Descargar Dossier
-                </a>
-                <a 
-                  href="/downloads/dora-dossier.pdf" 
-                  target="_blank"
-                  className={styles.downloadButton}
-                >
-                  📊 Información Completa
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* PDF Documents Viewer */}
+      <div id="documentos">
+        <PDFViewer documents={pdfDocuments} defaultTab="info" />
+      </div>
 
       {/* Festival Information */}
       <FestivalInfo />
@@ -85,28 +53,6 @@ export default function SponsorsPage() {
       {/* Sponsorship Plans */}
       <section id="planes" className="section-block">
         <div className={styles.container}>
-          <h2 className="section-title">Planes de Patrocinio</h2>
-          <div className={styles.plansInfo}>
-            <p className="body-text">
-              Descarga nuestra propuesta completa con todos los detalles, precios y beneficios.
-            </p>
-            <div className={styles.downloadActions}>
-              <a 
-                href="/downloads/Planilla Precios Dora 2025.pdf" 
-                target="_blank"
-                className={styles.downloadButton}
-              >
-                💰 Planilla de Precios
-              </a>
-              <a 
-                href="/downloads/Tipos de sponsor Dora 2025.pdf" 
-                target="_blank"
-                className={styles.downloadButton}
-              >
-                📋 Tipos de Sponsor
-              </a>
-            </div>
-          </div>
           <SponsorshipPlans />
         </div>
       </section>

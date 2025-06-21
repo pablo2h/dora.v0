@@ -112,9 +112,11 @@ export default function WelcomeComponent({
 
       {/* Contenido principal */}
       <div className={styles.mainContent}>
-        <h1 className={styles.welcomeTitle}>
-          {title}
-        </h1>
+        <div className={styles.textBox}>
+          <h1 className={styles.welcomeTitle}>
+            {title}
+          </h1>
+        </div>
         
         <div className={styles.logoContainer}>
           <Image 
@@ -129,8 +131,12 @@ export default function WelcomeComponent({
         </div>
         
         <div className={styles.eventInfo}>
-          <p className={styles.date}>{date}</p>
-          <p className={styles.location}>{location}</p>
+          <div className={styles.textBox}>
+            <p className={styles.date}>{date}</p>
+          </div>
+          <div className={styles.textBox}>
+            <p className={styles.location}>{location}</p>
+          </div>
         </div>
         
         <button 

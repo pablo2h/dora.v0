@@ -1,166 +1,43 @@
 'use client';
-import { useState } from 'react';
 import styles from './SponsorshipPlans.module.css';
-
-interface SponsorshipPlan {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-  discountPrice?: string;
-  features: string[];
-  highlighted?: boolean;
-  category: 'individual' | 'festival' | 'physical' | 'digital' | 'additional';
-}
-
-const sponsorshipPlans: SponsorshipPlan[] = [
-  {
-    id: 'individual',
-    title: 'Sponsor Individual',
-    description: 'Visibilidad directa durante el evento',
-    price: '$100.000 ARS',
-    discountPrice: '$80.000 ARS',
-    category: 'individual',
-    features: [
-      'Logo en pantallas del evento',
-      'Segmentación por rubro',
-      'Personalización con audio propio',
-      'Rotación constante durante el evento'
-    ]
-  },
-  {
-    id: 'oro',
-    title: 'Categoría Oro',
-    description: 'Acompañamiento integral completo',
-    price: '$50.000 ARS',
-    discountPrice: '$40.000 ARS',
-    category: 'festival',
-    highlighted: true,
-    features: [
-      'Presencia completa (previa, durante y post-evento)',
-      'Inclusión en flyer físico',
-      'Contenido audiovisual en YouTube',
-      'Espacio web dedicado',
-      'Acompañamiento en Instagram',
-      'Presentación oral en streaming',
-      'Visibilidad extendida hasta noviembre 2025'
-    ]
-  },
-  {
-    id: 'rio',
-    title: 'Categoría Río',
-    description: 'Presencia destacada en el festival',
-    price: '$250.000 ARS',
-    discountPrice: '$200.000 ARS',
-    category: 'festival',
-    features: [
-      'Logos en tandas durante el evento',
-      'Locución publicitaria en vivo',
-      'Campaña de redes sociales',
-      'Logo en la web oficial',
-      'Presentación oral en streaming',
-      'Visibilidad extendida hasta noviembre 2025'
-    ]
-  },
-  {
-    id: 'stands',
-    title: 'Stands Exclusivos',
-    description: 'Presencia física en la plaza',
-    price: '$250.000 ARS',
-    discountPrice: '$200.000 ARS',
-    category: 'physical',
-    features: [
-      'Puesto o stand interactivo en la plaza',
-      'Logo en la web oficial',
-      'Post dedicado en redes sociales',
-      'Coordinación directa personalizada',
-      'Interacción directa con el público'
-    ]
-  },
-  {
-    id: 'shows',
-    title: 'Patrocinio de Shows',
-    description: 'Asociación directa con artistas',
-    price: '$180.000 ARS',
-    discountPrice: '$144.000 ARS',
-    category: 'physical',
-    features: [
-      'Presentación exclusiva de show específico',
-      'Visibilidad preferencial en pantallas',
-      'Co-presentación en post-producción',
-      'Asociación de imagen con cultura y música',
-      'Videos individuales co-presentados'
-    ]
-  },
-  {
-    id: 'digital',
-    title: 'Sponsor Digital',
-    description: 'Presencia exclusivamente online',
-    price: '$150.000 ARS',
-    discountPrice: '$120.000 ARS',
-    category: 'digital',
-    features: [
-      'Logo en sección de sponsors web',
-      'Banners en secciones clave',
-      'Publicación dedicada en RRSS',
-      'Publicación colaborativa con Ads',
-      'Video acción con la marca',
-      'Permanencia digital hasta septiembre'
-    ]
-  }
-];
-
-const additionalServices = [
-  {
-    title: 'Publicidad Streaming',
-    price: '$10.000 ARS',
-    discountPrice: '$8.000 ARS',
-    features: ['Logo en transmisión en vivo', 'Audio publicitario', 'Rotación cada 30 segundos']
-  },
-  {
-    title: 'Publicidad Website',
-    price: '$50.000 ARS',
-    discountPrice: '$40.000 ARS',
-    features: ['Logo en sección sponsors', 'Banners web', 'Formatos optimizados']
-  },
-  {
-    title: 'Publicidad RRSS',
-    price: '$50.000 ARS',
-    discountPrice: '$40.000 ARS',
-    features: ['Publicación exclusiva', 'Diseño profesional', 'Alcance orgánico']
-  },
-  {
-    title: 'Video Acción Marca',
-    price: '$70.000 ARS',
-    discountPrice: '$56.000 ARS',
-    features: ['Desarrollo de acción publicitaria', 'Grabación profesional', 'Publicación en RRSS']
-  }
-];
+import { 
+  sponsorshipPlans, 
+  sponsorshipCategories,
+  sortPlansByCategory,
+  type SponsorshipPlan 
+} from '@/data/sponsorshipPlans';
+import { useCategoryFilter } from '@/hooks/useFilter';
 
 export default function SponsorshipPlans() {
-  const [activeCategory, setActiveCategory] = useState<string>('festival'); // Cambiado a 'festival' por defecto
-
-  const categories = [
-    { id: 'festival', name: 'Sponsors del Festival' },
-    { id: 'individual', name: 'Sponsors Individuales' },
-    { id: 'physical', name: 'Presencia Física' },
-    { id: 'digital', name: 'Solo Digital' },
-    { id: 'all', name: 'Todos los Planes' }
+  // Colores del festival DORA para las tarjetas
+  const festivalColors = [
+    { border: 'var(--dora-pink)', text: 'var(--dora-pink)', accent: 'var(--dora-pink)' },
+    { border: 'var(--dora-blue)', text: 'var(--dora-blue)', accent: 'var(--dora-blue)' },
+    { border: 'var(--dora-green)', text: 'var(--dora-green)', accent: 'var(--dora-green)' },
+    { border: 'var(--dora-orange)', text: 'var(--dora-orange)', accent: 'var(--dora-orange)' },
+    { border: 'var(--dora-yellow)', text: 'var(--dora-yellow)', accent: 'var(--dora-yellow)' },
+    { border: 'var(--dora-red)', text: 'var(--dora-red)', accent: 'var(--dora-red)' },
+    { border: 'var(--dora-light-blue)', text: 'var(--dora-light-blue)', accent: 'var(--dora-light-blue)' }
   ];
 
-  // Reordenar los planes para mostrar primero los del festival
-  const sortedPlans = [...sponsorshipPlans].sort((a, b) => {
-    if (a.category === 'festival' && b.category !== 'festival') return -1;
-    if (a.category !== 'festival' && b.category === 'festival') return 1;
-    return 0;
+  // Función para obtener el color según el índice
+  const getCardColor = (index: number) => {
+    return festivalColors[index % festivalColors.length];
+  };
+
+  // Usar el hook de filtros con la configuración específica para sponsorships
+  const {
+    activeFilter: activeCategory,
+    setActiveFilter: setActiveCategory,
+    filteredItems: filteredPlans,
+    categories
+  } = useCategoryFilter({
+    items: sponsorshipPlans,
+    categories: sponsorshipCategories,
+    filterKey: 'category',
+    defaultFilter: 'festival',
+    sortFunction: sortPlansByCategory
   });
-
-  const filteredPlans = activeCategory === 'all' 
-    ? sortedPlans
-    : sortedPlans.filter(plan => plan.category === activeCategory);
-
-  // Determinar si mostrar servicios adicionales
-  const showAdditionalServices = activeCategory === 'individual' || activeCategory === 'all';
 
   return (
     <section id="planes" className={styles.sponsorshipSection}>
@@ -187,80 +64,88 @@ export default function SponsorshipPlans() {
           ))}
         </div>
 
-        {/* Plans Grid */}
+        {/* Plans Grid - Ahora con colores dinámicos */}
         <div className={styles.plansGrid}>
-          {filteredPlans.map((plan) => (
-            <div key={plan.id} className={styles.planCard}>
-              {plan.highlighted && (
-                <div className={styles.highlightBadge}>⭐ MÁS POPULAR</div>
-              )}
-              
-              <div className={styles.planContent}>
-                <h3 className={styles.planTitle}>{plan.title}</h3>
-                <p className={styles.planDescription}>{plan.description}</p>
-                
-                <div className={styles.priceContainer}>
-                  <div className={styles.priceWrapper}>
-                    {plan.discountPrice && (
-                      <span className={styles.discountPrice}>{plan.discountPrice}</span>
-                    )}
-                    <span className={plan.discountPrice ? styles.originalPrice : styles.discountPrice}>
-                      {plan.price}
-                    </span>
+          {filteredPlans.map((plan, index) => {
+            const cardColor = getCardColor(index);
+            return (
+              <div 
+                key={plan.id} 
+                className={styles.planCard}
+                style={{
+                  borderColor: cardColor.border,
+                  borderWidth: '3px'
+                }}
+              >
+                {plan.highlighted && (
+                  <div 
+                    className={styles.highlightBadge}
+                    style={{ backgroundColor: cardColor.accent }}
+                  >
+                    ⭐ MÁS POPULAR
                   </div>
-                  {plan.discountPrice && (
-                    <p className={styles.discountBadge}>¡20% de descuento!</p>
-                  )}
-                </div>
+                )}
                 
-                <ul className={styles.featuresList}>
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className={styles.featureItem}>
-                      <div className={styles.featureIcon}>
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                        </svg>
-                      </div>
-                      <span className={styles.featureText}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button className={styles.actionButton}>Solicitar Información</button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Additional Services - Solo se muestra en la sección de sponsors individuales */}
-        {showAdditionalServices && (
-          <div className={styles.additionalServices}>
-            <h3 className={styles.title}>Servicios Adicionales para Sponsors Individuales</h3>
-            <p className={styles.description}>
-              Opciones complementarias para potenciar tu presencia individual en el festival
-            </p>
-            
-            <div className={styles.servicesGrid}>
-              {additionalServices.map((service, index) => (
-                <div key={index} className={styles.serviceCard}>
-                  <h4 className={styles.planTitle}>{service.title}</h4>
+                <div className={styles.planContent}>
+                  <h3 
+                    className={styles.planTitle}
+                    style={{ color: cardColor.text }}
+                  >
+                    {plan.title}
+                  </h3>
+                  <p className={styles.planDescription}>{plan.description}</p>
+                  
                   <div className={styles.priceContainer}>
-                    <span className={styles.discountPrice}>{service.discountPrice}</span>
-                    <span className={styles.originalPrice}>{service.price}</span>
+                    <div className={styles.priceWrapper}>
+                      {plan.discountPrice && (
+                        <span 
+                          className={styles.discountPrice}
+                          style={{ color: cardColor.accent }}
+                        >
+                          {plan.discountPrice}
+                        </span>
+                      )}
+                      <span className={plan.discountPrice ? styles.originalPrice : styles.discountPrice}>
+                        {plan.price}
+                      </span>
+                    </div>
+                    {plan.discountPrice && (
+                      <p 
+                        className={styles.discountBadge}
+                        style={{ color: cardColor.accent }}
+                      >
+                        ¡20% de descuento!
+                      </p>
+                    )}
                   </div>
+                  
                   <ul className={styles.featuresList}>
-                    {service.features.map((feature, featureIndex) => (
+                    {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className={styles.featureItem}>
-                        <span className={styles.featureIcon}>•</span>
+                        <div 
+                          className={styles.featureIcon}
+                          style={{ backgroundColor: cardColor.accent }}
+                        >
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                          </svg>
+                        </div>
                         <span className={styles.featureText}>{feature}</span>
                       </li>
                     ))}
                   </ul>
+                  
+                  <button 
+                    className={styles.actionButton}
+                    style={{ backgroundColor: cardColor.accent }}
+                  >
+                    Solicitar Información
+                  </button>
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
+              </div>
+            );
+          })}
+        </div>
 
         {/* Payment Options */}
         <div className={styles.paymentOptions}>

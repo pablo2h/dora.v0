@@ -3,7 +3,7 @@ import { DynaPuff, Baloo_2, Poppins } from 'next/font/google'
 import ConditionalLayout from '@/components/ConditionalLayout/ConditionalLayout'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
 import '../styles/globals.css'
-
+import { Analytics } from "@vercel/analytics/next"
 const dynaPuff = DynaPuff({
   subsets: ['latin'],
   weight: ['400', '700'],
