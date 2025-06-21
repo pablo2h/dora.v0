@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -56,16 +57,18 @@ export default function Navbar() {
             />
           </Link>
         </div>
-        {isMounted && (
-          <button 
-            suppressHydrationWarning
-            className={styles.menuToggle}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span className={styles.hamburger}></span>
-          </button>
-        )}
+        <div className={styles.navControls}>
+          {isMounted && (
+            <button 
+              suppressHydrationWarning
+              className={styles.menuToggle}
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              <span className={styles.hamburger}></span>
+            </button>
+          )}
+        </div>
       </nav>
 
       {isMounted && <div suppressHydrationWarning className={`${styles.navPanel} ${isMenuOpen ? styles.open : ''}`}>
@@ -80,6 +83,9 @@ export default function Navbar() {
 
 
        <div className={styles.navLinks}>
+        <div className={styles.themeToggleContainer}>
+          {isMounted && <ThemeToggle size="large" />}
+        </div>
         <button className={styles.abonosCta_button}> <Link href="https://www.passline.com/eventos/dora-edicion-del-groove" className={styles.abonosCta} onClick={toggleMenu}>Conseguir Abonos</Link></button>
         <Link href="/inicio" className={styles.navLink} onClick={toggleMenu}>Inicio</Link>
         <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up</Link>

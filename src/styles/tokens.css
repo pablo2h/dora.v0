@@ -1,0 +1,255 @@
+/* Design Tokens - Valores de diseño centralizados */
+:root {
+  /* Paleta de colores DORA - Festival */
+  --dora-pink: #FC95BB;
+  --dora-yellow: #F5C92B;
+  --dora-orange: #FA8632;
+  --dora-red: #F05B31;
+  --dora-blue: #0083CF;
+  --dora-light-blue: #80C7D9;
+  --dora-green: #2DB092;
+  --dora-black: #000000;
+  --dora-white: #F7F5F6;
+
+  /* Colores principales del proyecto basados en DORA */
+  --primary-color: var(--dora-green);
+  --green-color: var(--dora-green);
+  --green-light-color: #4bc5a8;
+  --green-dark-color: #259a7a;
+  --blue-color: var(--dora-blue);
+  --pink-color: var(--dora-pink);
+  --orange-color: var(--dora-orange);
+  --yellow-color: var(--dora-yellow);
+  --red-color: var(--dora-red);
+
+  /* Colores de fondo */
+  --background: var(--dora-white);
+  --background-primary: var(--dora-white);
+  --background-light: var(--dora-white);
+  --background-dark: var(--dora-black);
+  --background-card: var(--dora-white);
+  
+  /* Colores para inputs y formularios */
+  --input-bg: white;
+  --border-color: #d1d5db;
+  
+  /* Colores alpha para focus states */
+  --green-color-alpha: rgba(45, 176, 146, 0.2);
+  --blue-color-alpha: rgba(0, 131, 207, 0.2);
+  --error-color-alpha: rgba(239, 68, 68, 0.2);
+  
+  /* Colores de estado */
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --success-bg: #f0fdf4;
+  --success-border: #bbf7d0;
+  --error-bg: #fef2f2;
+  --error-border: #fecaca;
+
+  /* Colores de texto */
+  --text-primary: var(--dora-black);
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-light: var(--dora-white);
+  --text-color: var(--dora-black);
+  
+  /* Nota: No se usan gradientes por decisión de diseño */
+  
+  /* Espaciados */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 2.5rem;    /* 40px */
+  --spacing-3xl: 3rem;      /* 48px */
+  --spacing-4xl: 4rem;      /* 64px */
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;     /* 4px */
+  --radius-md: 0.5rem;      /* 8px */
+  --radius-lg: 0.75rem;     /* 12px */
+  --radius-xl: 1rem;        /* 16px */
+  --radius-2xl: 1.25rem;    /* 20px */
+  --radius-3xl: 1.5rem;     /* 24px */
+  --radius-full: 50%;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-theme: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  
+  /* Tipografía */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem;  /* 36px */
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* Breakpoints (para uso en media queries) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Tema Oscuro - Modo Noche DORA */
+.dark-theme {
+  /* Reutilizamos los colores base DORA con ajustes de luminosidad */
+  --primary-color: #259A7A;
+  --green-color: #259A7A;
+  --green-light-color: #4bc5a8;
+  --green-dark-color: #1f7a5f;
+  --blue-color: #0074B8;
+  --pink-color: #E8739A;
+  --orange-color: #E67428;
+  --yellow-color: #E6B91F;
+  --red-color: #D94A26;
+  --light-blue-color: #6BB5C7;
+
+  /* Fondos optimizados para modo oscuro */
+  --background: #1A1A1A;
+  --background-primary: #1A1A1A;
+  --background-light: #2A2A2A;
+  --background-dark: #0F0F0F;
+  --background-card: #2A2A2A;
+  --background-elevated: #333333;
+  
+  /* Colores para inputs y formularios en modo oscuro */
+  --input-bg: #2A2A2A;
+  --border-color: rgba(255, 255, 255, 0.2);
+  
+  /* Colores alpha para focus states en modo oscuro */
+  --green-color-alpha: rgba(37, 154, 122, 0.3);
+  --blue-color-alpha: rgba(0, 116, 184, 0.3);
+  --error-color-alpha: rgba(217, 74, 38, 0.3);
+  
+  /* Colores de estado en modo oscuro */
+  --success-color: #22c55e;
+  --error-color: #f87171;
+  --success-bg: rgba(34, 197, 94, 0.1);
+  --success-border: rgba(34, 197, 94, 0.3);
+  --error-bg: rgba(248, 113, 113, 0.1);
+  --error-border: rgba(248, 113, 113, 0.3);
+
+  /* Textos optimizados para modo oscuro */
+  --text-primary: #E5E5E5;
+  --text-secondary: #B0B0B0;
+  --text-muted: #808080;
+  --text-light: #1A1A1A;
+  --text-color: #E5E5E5;
+  --text-inverse: #FFFFFF;
+
+  /* Bordes y divisores */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --divider-color: rgba(255, 255, 255, 0.1);
+
+  /* Sombras adaptadas para modo oscuro */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* Utility classes basadas en tokens */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-light { color: var(--text-light); }
+
+.bg-primary { background-color: var(--primary-color); }
+.bg-green { background-color: var(--green-color); }
+.bg-blue { background-color: var(--blue-color); }
+.bg-orange { background-color: var(--orange-color); }
+.bg-pink { background-color: var(--pink-color); }
+.bg-yellow { background-color: var(--yellow-color); }
+
+/* Clases de utilidad con paleta DORA */
+.bg-dora-pink { background-color: var(--dora-pink); }
+.bg-dora-yellow { background-color: var(--dora-yellow); }
+.bg-dora-orange { background-color: var(--dora-orange); }
+.bg-dora-red { background-color: var(--dora-red); }
+.bg-dora-blue { background-color: var(--dora-blue); }
+.bg-dora-light-blue { background-color: var(--dora-light-blue); }
+.bg-dora-green { background-color: var(--dora-green); }
+.bg-dora-black { background-color: var(--dora-black); }
+.bg-dora-white { background-color: var(--dora-white); }
+
+.text-dora-pink { color: var(--dora-pink); }
+.text-dora-yellow { color: var(--dora-yellow); }
+.text-dora-orange { color: var(--dora-orange); }
+.text-dora-red { color: var(--dora-red); }
+.text-dora-blue { color: var(--dora-blue); }
+.text-dora-light-blue { color: var(--dora-light-blue); }
+.text-dora-green { color: var(--dora-green); }
+.text-dora-black { color: var(--dora-black); }
+.text-dora-white { color: var(--dora-white); }
+
+.border-dora-pink { border-color: var(--dora-pink); }
+.border-dora-yellow { border-color: var(--dora-yellow); }
+.border-dora-orange { border-color: var(--dora-orange); }
+.border-dora-red { border-color: var(--dora-red); }
+.border-dora-blue { border-color: var(--dora-blue); }
+.border-dora-light-blue { border-color: var(--dora-light-blue); }
+.border-dora-green { border-color: var(--dora-green); }
+.border-dora-black { border-color: var(--dora-black); }
+.border-dora-white { border-color: var(--dora-white); }
+
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+.m-xs { margin: var(--spacing-xs); }
+.m-sm { margin: var(--spacing-sm); }
+.m-md { margin: var(--spacing-md); }
+.m-lg { margin: var(--spacing-lg); }
+.m-xl { margin: var(--spacing-xl); }
+
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+.transition-fast { transition: var(--transition-fast); }
+.transition-normal { transition: var(--transition-normal); }
+.transition-slow { transition: var(--transition-slow); }

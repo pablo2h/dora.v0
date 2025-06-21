@@ -11,11 +11,11 @@
 }
 .blurbackground{
     backdrop-filter: blur(15px);
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco más prominente */
     width: 100vw;
     height: 100vh;
     position: fixed;
     z-index: 2;
+    transition: background-color var(--transition-normal);
 }
 
 /* Overlay transparente para el Welcome component */
@@ -27,7 +27,13 @@
   height: 100vh;
   z-index: 10;
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.1); /* Fondo blanco muy sutil para el overlay */
+  background: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition-normal);
+}
+
+/* Modo oscuro para el overlay */
+:global(.dark-theme) .welcomeOverlay {
+  background: rgba(26, 26, 26, 0.1);
 }
 
 /* Clase legacy mantenida por compatibilidad */

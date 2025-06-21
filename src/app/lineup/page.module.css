@@ -1,8 +1,9 @@
 .lineupPage {
     padding-top: 8rem;
-    background: #f5f5f5;
+    background: var(--background);
     scroll-padding-top: 2rem; /* Add padding for fixed headers if any */
     scroll-behavior: smooth;
+    transition: background-color var(--transition-normal);
 }
 
 .lineupPage h1 {

@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './Tickets.module.css';
 import { tickets, combos, updateTicketAvailability } from '@/data/tickets';
+import { useSwipeGesture } from '@/hooks/useSwipeGesture';
 const PASSLINE_URL = "https://www.passline.com/eventos/dora-edicion-del-groove";
 const AUTO_PLAY_INTERVAL = 5000; // 5 segundos
 
@@ -25,20 +26,69 @@ export default function Tickets() {
   const updatedTickets = updateTicketAvailability(tickets);
   const updatedCombos = updateTicketAvailability(combos);
   
-  const visibleTickets = updatedTickets.filter(ticket => ticket.availability.isVisible);
-  const visibleCombos = updatedCombos.filter(combo => combo.availability.isVisible);
+  const filteredIndividualTickets = updatedTickets.filter(ticket => ticket.availability.isVisible);
+  const filteredComboTickets = updatedCombos.filter(combo => combo.availability.isVisible);
 
   const nextTicket = useCallback(() => {
     if (activeFilter === 'individual') {
       setCurrentTicketIndex((prevIndex) => 
-        prevIndex === visibleTickets.length - 1 ? 0 : prevIndex + 1
+        prevIndex === filteredIndividualTickets.length - 1 ? 0 : prevIndex + 1
       );
     } else {
       setCurrentComboIndex((prevIndex) => 
-        prevIndex === visibleCombos.length - 1 ? 0 : prevIndex + 1
+        prevIndex === filteredComboTickets.length - 1 ? 0 : prevIndex + 1
       );
     }
-  }, [activeFilter, visibleTickets.length, visibleCombos.length]);
+  }, [activeFilter, filteredIndividualTickets.length, filteredComboTickets.length]);
+
+  const prevTicket = useCallback(() => {
+    if (activeFilter === 'individual') {
+      setCurrentTicketIndex((prevIndex) => 
+        prevIndex === 0 ? filteredIndividualTickets.length - 1 : prevIndex - 1
+      );
+    } else {
+      setCurrentComboIndex((prevIndex) => 
+        prevIndex === 0 ? filteredComboTickets.length - 1 : prevIndex - 1
+      );
+    }
+  }, [activeFilter, filteredIndividualTickets.length, filteredComboTickets.length]);
+
+  // Hooks para gestos de swipe - uno para cada carousel
+  const { elementRef: individualSwipeRef } = useSwipeGesture({
+    onSwipeLeft: () => {
+      if (activeFilter === 'individual') {
+        setCurrentTicketIndex((prevIndex) => 
+          prevIndex === filteredIndividualTickets.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    },
+    onSwipeRight: () => {
+      if (activeFilter === 'individual') {
+        setCurrentTicketIndex((prevIndex) => 
+          prevIndex === 0 ? filteredIndividualTickets.length - 1 : prevIndex - 1
+        );
+      }
+    },
+    minSwipeDistance: 50
+  });
+
+  const { elementRef: comboSwipeRef } = useSwipeGesture({
+    onSwipeLeft: () => {
+      if (activeFilter === 'grupal') {
+        setCurrentComboIndex((prevIndex) => 
+          prevIndex === filteredComboTickets.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    },
+    onSwipeRight: () => {
+      if (activeFilter === 'grupal') {
+        setCurrentComboIndex((prevIndex) => 
+          prevIndex === 0 ? filteredComboTickets.length - 1 : prevIndex - 1
+        );
+      }
+    },
+    minSwipeDistance: 50
+  });
 
   useEffect(() => {
     const timer = setInterval(nextTicket, AUTO_PLAY_INTERVAL);
@@ -50,7 +100,7 @@ export default function Tickets() {
     setCurrentComboIndex(0);
   }, [activeFilter]);
 
-  const TicketCard = ({ ticket, isCombo = false }: { ticket: TicketProps, isCombo?: boolean }) => (
+  const TicketCard = ({ ticket, isCombo = false, isActive = true }: { ticket: TicketProps, isCombo?: boolean, isActive?: boolean }) => (
     <div 
       className={`
         ${styles.ticketCard} 
@@ -124,7 +174,7 @@ export default function Tickets() {
           <>
             {/* Desktop: Grid layout */}
             <div className={styles.ticketsGridDesktop}>
-              {visibleTickets.map((ticket, index) => (
+              {filteredIndividualTickets.map((ticket, index) => (
                 <TicketCard key={index} ticket={ticket} />
               ))}
             </div>
@@ -132,11 +182,17 @@ export default function Tickets() {
             {/* Mobile: Carousel layout */}
             <div className={styles.ticketsCarouselContainer}>
               <div className={styles.ticketAndIndicatorsContainer}>
-                <div className={styles.ticketsCarousel}>
-                  <TicketCard ticket={visibleTickets[currentTicketIndex]} />
+                <div 
+                  className={styles.ticketsCarousel}
+                  ref={individualSwipeRef}
+                >
+                  <TicketCard 
+                    ticket={filteredIndividualTickets[currentTicketIndex]} 
+                    isActive={true}
+                  />
                 </div>
                 <div className={styles.carouselIndicators}>
-                  {visibleTickets.map((_, index) => (
+                  {filteredIndividualTickets.map((_, index) => (
                     <button
                       key={index}
                       className={`${styles.indicator} ${index === currentTicketIndex ? styles.active : ''}`}
@@ -154,7 +210,7 @@ export default function Tickets() {
           <>
             {/* Desktop: Grid layout */}
             <div className={styles.combosGridDesktop}>
-              {visibleCombos.map((combo, index) => (
+              {filteredComboTickets.map((combo, index) => (
                 <TicketCard key={index} ticket={combo} isCombo={true} />
               ))}
             </div>
@@ -162,11 +218,17 @@ export default function Tickets() {
             {/* Mobile: Carousel layout */}
             <div className={styles.ticketsCarouselContainer}>
               <div className={styles.ticketAndIndicatorsContainer}>
-                <div className={styles.ticketsCarousel}>
-                  <TicketCard ticket={visibleCombos[currentComboIndex]} isCombo={true} />
+                <div 
+                  className={styles.ticketsCarousel}
+                  ref={comboSwipeRef}
+                >
+                  <TicketCard 
+                    ticket={filteredComboTickets[currentComboIndex]} 
+                    isCombo={true}
+                  />
                 </div>
                 <div className={styles.carouselIndicators}>
-                  {visibleCombos.map((_, index) => (
+                  {filteredComboTickets.map((_, index) => (
                     <button
                       key={index}
                       className={`${styles.indicator} ${index === currentComboIndex ? styles.active : ''}`}

@@ -10,32 +10,44 @@ import 'swiper/css';
 const ads = [
     {
         id: 1,
-        image: '/assets/Banners/adbanner1.png',
+        webImage: '/assets/Banners/web/instagram_web.png',
+        mobileImage: '/assets/Banners/mobile/instagram_mobile.png',
         link: 'https://www.instagram.com/festivaldora',
-        alt: 'Sponsor 1'
+        alt: 'Instagram de Festival Dora'
     },
     {
         id: 2,
-        image: '/assets/Banners/adbanner2.png',
-        link: 'https://sponsor2.com',
-        alt: 'Sponsor 2'
+        webImage: '/assets/Banners/web/show_web.png',
+        mobileImage: '/assets/Banners/mobile/shows_mobile.png',
+        link: 'http://www.dora.com.ar/lineup',
+        alt: 'Nuestros shows llenos de groove'
     },
     {
         id: 3,
-        image: '/assets/Banners/adbanner3.png',
-        link: 'https://sponsor3.com',
-        alt: 'Sponsor 3'
+        webImage: '/assets/Banners/web/ingreoslibre_web.png',
+        mobileImage: '/assets/Banners/mobile/ingreso_mobile.png',
+        link: 'http://www.dora.com.ar/entradas',
+        alt: 'Conoce los tipos de ingreso'
     },
     {
         id: 4,
-        image: '/assets/Banners/adbanner4.png',
-        link: 'https://sponsor4.com',
-        alt: 'Sponsor 4'
+        webImage: '/assets/Banners/web/preveneta_web.png',
+        mobileImage: '/assets/Banners/mobile/preventa_mobile.png',
+        link: 'https://www.passline.com/eventos/dora-edicion-del-groove',
+        alt: 'Descuento Preventa'
+    },
+    {
+        id: 5,
+        webImage: '/assets/Banners/web/streaming_web.png',
+        mobileImage: '/assets/Banners/mobile/streaming_mobile.png',
+        link: 'http://www.instagram.com/barro_vt',
+        alt: 'Streaming del Festival'
     }
 ];
 
 export default function AdBanner() {
     const [shuffledAds, setShuffledAds] = useState(ads);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const shuffleArray = (array: typeof ads) => {
@@ -48,6 +60,21 @@ export default function AdBanner() {
         };
 
         setShuffledAds(shuffleArray(ads));
+    }, []);
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        // Verificar tamaño inicial
+        checkScreenSize();
+
+        // Agregar listener para cambios de tamaño
+        window.addEventListener('resize', checkScreenSize);
+
+        // Cleanup
+        return () => window.removeEventListener('resize', checkScreenSize);
     }, []);
 
     return (
@@ -66,11 +93,14 @@ export default function AdBanner() {
                         <SwiperSlide key={ad.id}>
                             <Link href={ad.link} target="_blank" rel="noopener noreferrer">
                                 <Image
-                                    src={ad.image}
+                                    src={isMobile ? ad.mobileImage : ad.webImage}
                                     alt={ad.alt}
-                                    width={932}
+                                    width={isMobile ? 312 : 932}
                                     height={130}
                                     priority
+                                    style={{
+                                        objectFit: 'contain'
+                                    }}
                                 />
                             </Link>
                         </SwiperSlide>

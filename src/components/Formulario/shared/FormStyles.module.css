@@ -1,0 +1,164 @@
+/* Estilos base compartidos para todos los formularios */
+
+/* Inputs base */
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--green-color);
+  box-shadow: 0 0 0 3px var(--green-color-alpha);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Textarea base */
+.textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--green-color);
+  box-shadow: 0 0 0 3px var(--green-color-alpha);
+}
+
+.textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Select base */
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--green-color);
+  box-shadow: 0 0 0 3px var(--green-color-alpha);
+}
+
+/* Botones base */
+.submitButton {
+  background-color: var(--green-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton:hover {
+  background-color: var(--green-color-dark, #259a7a);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.resetButton {
+  background-color: var(--text-secondary, #6b7280);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resetButton:hover {
+  background-color: var(--text-primary, #4b5563);
+  transform: translateY(-1px);
+}
+
+/* Contenedores */
+.buttonContainer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.fieldGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Estados de error y éxito */
+.inputError {
+  border-color: var(--error-color) !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px var(--error-color-alpha) !important;
+}
+
+.errorMessage {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.successMessage {
+  color: var(--success-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .input,
+  .textarea,
+  .select {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+  }
+  
+  .submitButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .resetButton {
+    padding: 0.625rem 1.25rem;
+  }
+}

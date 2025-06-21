@@ -1,6 +1,7 @@
 .footer {
-    padding: 2rem 0.2rem;
-    background: #f5f5f5;
+    padding: 2rem 1rem;
+    background: var(--background-light, #f5f5f5);
+    transition: background-color var(--transition-normal, 0.3s ease);
 }
 
 .communityBanner {
@@ -10,12 +11,12 @@
 }
 
 .communityBanner h2 {
-    color: rgb(0, 0, 0);
+    color: var(--text-primary, rgb(0, 0, 0));
     padding-bottom: 1rem;
     font-family: var(--font-primary);
     font-size: 1.5rem;
     border-radius: 8px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, color var(--transition-normal, 0.3s ease);
 }
 
 .socialButtons {
@@ -42,24 +43,26 @@
     filter: invert(100%);
 }
 
-.instagram { background: #E1306C; }
-.tiktok { background: #000000; }
-.youtube { background: #FF0000; }
-.kick { background: #0cc70f; }
+.instagram { background: var(--pink-color); }
+.tiktok { background: var(--text-color); }
+.youtube { background: var(--red-color); }
+.kick { background: var(--green-color); }
 
 .contactSection {
     max-width: 600px;
     margin: 1rem auto;
     padding: 2rem;
     border-radius: 15px;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: var(--background-card, white);
+    box-shadow: var(--shadow-md, 0 4px 6px rgba(0,0,0,0.1));
+    transition: background-color var(--transition-normal, 0.3s ease), box-shadow var(--transition-normal, 0.3s ease);
 }
 
 .contactSection h2 {
     color: var(--blue-color);
     text-align: center;
     margin-bottom: 2rem;
+    transition: color var(--transition-normal, 0.3s ease);
 }
 
 .contactForm {
@@ -75,26 +78,35 @@
 }
 
 .formRow label {
-    color: var(--text-color);
+    color: var(--text-secondary, var(--text-color));
     font-weight: 500;
+    transition: color var(--transition-normal, 0.3s ease);
 }
 
 .formRow input {
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color, #ddd);
     border-radius: 8px;
     font-size: 1rem;
+    background: var(--background, white);
+    color: var(--text-primary, #333);
+    transition: border-color 0.3s ease, background-color var(--transition-normal, 0.3s ease), color var(--transition-normal, 0.3s ease);
+}
+
+.formRow input:focus {
+    outline: none;
+    border-color: var(--primary-color);
 }
 
 .submitButton {
     background: var(--blue-color);
-    color: white;
+    color: var(--text-inverse, white);
     padding: 1rem;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease, color var(--transition-normal, 0.3s ease);
 }
 
 .submitButton:hover {

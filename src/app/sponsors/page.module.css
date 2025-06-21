@@ -3,124 +3,133 @@
   background: var(--background);
 }
 
-/* Hero Section */
-.heroSection {
-  background: var(--blue-color);
-  color: #f4f4f4;
-  padding: 5rem 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.heroContainer {
+/* Container Global */
+.container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+/* Hero Section */
+.heroSection {
+  background: linear-gradient(135deg, var(--blue-color) 0%, var(--green-color) 100%);
+  color: var(--dora-white);
+  padding: 4rem 0;
   text-align: center;
-  position: relative;
-  z-index: 2;
 }
 
-.heroTitle {
-  font-family: var(--font-primary);
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.heroSubtitle {
-  font-family: var(--font-text);
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  max-width: 48rem;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.heroButtons {
+.heroContent {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
+  gap: 1.5rem;
   align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.heroPrimaryButton {
-  background: white;
+.highlight {
+  background: linear-gradient(135deg, var(--yellow-color), var(--orange-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryButton {
+  background: var(--dora-white);
   color: var(--blue-color);
   padding: 1rem 2rem;
   border-radius: 25px;
-  font-family: var(--font-text);
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.heroPrimaryButton:hover {
-  background: var(--background);
+.primaryButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.heroSecondaryButton {
-  border: 2px solid white;
-  color: white;
+.secondaryButton {
+  border: 2px solid var(--dora-white);
+  color: var(--dora-white);
   padding: 1rem 2rem;
   border-radius: 25px;
-  font-family: var(--font-text);
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   background: transparent;
 }
 
-.heroSecondaryButton:hover {
-  background: white;
+.secondaryButton:hover {
+  background: var(--dora-white);
   color: var(--blue-color);
   transform: translateY(-2px);
 }
 
-/* Contact Section */
-.contactSection {
-  padding: 4rem 0;
-  background: white;
-}
-
-.contactContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.contactContent {
-  max-width: 64rem;
+/* DORA Info */
+.doraInfo {
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.contactHeader {
+.doraCard {
+  background: var(--background-card);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-bottom: 3rem;
 }
 
-.contactTitle {
-  font-family: var(--font-primary);
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--text-color);
-  margin-bottom: 1rem;
+/* Plans Info */
+.plansInfo {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
 }
 
-.contactDescription {
-  font-family: var(--font-text);
-  font-size: 1.125rem;
-  color: #6B7280;
-  max-width: 32rem;
+/* Download Actions */
+.downloadActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.downloadButton {
+  background: var(--green-color);
+  color: var(--dora-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.downloadButton:hover {
+  background: var(--green-dark-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact Content */
+.contactContent {
+  max-width: 800px;
   margin: 0 auto;
-  line-height: 1.6;
+  text-align: center;
 }
+
+
 
 /* Footer */
 .footer {

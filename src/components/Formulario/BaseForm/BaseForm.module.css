@@ -1,6 +1,8 @@
 .formSection {
   padding: 4rem 0;
-  background: white;
+  background: var(--background-primary);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -22,7 +24,7 @@
 .title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #1f2937;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
 }
 
@@ -34,7 +36,7 @@
 
 .description {
   font-size: 1.25rem;
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .resultContainer {
@@ -46,13 +48,13 @@
 }
 
 .successResult {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  background-color: var(--success-bg, #f0fdf4);
+  border: 1px solid var(--success-border, #bbf7d0);
 }
 
 .errorResult {
-  background-color: #fef2f2;
-  border: 1px solid #fecaca;
+  background-color: var(--error-bg, #fef2f2);
+  border: 1px solid var(--error-border, #fecaca);
 }
 
 .resultIcon {
@@ -98,7 +100,9 @@
 }
 
 .formContent {
-  background-color: var(--yellow-color);
+  background-color: var(--background-card);
   border-radius: 0.75rem;
   padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }

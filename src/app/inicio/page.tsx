@@ -6,7 +6,7 @@ import AdBanner from "@/components/AdBanner/AdBanner";
 import TextBanner from "@/components/AdBanner/TextBanner";
 import HeroDecorations from "@/components/HeroDecorations/HeroDecorations";
 import styles from "./page.module.css";
-
+import BannerInfo from "@/components/FestivalSummary/Banner_info/banner_info";
 export default function Home() {
   return (
     <>
@@ -14,6 +14,7 @@ export default function Home() {
         <HeroDecorations />
         <Interlude />
         <AdBanner />
+        <BannerInfo/>
         <IngresoLibre />
         <TextBanner/>
         <Tickets />     

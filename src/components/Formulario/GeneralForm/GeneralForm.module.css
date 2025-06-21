@@ -25,56 +25,36 @@
   display: block;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #374151;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
+/* Importar estilos base compartidos */
+@import '../shared/FormStyles.module.css';
+
+/* Estilos específicos para GeneralForm */
 .input {
+  padding: 1rem;
+  border-radius: 0.75rem;
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  transition: all 0.2s;
-}
-
-.input:focus {
-  outline: none;
-  ring: 2px;
-  ring-color: var(--green-color);
-  border-color: transparent;
-}
-
-.input::placeholder {
-  color: #9ca3af;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .textarea {
+  padding: 1rem;
+  border-radius: 0.75rem;
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  resize: vertical;
-  transition: all 0.2s;
-}
-
-.textarea:focus {
-  outline: none;
-  ring: 2px;
-  ring-color: var(--green-color);
-  border-color: transparent;
-}
-
-.textarea::placeholder {
-  color: #9ca3af;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .buttonContainer {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
-
-.submitButton {
+.submitButton{
   background-color: var(--green-color);
   color: white;
   padding: 1rem 2rem;
@@ -83,7 +63,8 @@
   font-size: 1.125rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
+  align-content: center;
 }
 
 .submitButton:hover {

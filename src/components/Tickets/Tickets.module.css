@@ -107,7 +107,22 @@
     max-width: 600px;
     margin: 0 auto;
     overflow: hidden;
+    touch-action: pan-x;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: grab;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    position: relative;
+    will-change: transform, opacity;
 }
+
+.ticketsCarousel:active {
+    cursor: grabbing;
+}
+
+
 
 .carouselButton {
     background: var(--green-color);
@@ -154,7 +169,14 @@
     color: #f5f5f5;
 }
 .ingresolibresection{
-    background-color: var(--blue-color);
+    background: var(--blue-color);
+    border-radius: 16px;
+    padding: 3rem 0rem;
+    margin: 3rem 0;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 116, 184, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 .freeEntrySection {
     background: var(--green-color);
@@ -255,6 +277,10 @@
 }
 
 .typingPhrase {
+    background: var(--background-elevated, linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%));
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
     font-size: 1.4rem;
     font-weight: bold;
     text-align: center;
@@ -264,6 +290,10 @@
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.5s ease;
+    box-shadow: var(--shadow-lg, 0 4px 12px rgba(0, 0, 0, 0.1));
+    position: relative;
+    overflow: hidden;
+    transition: background var(--transition-normal, 0.3s ease), box-shadow var(--transition-normal, 0.3s ease);
 }
 
 
@@ -288,10 +318,11 @@
 }
 
 .componetContainer{
-    background: #f5f5f5;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: var(--background-card, #f5f5f5);
+    padding: 1rem;
+    box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.2));
     border-radius: 1rem;
+    transition: background-color var(--transition-normal, 0.3s ease), box-shadow var(--transition-normal, 0.3s ease);
 }
 
 .sectionContainer {
@@ -483,6 +514,20 @@
     display: block;
     text-align: center;
 }
+.socialButton_ingreoslibre {
+    background: var(--orange-color);
+    color: var(--text-color);;
+    padding: 1rem 3rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    transition: transform 0.2s ease;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
 .buyButton_ingreoslibre {
     background: var(--green-color);
     color: var(--text-color);;
@@ -585,6 +630,7 @@
 @media (max-width: 767px) {
   .accessContainer {
     flex-direction: column;
+    padding: 0rem;
   }
   
   .sectionHeader {
@@ -662,8 +708,12 @@
 }
 
 .accessType {
+  background: var(--background-card, #f8f9fa);
+  border-radius: 12px;
   padding: 2rem;
-  border-radius: 16px;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-md, 0 2px 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-normal, 0.3s ease);
   position: relative;
   overflow: hidden;
 }
@@ -681,12 +731,13 @@
   color: var(--text-color);
   text-align: center;
   font-family: var(--font-secondary);
+  transition: color var(--transition-normal, 0.3s ease);
 }
 
 .featuresList {
   list-style: none;
   padding: 0;
-
+  margin: 1rem 0;
 }
 
 .freeAccessType .featuresList li {
@@ -724,7 +775,7 @@
         max-width: 300px;
   }
   .accessContainer {
-    padding: 0.5rem;
+    padding: 0px;
   }
 
   .accessGrid {
@@ -745,9 +796,12 @@
 }
 .featuresList li {
     padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-light, #eee);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--text-secondary, #666);
+    transition: color var(--transition-normal, 0.3s ease), border-color var(--transition-normal, 0.3s ease);
 }
 
 .featuresList li:before {

@@ -31,6 +31,13 @@
 }
 
 
+.navControls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1000;
+}
+
 .menuToggle {
     background: rgba(255, 255, 255, 0.1);
     padding: 1rem;
@@ -100,19 +107,157 @@
 .navLinks {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    text-align: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 0.2rem;
+    padding: 2rem;
+}
+
+.themeToggleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+/* Estilos para modo oscuro */
+:global(.dark-theme) .navbar {
+    background: rgba(26, 26, 26, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-theme) .navbar.scrolled {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-theme) .menuToggle {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+:global(.dark-theme) .menuToggle:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark-theme) .hamburger,
+:global(.dark-theme) .hamburger::before,
+:global(.dark-theme) .hamburger::after {
+    background: #E5E5E5;
+}
+
+:global(.dark-theme) .navLogo {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+:global(.dark-theme) .navPanel {
+    background: rgba(26, 26, 26, 0.95);
+}
+
+:global(.dark-theme) .navLink {
+    color: #E5E5E5;
+}
+
+:global(.dark-theme) .navLink:hover {
+    color: var(--dora-green-dark);
+}
+
+:global(.dark-theme) .themeToggleContainer {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para botones en modo oscuro */
+:global(.dark-theme) .navLink {
+    background: var(--background-elevated);
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-theme) .navLink:hover {
+    background: var(--dora-blue);
+    color: var(--dora-white);
+    border-color: var(--dora-blue);
+}
+
+:global(.dark-theme) .navLink:nth-child(3) {
+    background: var(--dora-pink);
+    color: var(--dora-white);
+}
+
+:global(.dark-theme) .navLink:nth-child(4) {
+    background: var(--dora-green);
+    color: var(--dora-white);
+}
+
+:global(.dark-theme) .navLink:nth-child(5) {
+    background: var(--dora-light-blue);
+    color: var(--dora-black);
+}
+
+:global(.dark-theme) .closeIcon::before,
+:global(.dark-theme) .closeIcon::after {
+    background-color: #E5E5E5;
 }
 
 .navLink {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 1.2rem;
+    color: var(--text-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius-xl);
+    background: var(--background-card);
+    border: 2px solid transparent;
+    min-width: 200px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
 }
 
 .navLink:hover {
-    color: var(--blue-color);
+    color: var(--dora-white);
+    background: var(--dora-blue);
+    border-color: var(--dora-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.navLink:nth-child(3) {
+    background: var(--dora-pink);
+    color: var(--dora-white);
+    border-color: var(--dora-pink);
+}
+
+.navLink:nth-child(3):hover {
+    background: var(--dora-yellow);
+    border-color: var(--dora-yellow);
+    color: var(--dora-black);
+}
+
+.navLink:nth-child(4) {
+    background: var(--dora-green);
+    color: var(--dora-white);
+    border-color: var(--dora-green);
+}
+
+.navLink:nth-child(4):hover {
+    background: var(--dora-orange);
+    border-color: var(--dora-orange);
+}
+
+.navLink:nth-child(5) {
+    background: var(--dora-light-blue);
+    color: var(--dora-black);
+    border-color: var(--dora-light-blue);
+}
+
+.navLink:nth-child(5):hover {
+    background: var(--dora-red);
+    border-color: var(--dora-red);
+    color: var(--dora-white);
 }
 
 @media (max-width: 767px) {
@@ -175,14 +320,41 @@ text-decoration: none;
 transition: color 0.3s ease;
 }
 .abonosCta_button {
-    background-color: var(--blue-color); /* Example: using blue color */
-    color: var(--orange-color); /* Example: using orange color */
-    font-size: 1.8rem; /* Example: slightly larger font size */
-    width: 100%; /* Example: full width */ ;
-    
+    background: linear-gradient(135deg, var(--dora-orange), var(--dora-red));
+    border: none;
+    border-radius: var(--radius-2xl);
+    padding: 1.2rem 2.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    transform: scale(1);
+    min-width: 250px;
+    position: relative;
+    overflow: hidden;
 }
+
+.abonosCta_button:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, var(--dora-red), var(--dora-pink));
+}
+
+.abonosCta_button:active {
+    transform: scale(0.98);
+}
+
 .abonosCta {
     font-weight: bold;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 1.3rem;
+    color: var(--dora-white);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.abonosCta:hover {
+    color: var(--dora-white);
 }

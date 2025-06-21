@@ -88,10 +88,10 @@ export class FloatingAnimationService {
 
   static getBackgroundColors(): string[] {
     return [
-      '#2DB092', // Verde
-      '#FC95BB', // Rosa
-      '#FA8632', // Naranja
-      '#F5C92B'  // Amarillo
+      'var(--dora-green)', // Verde
+    'var(--dora-pink)', // Rosa
+    'var(--dora-orange)', // Naranja
+    'var(--dora-yellow)'  // Amarillo
     ];
   }
 

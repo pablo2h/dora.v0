@@ -1,5 +1,5 @@
 .sponsorsSection {
-    background: #F7F5F6;
+    background: var(--dora-white);
     padding: 4rem 1rem;
     width: 100%;
     max-width: 82vw;
@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #F5C92B;
+    background: var(--dora-yellow);
     border-radius: 10px;
     overflow: hidden;
     margin: 0;

@@ -7,15 +7,15 @@ export default function BienvenidaPage() {
   return (
     <>
       <main>
+
         <section className={Styles.blurbackground}>         
           <div className={Styles.blurbackground}></div> 
         </section>
 
         {/* Componentes de fondo */}
         <section className={Styles.backgroundSection}>
-          
-          <HeroDecorations />
-          <Interlude />
+        <HeroDecorations />
+        <Interlude />
         </section>
         
         {/* Welcome component transparente en primer plano */}

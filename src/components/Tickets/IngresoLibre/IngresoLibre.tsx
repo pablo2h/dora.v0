@@ -7,7 +7,7 @@ const PASSLINE_URL = "https://www.passline.com/eventos/dora-edicion-del-groove";
 
 export default function IngresoLibre() {
   return (
-    <div className={`${styles.ingresolibresection} section-block`}>
+    <div className={styles.ingresolibresection}>
       <div className={styles.accessContainer}>
         <div className={styles.sectionHeader}>
           <div className={styles.imageContainer}>
@@ -33,6 +33,14 @@ export default function IngresoLibre() {
                   <li key={index}>{feature}</li>
                 ))}
               </ul>
+              <a 
+                href={PASSLINE_URL} 
+                className={styles.socialButton_ingreoslibre}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Conoce a DORA
+              </a>
             </div>
             <div className={`${styles.accessType} ${styles.subscriberAccessType}`}>
               <h2>Beneficios para abonados</h2>

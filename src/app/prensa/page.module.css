@@ -1,0 +1,214 @@
+/* Página de Prensa - Festival DORA 2025 */
+/* Usando variables de tokens globales y colores sólidos */
+
+.prensaPage {
+  min-height: 100vh;
+  background: var(--background);
+  margin-bottom: 2rem;
+}
+
+/* Hero Section - Sin gradientes, color sólido */
+.heroSection {
+  background: var(--dora-green);
+  color: var(--dora-white);
+  padding: var(--spacing-4xl) var(--spacing-md);
+  margin: 0;
+  padding-top: 8rem;
+  border-radius: 0;
+  position: relative;
+}
+
+.heroContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroTitle {
+  color: var(--dora-white);
+  margin-bottom: var(--spacing-lg);
+  font-size: 3rem;
+  font-family: var(--font-dynapuff);
+  font-weight: bold;
+}
+
+.highlight {
+  color: var(--dora-yellow);
+}
+
+.heroDescription {
+  color: var(--dora-white);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.9;
+  font-family: var(--font-poppins);
+}
+
+.heroActions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background: var(--dora-yellow);
+  color: var(--dora-black);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-poppins);
+}
+
+.primaryButton:hover {
+  background: var(--dora-orange);
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  background: var(--dora-white);
+  color: var(--dora-green);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  border: 2px solid var(--dora-white);
+  font-family: var(--font-poppins);
+}
+
+.secondaryButton:hover {
+  background: var(--dora-blue);
+  color: var(--dora-white);
+  transform: translateY(-2px);
+}
+
+/* Secciones */
+.section {
+  margin: var(--spacing-xl) var(--spacing-md);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+/* Contacto de Prensa */
+.contactCard {
+  background: var(--background-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.contactTitle {
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-baloo2);
+  color: var(--text-primary);
+}
+
+.contactDescription {
+  margin-bottom: var(--spacing-lg);
+  font-family: var(--font-poppins);
+  color: var(--text-primary);
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.contactDetails p {
+  font-family: var(--font-poppins);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Dark Mode Styles */
+:global(.dark-theme) .prensaPage {
+  background: var(--background-dark, #1a1a1a);
+}
+
+:global(.dark-theme) .heroSection {
+  background: var(--dora-green);
+}
+
+:global(.dark-theme) .heroTitle {
+  color: var(--dora-white);
+}
+
+:global(.dark-theme) .highlight {
+  color: var(--dora-yellow);
+}
+
+:global(.dark-theme) .heroDescription {
+  color: var(--dora-white);
+}
+
+:global(.dark-theme) .contactCard {
+  background: var(--card-background-dark, #2a2a2a);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark-theme) .contactTitle {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+:global(.dark-theme) .contactDescription {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+:global(.dark-theme) .contactDetails p {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .container {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+  
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+  
+  .heroDescription {
+    font-size: 1rem;
+  }
+}

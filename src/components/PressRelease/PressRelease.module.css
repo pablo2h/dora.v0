@@ -1,0 +1,513 @@
+/* Sección de Gacetilla de Prensa */
+.pressReleaseSection {
+  padding: 4rem 0;
+  background: var(--background);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.categoryBadge {
+  display: inline-block;
+  background: var(--dora-blue);
+  color: var(--dora-white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-dynapuff);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.date,
+.location,
+.readTime {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Release Navigation */
+.releaseNavigation {
+  display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 0.2rem;
+      margin-top: 0.2rem;
+      padding: 0.2rem;
+      background: var(--background);
+      border-radius: 15px;
+      border: 2px solid var(--dora-blue);
+}
+
+.navButton {
+  background: var(--dora-blue);
+  color: var(--dora-white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navButton:disabled {
+  background: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.releaseCounter {
+  font-family: var(--font-baloo2);
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 0.5rem 0.2rem;
+  background: var(--dora-white);
+  border-radius: 8px;
+  border: 2px solid var(--dora-blue);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.actionButton {
+  background: var(--dora-white);
+  border: 2px solid var(--dora-blue);
+  color: var(--dora-blue);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.actionButton:hover {
+  background: var(--dora-blue);
+  color: var(--dora-white);
+  transform: translateY(-2px);
+}
+
+/* Content Container */
+.contentContainer {
+  margin-bottom: 3rem;
+}
+
+.pressReleaseCard {
+  background: var(--dora-white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--dora-blue);
+}
+
+/* Release Info */
+.releaseInfo {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--background);
+}
+
+/* Release Header */
+.releaseHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--background);
+}
+
+.releaseTitle {
+  font-family: var(--font-dynapuff);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.releaseSubtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Release Content */
+.releaseContent {
+  margin-bottom: 2rem;
+}
+
+.contentText {
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.fullContent,
+.previewContent {
+  text-align: justify;
+}
+
+.fullContent p {
+  margin-bottom: 1rem;
+}
+
+.expandButton {
+  background: var(--dora-green);
+  color: var(--dora-white);
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.expandButton:hover {
+  background: var(--dora-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section - Removed as it's not being used */
+
+.contactInfo p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Share Section */
+.shareSection {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.shareTitle {
+  font-family: var(--font-baloo2);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.shareButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.shareButton {
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--dora-white);
+}
+
+.shareButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.facebook {
+  background: #4267B2;
+}
+
+.twitter {
+  background: #1DA1F2;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.email {
+  background: #EA4335;
+}
+
+/* Release Footer */
+.releaseFooter {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--background);
+}
+
+.footerLogo {
+  flex-shrink: 0;
+}
+
+.logoImage {
+  height: 60px;
+  width: auto;
+}
+
+.footerText {
+  flex: 1;
+}
+
+.footerText p {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.footerText strong {
+  color: var(--text-primary);
+}
+
+.disclaimer {
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 1rem !important;
+}
+
+/* Resources Section */
+.resourcesSection {
+  background: var(--background);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.integratedPressKit {
+  /* Override any conflicting styles from PressKit */
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Dark Mode Styles */
+:global(.dark-theme) .pressReleaseSection {
+  background: var(--background-dark, #1a1a1a);
+  border-radius: 20px;
+}
+
+:global(.dark-theme) .title {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+:global(.dark-theme) .metadata {
+  color: var(--text-secondary-dark, #b0b0b0);
+}
+
+:global(.dark-theme) .releaseNavigation {
+  background: var(--background-dark, #1a1a1a);
+  border-color: var(--dora-blue);
+}
+
+:global(.dark-theme) .releaseCounter {
+  background: var(--card-background-dark, #2a2a2a);
+  color: var(--text-primary-dark, #ffffff);
+  border-color: var(--dora-blue);
+}
+
+:global(.dark-theme) .actionButton {
+  background: var(--card-background-dark, #2a2a2a);
+  border-color: var(--dora-blue);
+  color: var(--dora-blue);
+}
+
+:global(.dark-theme) .actionButton:hover {
+  background: var(--dora-blue);
+  color: var(--dora-white);
+}
+
+:global(.dark-theme) .pressReleaseCard {
+  background: var(--card-background-dark, #2a2a2a);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--dora-blue);
+}
+
+:global(.dark-theme) .releaseInfo {
+  border-bottom-color: var(--border-dark, #404040);
+}
+
+:global(.dark-theme) .releaseHeader {
+  border-bottom-color: var(--border-dark, #404040);
+}
+
+:global(.dark-theme) .releaseTitle {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+:global(.dark-theme) .releaseSubtitle {
+  color: var(--text-secondary-dark, #b0b0b0);
+}
+
+:global(.dark-theme) .contentText {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+:global(.dark-theme) .shareTitle {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+:global(.dark-theme) .releaseFooter {
+  border-top-color: var(--border-dark, #404040);
+}
+
+:global(.dark-theme) .footerText p {
+  color: var(--text-secondary-dark, #b0b0b0);
+}
+
+:global(.dark-theme) .footerText strong {
+  color: var(--text-primary-dark, #ffffff);
+}
+
+:global(.dark-theme) .resourcesSection {
+  background: var(--background-dark, #1a1a1a);
+}
+
+/* Print Styles */
+@media print {
+  .header,
+  .actions,
+  .shareSection,
+  .resourcesSection {
+    display: none;
+  }
+  
+  .pressReleaseCard {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .releaseTitle {
+    color: #000;
+  }
+  
+  .contentText {
+    color: #000;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .releaseTitle {
+    font-size: 1.5rem;
+  }
+  
+  .pressReleaseCard {
+    padding: 2rem;
+  }
+  
+  .metadata {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .releaseFooter {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .resourcesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .releaseTitle {
+    font-size: 1.25rem;
+  }
+  
+  .pressReleaseCard {
+    padding: 1.5rem;
+  }
+  
+  .shareButtons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .actionButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}

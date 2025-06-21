@@ -12,13 +12,13 @@
 .banner_horizontal {
     width: 100%;
     max-width: 932px;
-    height: 130px; /* Altura fija */
+    height: 145px; /* Altura fija */
     display: block;
     margin: 0 auto;
     border-radius: 8px;
     overflow: hidden;
-    background: var(--pink-color);
-    padding: 0.75rem;
+    background: var(--red-color);
+    border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -47,7 +47,7 @@
 @media (max-width: 768px) {
     .banner_horizontal,
     .text_banner {
-        max-width: 430px;
+        max-width: 312px;
         height: 130px;
         padding: 0.5rem;
     }

@@ -43,15 +43,17 @@
 }
 
 .ctaContainer {
-    background: #F7F5F6;
+    background: var(--background-card);
     padding: 1rem;
     border-radius: 20px;
     max-width: 500px;
     width: 90%;
+    box-shadow: var(--shadow-md);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ctaContainer h2 {
-    color: #0083CF;
+    color: var(--blue-color);
     font-size: 2rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -65,11 +67,23 @@
 
 .formGroup input {
     width: 100%;
-    padding: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 10px;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     font-size: 1rem;
-    font-family: var(--font-text);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formGroup input::placeholder {
+    color: var(--text-muted);
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: var(--green-color);
+    box-shadow: 0 0 0 3px var(--green-color-alpha);
 }
 
 .termsGroup {
@@ -85,16 +99,21 @@
 
 .termsGroup label {
     font-size: 0.9rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .termsGroup a {
-    color: #0083CF;
+    color: var(--blue-color);
     text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.termsGroup a:hover {
+    color: var(--green-color);
 }
 
 .ctaButton {
-    background: #0083CF;
+    background: var(--blue-color);
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -102,7 +121,7 @@
     font-weight: bold;
     width: 100%;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
     display: block;
     text-align: center;
     font-size: 1rem;
@@ -113,7 +132,7 @@
 }
 
 .ctaButton:disabled {
-    background: #cccccc;
+    background: var(--text-muted);
     cursor: not-allowed;
     transform: none;
 }
@@ -132,30 +151,30 @@
 }
 
 .submitResult strong {
-    color: #0083CF;
+    color: var(--blue-color);
 }
 
 .success {
-    background-color: #e6ffe6;
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
+    background-color: rgba(45, 176, 146, 0.1);
+  color: var(--dora-green);
+  border: 1px solid var(--dora-green);
 }
 
 .error {
-    background-color: #ffe6e6;
-    color: #F44336;
-    border: 1px solid #F44336;
+    background-color: rgba(240, 91, 49, 0.1);
+  color: var(--dora-red);
+  border: 1px solid var(--dora-red);
 }
 
 .resetButton {
     margin-top: 1rem;
-    background: #0083CF;
+    background: var(--blue-color);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .resetButton:hover {

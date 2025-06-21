@@ -1,0 +1,218 @@
+/* Festival Summary Styles */
+.overviewContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: var(--dora-white);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.statCard:nth-child(1) {
+  border-color: var(--dora-pink);
+}
+
+.statCard:nth-child(2) {
+  border-color: var(--dora-yellow);
+}
+
+.statCard:nth-child(3) {
+  border-color: var(--dora-orange);
+}
+
+.statCard:nth-child(4) {
+  border-color: var(--dora-blue);
+}
+
+.statCard:nth-child(5) {
+  border-color: var(--dora-green);
+}
+
+ /* Modo oscuro */
+:global(.dark-theme) .statCard {
+  background: #1a1a1a;
+  color: var(--dora-white);
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+:global(.dark-theme) .statCard:hover {
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+o al 
+:global(.dark-theme) .statLabel {
+  color: #b0b0b0;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.statNumber {
+  font-family: var(--font-baloo2);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.statCard:nth-child(1) .statNumber {
+  color: var(--dora-pink);
+}
+
+.statCard:nth-child(2) .statNumber {
+  color: var(--dora-yellow);
+}
+
+.statCard:nth-child(3) .statNumber {
+  color: var(--dora-orange);
+}
+
+.statCard:nth-child(4) .statNumber {
+  color: var(--dora-blue);
+}
+
+.statCard:nth-child(5) .statNumber {
+  color: var(--dora-green);
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.festivalInfo {
+  background: var(--dora-white);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Modo oscuro para festivalInfo */
+:global(.dark-theme) .festivalInfo {
+  background: #1a1a1a;
+  border-color: #374151;
+  color: var(--dora-white);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+:global(.dark-theme) .infoTitle {
+  color: var(--dora-white);
+}
+
+:global(.dark-theme) .infoText {
+  color: #d1d5db;
+}
+
+:global(.dark-theme) .keyPointsTitle {
+  color: var(--dora-white);
+}
+
+:global(.dark-theme) .keyPointsList li {
+  color: #d1d5db;
+}
+
+.infoTitle {
+  font-family: var(--font-baloo2);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.infoText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.keyPoints {
+  margin-top: 1.5rem;
+}
+
+.keyPointsTitle {
+  font-family: var(--font-baloo2);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.keyPointsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.keyPointsList li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.keyPointsList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--dora-green);
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .statCard {
+    padding: 1rem 0.75rem;
+  }
+  
+  .statNumber {
+    font-size: 1.5rem;
+  }
+  
+  .festivalInfo {
+    padding: 1.5rem;
+  }
+  
+  .infoTitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overviewContent {
+    gap: 1.5rem;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .festivalInfo {
+    padding: 1rem;
+  }
+}
