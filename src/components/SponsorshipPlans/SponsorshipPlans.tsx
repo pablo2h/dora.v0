@@ -82,7 +82,7 @@ export default function SponsorshipPlans() {
                     className={styles.highlightBadge}
                     style={{ backgroundColor: cardColor.accent }}
                   >
-                    ⭐ MÁS POPULAR
+                    ⭐ DESTACADO
                   </div>
                 )}
                 
@@ -102,11 +102,11 @@ export default function SponsorshipPlans() {
                           className={styles.discountPrice}
                           style={{ color: cardColor.accent }}
                         >
-                          {plan.discountPrice}
+                          {plan.discountPrice.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
                         </span>
                       )}
                       <span className={plan.discountPrice ? styles.originalPrice : styles.discountPrice}>
-                        {plan.price}
+                        {plan.price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
                       </span>
                     </div>
                     {plan.discountPrice && (
@@ -156,10 +156,37 @@ export default function SponsorshipPlans() {
                 <span className="text-2xl">💰</span>
               </div>
               <h4 className={styles.planTitle}>Pago Único</h4>
-              <p className={styles.featureText}>15% de descuento</p>
-              <p className={styles.featureText}>Transferencia, cripto</p>
+              <p className={styles.featureText}>10% de descuento</p>
+              <p className={styles.featureText}>Efectivo</p>
+              <p className={styles.featureText}>Transferencia</p>
+              <p className={styles.featureText}>Criptomonedas</p>
             </div>
-            {/* ... Resto de las opciones de pago ... */}
+            
+            <div className={styles.paymentCard}>
+              <div className={styles.paymentIcon}>
+                <span className="text-2xl">📅</span>
+              </div>
+              <h4 className={styles.planTitle}>2 Cuotas</h4>
+              <p className={styles.featureText}>Sin interés</p>
+              <p className={styles.featureText}>Transferencia o cripto</p>
+            </div>
+            
+            <div className={styles.paymentCard}>
+              <div className={styles.paymentIcon}>
+                <span className="text-2xl">📊</span>
+              </div>
+              <h4 className={styles.planTitle}>4 Cuotas</h4>
+              <p className={styles.featureText}>15% de interés</p>
+              <p className={styles.featureText}>Transferencia o cripto</p>
+            </div>
+            
+            <div className={styles.paymentCard}>
+              <div className={styles.paymentIcon}>
+                <span className="text-2xl">💳</span>
+              </div>
+              <h4 className={styles.planTitle}>Tarjeta</h4>
+              <p className={styles.featureText}>15% de recargo</p>
+            </div>
           </div>
         </div>
 

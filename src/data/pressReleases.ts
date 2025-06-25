@@ -6,7 +6,7 @@ export interface PressRelease {
   date: string;
   location: string;
   content: string;
-  version: 'v1' | 'v2';
+  version: 'v1' | 'v2' | 'v3';
   isActive: boolean;
 }
 var defaultDate = '2025-07-26';
@@ -15,9 +15,9 @@ var defaultDate = '2025-07-26';
 // Gacetilla Versión 1 - Más formal
 export const pressReleaseV1: PressRelease = {
   id: 1,
-  title: "Festival DORA 2025 - Gacetilla de Prensa",
-  subtitle: "Una nueva experiencia musical llega a Paraná, Entre Ríos",
-  date: "2025-07-26",
+  title: "Algo nuevo llega a Paraná",
+  subtitle: "Festival DORA:Edicion Groove",
+  date: defaultDate,
   location: "Vieja Usina - Paraná, Entre Ríos",
   version: 'v1',
   isActive: true,
@@ -33,9 +33,9 @@ Enterate de todo en nuestras redes @festivaldora y visitá dora.com.ar.`
 // Gacetilla Versión 2 - Más cercana y amigable
 export const pressReleaseV2: PressRelease = {
   id: 2,
-  title: "Festival DORA: Edición Groove - Gacetilla de Prensa",
+  title: "Vivi la Experiencia Dora",
   subtitle: "Una tarde-noche inolvidable en el corazón de Paraná",
-  date: "2025-07-26",
+  date: defaultDate,
   location: "Vieja Usina - Paraná, Entre Ríos",
   version: 'v2',
   isActive: false,
@@ -53,10 +53,35 @@ Más información y abonos en dora.com.ar
 Seguilos en redes: @festivaldora`
 };
 
+// Gacetilla Versión 3 - Más cercana y amigable
+export const pressReleaseV3: PressRelease = {
+  id: 3,
+  title: "Dora te Invita",
+  subtitle: "¡Música, Baile y diversion, la Mejor Tarde en La Vieja Usina!",
+  date: defaultDate,
+  location: "Vieja Usina - Paraná, Entre Ríos",
+  version: 'v3',
+  isActive: false,
+  content: `
+  ¡Atención! Si buscabas un plan para este julio, lo encontraste. El Festival Dora: Edición Groove  te espera el sábado 26  en la emblemática Vieja Usina de la Ciudad de Paraná. Te invitamos a una jornada de tarde-noche donde podrás desconectar, bailar, saborear propuestas gastronómicas y divertirte sin límites.
+
+
+Tu experiencia es nuestra prioridad. Por eso, el festival te ofrece acceso libre y gratuito  para explorar el ambiente exterior, con su patio de comidas  y foodtrucks. Y si querés sumergirte por completo en el corazón musical y los espacios techados con juegos , tu abono en Passline  es la llave a la experiencia Dora al máximo.
+
+
+
+Disfrutá de la potencia de Rosario Smowing, Zaccaro y Los Puercos y La Tercera Fase del Plan  en un ambiente pensado para vos. Con más de 20 metros de pantallas y la posibilidad de seguirlo por streaming en Barro VT, ¡la música llega a todos!
+
+
+
+¡No te pierdas esta oportunidad! Vení con tus compañeros de aventuras, aprovechá los combos para 2 o 3 personas y conocé todo en dora.com.ar. ¡Te esperamos en Dora para vivir una tarde inolvidable!
+  `,};
+
 // Array con todas las gacetillas
 export const pressReleases: PressRelease[] = [
   pressReleaseV1,
-  pressReleaseV2
+  pressReleaseV2,
+  pressReleaseV3
 ];
 
 // Función para obtener la gacetilla activa

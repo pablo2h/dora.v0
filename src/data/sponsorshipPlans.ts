@@ -4,8 +4,8 @@ export interface SponsorshipPlan {
   id: string;
   title: string;
   description: string;
-  price: string;
-  discountPrice?: string;
+  price: number;
+  discountPrice?: number;
   features: string[];
   highlighted?: boolean;
   category: 'individual' | 'festival' | 'physical' | 'digital' | 'additional';
@@ -13,33 +13,8 @@ export interface SponsorshipPlan {
 
 export interface AdditionalService {
   title: string;
-  price: string;
-  discountPrice: string;
-  features: string[];
-}
-
-export interface SponsorshipCategory {
-  id: string;
-  name: string;
-}
-
-// Datos de planes de patrocinio del Festival DORA 2025
-
-export interface SponsorshipPlan {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-  discountPrice?: string;
-  features: string[];
-  highlighted?: boolean;
-  category: 'individual' | 'festival' | 'physical' | 'digital' | 'additional';
-}
-
-export interface AdditionalService {
-  title: string;
-  price: string;
-  discountPrice: string;
+  price: number;
+  discountPrice: number;
   features: string[];
 }
 
@@ -54,8 +29,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'individual',
     title: 'Sponsor Individual',
     description: 'Visibilidad directa durante el evento',
-    price: '$100.000 ARS',
-    discountPrice: '$80.000 ARS',
+    price: 100000,
+    discountPrice: 80000,
     category: 'individual',
     features: [
       'Logo en pantallas del evento',
@@ -69,8 +44,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'streaming',
     title: 'Publicidad Streaming',
     description: 'Presencia en transmisión en vivo',
-    price: '$10.000 ARS',
-    discountPrice: '$8.000 ARS',
+    price: 10000,
+    discountPrice: 8000,
     category: 'individual',
     features: [
       'Logo en transmisión en vivo',
@@ -82,8 +57,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'website',
     title: 'Publicidad Website',
     description: 'Presencia digital en sitio web',
-    price: '$50.000 ARS',
-    discountPrice: '$40.000 ARS',
+    price: 50000,
+    discountPrice: 40000,
     category: 'individual',
     features: [
       'Logo en sección sponsors',
@@ -95,8 +70,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'rrss',
     title: 'Publicidad RRSS',
     description: 'Presencia en redes sociales',
-    price: '$50.000 ARS',
-    discountPrice: '$40.000 ARS',
+    price: 50000,
+    discountPrice: 40000,
     category: 'individual',
     features: [
       'Publicación exclusiva',
@@ -108,8 +83,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'video-accion',
     title: 'Video Acción Marca',
     description: 'Contenido audiovisual personalizado',
-    price: '$70.000 ARS',
-    discountPrice: '$56.000 ARS',
+    price: 70000,
+    discountPrice: 56000,
     category: 'individual',
     features: [
       'Desarrollo de acción publicitaria',
@@ -121,8 +96,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'oro',
     title: 'Categoría Oro',
     description: 'Acompañamiento integral completo',
-    price: '$500.000 ARS',
-    discountPrice: '$400.000 ARS',
+    price: 500000,
+    discountPrice: 400000,
     category: 'festival',
     highlighted: true,
     features: [
@@ -139,8 +114,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'rio',
     title: 'Categoría Río',
     description: 'Presencia destacada en el festival',
-    price: '$250.000 ARS',
-    discountPrice: '$200.000 ARS',
+    price: 250000,
+    discountPrice: 200000,
     category: 'festival',
     features: [
       'Logos en tandas durante el evento',
@@ -155,8 +130,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'stands',
     title: 'Stands Exclusivos',
     description: 'Presencia física en la plaza',
-    price: '$250.000 ARS',
-    discountPrice: '$200.000 ARS',
+    price: 250000,
+    discountPrice: 200000,
     category: 'physical',
     features: [
       'Puesto o stand interactivo en la plaza',
@@ -170,8 +145,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'shows',
     title: 'Patrocinio de Shows',
     description: 'Asociación directa con artistas',
-    price: '$180.000 ARS',
-    discountPrice: '$144.000 ARS',
+    price: 180000,
+    discountPrice: 144000,
     category: 'physical',
     features: [
       'Presentación exclusiva de show específico',
@@ -185,8 +160,8 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
     id: 'digital',
     title: 'Sponsor Digital',
     description: 'Presencia exclusivamente online',
-    price: '$150.000 ARS',
-    discountPrice: '$120.000 ARS',
+    price: 150000,
+    discountPrice: 120000,
     category: 'digital',
     features: [
       'Logo en sección de sponsors web',
@@ -203,26 +178,26 @@ export const sponsorshipPlans: SponsorshipPlan[] = [
 export const additionalServices: AdditionalService[] = [
   {
     title: 'Publicidad Streaming',
-    price: '$10.000 ARS',
-    discountPrice: '$8.000 ARS',
+    price: 100000,
+    discountPrice: 80000,
     features: ['Logo en transmisión en vivo', 'Audio publicitario', 'Rotación cada 30 segundos']
   },
   {
     title: 'Publicidad Website',
-    price: '$50.000 ARS',
-    discountPrice: '$40.000 ARS',
+    price: 50000,
+    discountPrice: 40000,
     features: ['Logo en sección sponsors', 'Banners web', 'Formatos optimizados']
   },
   {
     title: 'Publicidad RRSS',
-    price: '$50.000 ARS',
-    discountPrice: '$40.000 ARS',
+    price: 50000,
+    discountPrice: 40000,
     features: ['Publicación exclusiva', 'Diseño profesional', 'Alcance orgánico']
   },
   {
     title: 'Video Acción Marca',
-    price: '$70.000 ARS',
-    discountPrice: '$56.000 ARS',
+    price: 70000,
+    discountPrice: 56000,
     features: ['Desarrollo de acción publicitaria', 'Grabación profesional', 'Publicación en RRSS']
   }
 ];

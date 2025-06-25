@@ -105,13 +105,37 @@ export function useCategoryFilter<T extends Filterable>({
   sortFunction,
   customFilterFunction
 }: UseFilterConfig<T> & { categories: FilterOption[] }) {
-  const filterHook = useFilter({
-    items,
-    filterKey,
-    defaultFilter,
-    sortFunction,
-    customFilterFunction
-  });
+  const [activeFilter, setActiveFilter] = useState(defaultFilter);
+
+  const filteredItems = useMemo(() => {
+    let filtered = items;
+
+    if (customFilterFunction) {
+      filtered = customFilterFunction(items, activeFilter);
+    } else if (activeFilter !== 'all') {
+      filtered = items.filter(item => item[filterKey] === activeFilter);
+    }
+
+    if (sortFunction) {
+      return sortFunction(filtered);
+    }
+
+    return filtered;
+  }, [items, activeFilter, filterKey, sortFunction, customFilterFunction]);
+
+  const filterHook = {
+    activeFilter,
+    setActiveFilter,
+    filteredItems,
+    // Mantén otras propiedades de useFilter si son necesarias
+    resetFilter: () => setActiveFilter(defaultFilter),
+    hasActiveFilter: activeFilter !== defaultFilter,
+    getFilteredCount: () => filteredItems.length,
+    getTotalCount: () => items.length,
+    isFilterActive: (filterId: string) => activeFilter === filterId,
+    getFilterButtonClass: (baseClass: string, activeClass: string, filterId: string) => 
+      `${baseClass} ${activeFilter === filterId ? activeClass : ''}`
+  };
 
   // Validar que el filtro activo existe en las categorías
   const isValidFilter = (filterId: string) => 

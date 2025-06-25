@@ -60,14 +60,6 @@ export default function PressRelease({
     const longSummary = generateSummary('long');
 
     switch (platform) {
-      case 'facebook':
-        const fbText = `${title}\n\n${shortSummary}`;
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(fbText)}`, '_blank');
-        break;
-      case 'twitter':
-        const twitterText = `${title}\n\n${shortSummary}\n\n${url}`;
-        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterText)}`, '_blank');
-        break;
       case 'whatsapp':
         const whatsappText = `${title}\n\n${shortSummary}\n\n${url}`;
         window.open(`https://wa.me/?text=${encodeURIComponent(whatsappText)}`, '_blank');
@@ -129,6 +121,25 @@ export default function PressRelease({
           </div>
         </div>
 
+        {/* Navegación de Gacetillas */}
+        <div className={styles.releaseNavigation}>
+          <button 
+            className={styles.navButton}
+            onClick={handlePreviousRelease}
+            disabled={pressReleases.length <= 1}>
+            ← Anterior
+          </button>
+          <span className={styles.releaseCounter}>
+            {currentReleaseIndex + 1} / {pressReleases.length}
+          </span>
+          <button 
+            className={styles.navButton}
+            onClick={handleNextRelease}
+            disabled={pressReleases.length <= 1}>
+            Siguiente →
+          </button>
+        </div>
+
         {/* Press Release Content */}
         <div className={styles.contentContainer}>
           <div className={styles.pressReleaseCard}>
@@ -177,19 +188,7 @@ export default function PressRelease({
               <div className={styles.shareSection}>
                 <h4 className={styles.shareTitle}>Compartir</h4>
                 <div className={styles.shareButtons}>
-                  <button 
-                    className={`${styles.shareButton} ${styles.facebook}`}
-                    onClick={() => handleShare('facebook')}
-                    title="Compartir en Facebook">
-                    📘 Facebook
-                  </button>
-                  
-                  <button 
-                    className={`${styles.shareButton} ${styles.twitter}`}
-                    onClick={() => handleShare('twitter')}
-                    title="Compartir en Twitter">
-                    🐦 Twitter
-                  </button>
+
                   
                   <button 
                     className={`${styles.shareButton} ${styles.whatsapp}`}
@@ -222,25 +221,6 @@ export default function PressRelease({
                 <p>El festival de música del litoral argentino</p>
               </div>
             </div>
-          </div>
-          
-          {/* Navegación de Gacetillas */}
-          <div className={styles.releaseNavigation}>
-            <button 
-              className={styles.navButton}
-              onClick={handlePreviousRelease}
-              disabled={pressReleases.length <= 1}>
-              ← Anterior
-            </button>
-            <span className={styles.releaseCounter}>
-              {currentReleaseIndex + 1} / {pressReleases.length}
-            </span>
-            <button 
-              className={styles.navButton}
-              onClick={handleNextRelease}
-              disabled={pressReleases.length <= 1}>
-              Siguiente →
-            </button>
           </div>
         </div>  
       </div>
