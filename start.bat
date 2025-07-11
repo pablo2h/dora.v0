@@ -9,10 +9,9 @@ echo.
 echo Dependencias instaladas correctamente!
 echo.
 echo 1. Modo desarrollo (con hot reload)
-echo 2. Construir para produccion
-echo 3. Iniciar version de produccion
+echo 2. Construir para produccion e Iniciar version de produccion
 echo.
-set /p opcion="Selecciona una opcion (1-3): "
+set /p opcion="Selecciona una opcion (1-2): "
 
 if "%opcion%"=="1" (
     echo.
@@ -26,13 +25,13 @@ if "%opcion%"=="1" (
     npm run build
     echo.
     echo Construccion completada!
-) else if "%opcion%"=="3" (
-    echo.
+        echo.
     echo Iniciando version de produccion...
     echo Abriendo http://localhost:3000
     start http://localhost:3000
     npm run start
-) else (
+) 
+ else (
     echo.
     echo Opcion no valida. Por favor selecciona 1, 2 o 3.
 )

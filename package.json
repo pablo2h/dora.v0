@@ -10,17 +10,28 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+<<<<<<< HEAD
     "@vercel/analytics": "^1.5.0",
+=======
+    "@neondatabase/serverless": "^1.0.0",
+    "@prisma/client": "^6.8.2",
+    "@prisma/extension-accelerate": "^2.0.1",
+>>>>>>> d8ba67bb969b13b58b3826f0e922ba3ee0e81b3a
     "framer-motion": "^12.4.7",
     "next": "^15.1.7",
+    "nodemailer": "^7.0.3",
+    "prisma": "^6.8.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
-    "swiper": "^11.2.4"
+    "resend": "^4.5.1",
+    "swiper": "^11.2.4",
+    "vercel": "^25.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

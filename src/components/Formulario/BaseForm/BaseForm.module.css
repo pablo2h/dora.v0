@@ -1,0 +1,104 @@
+.formSection {
+  padding: 4rem 0;
+  background: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.formWrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.description {
+  font-size: 1.25rem;
+  color: #6b7280;
+}
+
+.resultContainer {
+  max-width: 28rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.75rem;
+}
+
+.successResult {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.errorResult {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.resultIcon {
+  font-size: 3.75rem;
+  margin-bottom: 1rem;
+}
+
+.successIcon {
+  color: #10b981;
+}
+
+.errorIcon {
+  color: #ef4444;
+}
+
+.resultMessage {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.successMessage {
+  color: #065f46;
+}
+
+.errorMessage {
+  color: #991b1b;
+}
+
+.resetButton {
+  background-color: var(--green-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.resetButton:hover {
+  background-color: var(--blue-color);
+}
+
+.formContent {
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 2rem;
+}

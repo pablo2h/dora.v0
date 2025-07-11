@@ -1,6 +1,17 @@
+.CardTitle {
+    color: var(--text-color);
+    margin: 0.5rem 0;
+    font-size: 2rem;   
+    font-family: var(--font-secondary);
+    font-weight: bold;
+
+}
 .ticketsSection {
-    background: #F7F5F6;
-    padding: 2rem 1rem;
+    background: #f5f5f5;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
 }
 
 .filterButtons {
@@ -99,7 +110,7 @@
 }
 
 .freeEntrySection {
-    background: #2DB092;
+    background: var(--green-color);
     color: whitesmoke;
     border-radius: 20px;
     padding: 2rem;
@@ -133,7 +144,7 @@
 
 .ingresoLibreTitle {
     font-size: 2.2rem;
-    color: #0083CF;
+    color: var(--blue-color);
     margin: 2.5rem 0 1.5rem 0;
     text-align: left;
     font-family: var(--font-primary);
@@ -187,7 +198,6 @@
         text-align: center;
     }
 }
-
 /* Ajustes para la imagen y frase animada */
 .freeEntryImage {
     width: 100%;
@@ -245,6 +255,12 @@
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: self-end;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .ticketsSection h2 {
@@ -268,7 +284,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-35deg);
-    background: #ff4444;
+    background: var(--red-color);
     color: white;
     padding: 10px;
     font-weight: bold;
@@ -364,6 +380,7 @@ rgba(0,0,0,0.2);
 }
 
 .ticketFeatures li {
+    color: var(--text-color);
     margin: 0.5rem 0;
     font-size: 1rem;
     font-family: var(--font-text);
@@ -371,7 +388,20 @@ rgba(0,0,0,0.2);
 
 .buyButton {
     background: var(--orange-color);
-    color: white;
+    color: var(--text-color);;
+    padding: 1rem 3rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    transition: transform 0.2s ease;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.buyButton_ingreoslibre {
+    background: var(--green-color);
+    color: var(--text-color);;
     padding: 1rem 3rem;
     border-radius: 25px;
     text-decoration: none;
@@ -435,4 +465,151 @@ rgba(0,0,0,0.2);
 
 .generalTicket .buyButton {
     background: var(--green-color) !important;
+}
+
+.accessTypes {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.accessContainer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2rem;
+  margin: 2rem 0;
+  display: flex;
+      flex-direction: row-reverse;
+      align-items: self-end;
+      align-content: center;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.imageContainer {
+  margin-bottom: 1rem;
+  max-width: 300px;
+}
+
+.decorativeImage {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+}
+
+.accessGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .sectionHeader {
+    margin-bottom: 3rem;
+  }
+  
+  .imageContainer {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.accessType {
+  padding: 2rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.freeAccessType {
+  background: var(--green-color);
+}
+
+.subscriberAccessType {
+  background: var(--orange-color);
+}
+
+.accessType h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  text-align: center;
+  font-family: var(--font-secondary);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+
+}
+
+.freeAccessType .featuresList li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.freeAccessType .featuresList li:before {
+  content: '•';
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.subscriberAccessType .featuresList li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.subscriberAccessType .featuresList li:before {
+  content: '✓';
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .accessContainer {
+    padding: 1rem;
+  }
+
+  .accessGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .accessType {
+    padding: 1.5rem;
+  }
+
+  .accessType h2 {
+    font-size: 1.75rem;
+  }
+
+  .featuresList li {
+    font-size: 1rem;
+  }
+}
+.featuresList li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.featuresList li:before {
+    content: '✓';
+    color: var(--primary-color);
 }

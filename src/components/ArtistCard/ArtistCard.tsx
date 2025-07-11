@@ -1,7 +1,6 @@
 'use client';
 import { useState, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './ArtistCard.module.css';
 
 interface ArtistCardProps {
@@ -47,18 +46,10 @@ export default function ArtistCard({ artist }: { artist: ArtistCardProps }) {
                 onClick={handleExpand}
             >
                 <h2>{artist.name}</h2>
-                <div className={styles.artistImage}>
-                    <Image
-                        src={artist.image}
-                        alt={artist.name}
-                        width={60}
-                        height={60}
-                        className={styles.bandImage}
-                    />
-                </div>
+
             </button>
             <div className={styles.artistContent}>
-                <p>{artist.description}</p>
+                <p className={styles.description}>{artist.description}</p>
                 <div className={styles.artistActions}>
                     {artist.spotifyId ? (
                         <div className={styles.embedContainer}>

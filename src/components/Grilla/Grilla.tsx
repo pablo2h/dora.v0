@@ -3,9 +3,9 @@ import styles from './Grilla.module.css';
 const schedule = [
     { time: "18:00hs", activity: "Apertura de puertas" },
     { time: "18:15hs", activity: "DJ" },
-    { time: "19:30hs", activity: "Saccreblue" },
-    { time: "20:15hs", activity: "Sacaro y los puercos" },
-    { time: "21:00hs", activity: "Jam de Jazz" },
+    { time: "19:30hs", activity: "" },
+    { time: "20:15hs", activity: "Zacaro y los puerkos" },
+    { time: "21:00hs", activity: "" },
     { time: "22:15hs", activity: "Rosario Smowing" },
     { time: "23:30hs", activity: "Cierre del evento" }
 ];

@@ -1,0 +1,295 @@
+/* Festival Info Component Styles */
+h1.ppp {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+.festivalInfo {
+  padding: 4rem 0;
+  background: #f4f4f4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.content {
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.dateLocationCard {
+  background: var(--green-color);
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: inline-block;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dateText {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.locationText {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Main Grid */
+.mainGrid {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.infoCard {
+  background: var(--background);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.audienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.audienceItem {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  border-left: 4px solid var(--blue-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.audienceItem:nth-child(2) {
+  border-left-color: var(--pink-color);
+}
+
+.audienceItem:nth-child(3) {
+  border-left-color: var(--green-color);
+}
+
+.audienceItemTitle {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.audienceItemDescription {
+  font-family: var(--font-text);
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+/* Experience Features */
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.experienceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.experienceIcon {
+  background: var(--blue-color);
+  color: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.experienceIcon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.experienceContent h4 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.experienceContent p {
+  font-family: var(--font-text);
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+/* Características Especiales */
+.specialFeatures {
+  background: linear-gradient(to right, rgb(238, 242, 255), rgb(250, 245, 255));
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.specialFeaturesTitle {
+  font-family: var(--font-secondary);
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.featureItem {
+  text-align: center;
+}
+
+.featureIcon {
+  background: white;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.featureIcon span {
+  font-size: 1.5rem;
+}
+
+.featureTitle {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.featureDescription {
+  font-family: var(--font-text);
+  color: #6b7280;
+}
+
+/* Call to Action */
+.cta {
+  text-align: center;
+}
+
+.ctaCard {
+  background: var(--blue-color);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.ctaTitle {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ctaDescription {
+  font-family: var(--font-text);
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  background: white;
+  color: var(--blue-color);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #f3f4f6;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .dateText {
+    font-size: 1.5rem;
+  }
+  
+  .locationText {
+    font-size: 1.125rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+  }
+  
+  .ctaDescription {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3.5rem;
+  }
+  
+  .mainGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

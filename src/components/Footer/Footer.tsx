@@ -1,8 +1,9 @@
 import styles from './Footer.module.css';
 import Image from 'next/image';
+import GeneralForm from '../Formulario/GeneralForm/GeneralForm';
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
+        <footer id='footer' className={styles.footer}>
             <div className={styles.communityBanner}>
                 <h2>Disfruta de nuestra comunidad</h2>
             </div>
@@ -23,23 +24,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.contactSection}>
-                <h2>Contactanos</h2>
-                <form className={styles.contactForm}>
-
-                    <div className={styles.formRow}>
-                        <label>Como te llamas:</label>
-                        <input type="text" placeholder="nombre completo" required />
-                    </div>
-                    <div className={styles.formRow}>
-                        <label>¿Porque nos hablamos?</label>
-                        <input type="text" placeholder="motivo" required />
-                    </div>
-                    <div className={styles.formRow}>
-                        <label>Correo Electrónico:</label>
-                        <input type="email" placeholder="example@mail.com" required />
-                    </div>
-                    <button type="submit" className={styles.submitButton}>Daleeee!</button>
-                </form>
+                <GeneralForm formType="consulta" />
             </div>
         </footer>
     );

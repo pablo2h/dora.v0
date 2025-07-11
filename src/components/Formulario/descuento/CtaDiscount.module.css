@@ -1,0 +1,163 @@
+.ctaSection {
+    background: #f5f5f5;
+    position: relative;
+    padding: 2rem;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+.sectionHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.imageContainer {
+    margin-bottom: 1rem;
+    max-width: 300px;
+}
+
+.decorativeImage {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+@media (min-width: 768px) {
+    .sectionHeader {
+        margin-bottom: 3rem;
+    }
+    
+    .imageContainer {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.ctaContainer {
+    background: #F7F5F6;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.ctaContainer h2 {
+    color: #0083CF;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: var(--font-primary);
+    font-weight: bold;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--font-text);
+}
+
+.termsGroup {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.termsGroup input[type="checkbox"] {
+    margin-top: 0.25rem;
+}
+
+.termsGroup label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.termsGroup a {
+    color: #0083CF;
+    text-decoration: none;
+}
+
+.ctaButton {
+    background: #0083CF;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.ctaButton:hover {
+    transform: scale(1.05);
+}
+
+.ctaButton:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submitResult {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.submitResult p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.submitResult strong {
+    color: #0083CF;
+}
+
+.success {
+    background-color: #e6ffe6;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+}
+
+.error {
+    background-color: #ffe6e6;
+    color: #F44336;
+    border: 1px solid #F44336;
+}
+
+.resetButton {
+    margin-top: 1rem;
+    background: #0083CF;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.resetButton:hover {
+    transform: scale(1.05);
+}
