@@ -1,9 +1,10 @@
+import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { DynaPuff, Baloo_2, Poppins } from 'next/font/google'
 import ConditionalLayout from '@/components/ConditionalLayout/ConditionalLayout'
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration'
-import '../styles/globals.css'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/react'
+
 const dynaPuff = DynaPuff({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body>
         <ServiceWorkerRegistration />
         <ConditionalLayout>{children}</ConditionalLayout>
+        <Analytics />
       </body>
     </html>
   )
