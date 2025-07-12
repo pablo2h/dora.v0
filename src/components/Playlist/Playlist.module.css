@@ -1,0 +1,129 @@
+.playlistComponent {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  font-size: 2rem;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.selectorButtons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.selectorButton {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--background-light);
+  color: var(--text-color);
+}
+
+.selectorButton.active {
+  background-color: var(--pink-color);
+  color: white;
+}
+
+.embedContainer {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-light);
+  aspect-ratio: 16/9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 380px;
+  margin: 0 auto;
+}
+
+.embedContainer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.externalLink {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto 0;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--pink-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.externalLink:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .selectorButtons {
+    /* Mantener los botones uno al lado del otro */
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .selectorButton {
+    width: auto;
+    min-width: 120px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .embedContainer {
+    /* Ajustar para que funcione bien con Spotify y YouTube */
+    aspect-ratio: auto;
+    min-height: 400px;
+    height: 400px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .embedContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .playlistComponent {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+}

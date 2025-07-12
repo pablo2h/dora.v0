@@ -1,3 +1,18 @@
 .mainPage {
     padding-top: 7rem;
 }
+
+.playlistSection {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .playlistSection {
+        max-width: 100%;
+        padding: 0 0.5rem;
+        margin: 2rem auto;
+    }
+}

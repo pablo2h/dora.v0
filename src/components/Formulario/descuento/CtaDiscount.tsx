@@ -1,9 +1,10 @@
 
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './CtaDiscount.module.css';
 import { Span } from 'next/dist/trace';
+import PopUpDiscountForm from '@/components/PopUpAnnouncement/PopUpDiscountForm';
 
 
 interface SubmitResult {
@@ -54,7 +55,7 @@ export default function CtaDiscount() {
   };
 
   return (
-    <section className={styles.ctaSection}>
+    <section className={styles.ctaSection} id="ctaDiscount">
       <div className={styles.sectionHeader}>
         <div className={styles.imageContainer}>
           <Image 
@@ -106,5 +107,19 @@ export default function CtaDiscount() {
         )}
       </div>
     </section>
+  );
+}
+
+// Componente envoltorio que incluye el PopUp
+export function CtaDiscountWithPopUp() {
+  return (
+    <>
+      <CtaDiscount />
+      <PopUpDiscountForm 
+        title="¡Descuento especial!"
+        message="¡Obtén un 15% de descuento en tus entradas! Ingresa tu email y recibe tu código promocional."
+        showImmediately={true}
+      />
+    </>
   );
 }
