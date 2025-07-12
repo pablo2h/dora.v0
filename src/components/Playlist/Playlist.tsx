@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Playlist.module.css';
 
 interface PlaylistProps {
@@ -29,15 +30,21 @@ export default function Playlist({ youtubeUrl, spotifyUrl, title = "Playlist: vi
       
       <div className={styles.selectorButtons}>
         <button 
-          className={`${styles.selectorButton} ${activeService === 'spotify' ? styles.active : ''}`}
+          className={`${styles.selectorButton} ${activeService === 'spotify' ? `${styles.active} ${styles.spotify}` : ''}`}
           onClick={() => setActiveService('spotify')}
         >
+          <span className={styles.buttonIcon}>
+            <Image src="/assets/social/spotify.svg" alt="Spotify" width={20} height={20} />
+          </span>
           Spotify
         </button>
         <button 
-          className={`${styles.selectorButton} ${activeService === 'youtube' ? styles.active : ''}`}
+          className={`${styles.selectorButton} ${activeService === 'youtube' ? `${styles.active} ${styles.youtube}` : ''}`}
           onClick={() => setActiveService('youtube')}
         >
+          <span className={styles.buttonIcon}>
+            <Image src="/assets/social/youtube.svg" alt="YouTube" width={20} height={20} />
+          </span>
           YouTube Music
         </button>
       </div>
@@ -76,6 +83,14 @@ export default function Playlist({ youtubeUrl, spotifyUrl, title = "Playlist: vi
         rel="noopener noreferrer"
         className={styles.externalLink}
       >
+        <span className={styles.buttonIcon}>
+          <Image 
+            src={activeService === 'youtube' ? '/assets/social/youtube.svg' : '/assets/social/spotify.svg'} 
+            alt={activeService === 'youtube' ? 'YouTube' : 'Spotify'} 
+            width={20} 
+            height={20} 
+          />
+        </span>
         Abrir en {activeService === 'youtube' ? 'YouTube Music' : 'Spotify'}
       </Link>
     </div>

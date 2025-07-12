@@ -2,25 +2,29 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem;
+  background-color: var(--dora-blue, #0083CF);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .title {
   text-align: center;
   margin-bottom: 0.5rem;
-  color: var(--text-color);
+  color: white;
   font-family: var(--font-primary);
   font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--text-color);
+  color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-primary);
   font-size: 1.2rem;
   font-style: italic;
-  opacity: 0.8;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .selectorButtons {
@@ -31,28 +35,51 @@
 }
 
 .selectorButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   padding: 0.8rem 1.5rem;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   font-family: var(--font-primary);
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: var(--background-light);
-  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-.selectorButton.active {
-  background-color: var(--pink-color);
+.selectorButton.active.spotify {
+  background-color: var(--dora-green);
   color: white;
+}
+
+.selectorButton.active.youtube {
+  background-color: var(--dora-red);
+  color: white;
+}
+
+.buttonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.3rem;
+}
+
+.buttonIcon img {
+  filter: brightness(0) invert(1);
 }
 
 .embedContainer {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: var(--background-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   aspect-ratio: 16/9;
   display: flex;
   justify-content: center;
@@ -60,6 +87,7 @@
   position: relative;
   min-height: 380px;
   margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .embedContainer iframe {
@@ -69,21 +97,27 @@
 }
 
 .externalLink {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   width: fit-content;
   margin: 2rem auto 0;
   padding: 0.8rem 1.5rem;
-  background-color: var(--pink-color);
+  background: linear-gradient(135deg, var(--dora-orange) 0%, var(--dora-red) 100%);
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
   text-align: center;
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .externalLink:hover {
   transform: translateY(-3px);
+  box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.2));
+  background: linear-gradient(135deg, var(--dora-red) 0%, var(--dora-orange) 100%);
 }
 
 @media (max-width: 768px) {
