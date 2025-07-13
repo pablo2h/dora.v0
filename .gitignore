@@ -45,3 +45,16 @@ next-env.d.ts
 .history/
 .history
 /src/generated/prisma
+
+# Database backups and temporary files
+/database/backup_info_*.json
+*.stackdump
+
+# Migration logs (keep completed migrations for reference)
+# /database/migrations/completed/
+
+# Temporary files
+*.tmp
+*.temp
+*_temp/
+*_backup/

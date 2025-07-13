@@ -9,12 +9,14 @@ export default function ConditionalLayout({ children }: { children: React.ReactN
   
   // Páginas que NO deben mostrar navbar y footer
   const pagesWithoutNavbar = ['/bienvenida']
-  const showNavbar = !pagesWithoutNavbar.includes(pathname)
+  // Páginas de admin que tienen su propio layout
+  const isAdminPage = pathname.startsWith('/admin')
+  const showNavbar = !pagesWithoutNavbar.includes(pathname) && !isAdminPage
   
   if (!showNavbar) {
-    // Layout para páginas sin navbar (como bienvenida)
+    // Layout para páginas sin navbar (como bienvenida y admin)
     return (
-      <div style={{ margin: 0, padding: 0, overflow: 'hidden' }}>
+      <div style={{ margin: 0, padding: 0, overflow: isAdminPage ? 'auto' : 'hidden' }}>
         {children}
       </div>
     )
@@ -24,7 +26,7 @@ export default function ConditionalLayout({ children }: { children: React.ReactN
   return (
     <>
       <Navbar />
-      <main>
+      <main style={{ paddingTop: '120px' }}>
         {children}
       </main>
       <Footer />
