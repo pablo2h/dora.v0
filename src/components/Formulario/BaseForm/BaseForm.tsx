@@ -143,15 +143,40 @@ export function useFormHandler<T extends BaseFormData>(initialData: T) {
 // Función utilitaria para enviar datos al API
 export async function submitToAPI(data: ExtendedFormData, formType: string): Promise<SubmitResult> {
   try {
+    // Determinar message_type y source basado en formType
+    let message_type: string;
+    let source: string;
+    
+    switch (formType) {
+      case 'sponsors':
+        message_type = 'sponsorship';
+        source = 'form_contacto_sponsor';
+        break;
+      case 'general':
+        message_type = 'message';
+        source = 'form_contacto_general';
+        break;
+      default:
+        message_type = 'message';
+        source = 'form_contacto_general';
+    }
+
     // Guardamos en la base de datos
-    const dbResponse = await fetch('/api/contact', {
+    const dbResponse = await fetch('/api/contact-messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        ...data,
-        formType: formType
+        email: data.email,
+        full_name: data.name,
+        source: source,
+        message_type: message_type,
+        subject: data.subject || '',
+        message: data.message || '',
+        company_name: data.empresa || null,
+        phone: data.telefono || null,
+        category: data.categoria || null
       }),
     });
 

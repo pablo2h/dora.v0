@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from '../components.module.css';
+import styles from '../admin.module.css';
 
 interface Message {
   id: string;
@@ -261,11 +261,11 @@ export default function MessagesPage() {
 
       {/* Filtros */}
       <div className={styles.filtersContainer}>
-        <h3 className={styles.filtersTitle}>Filtros</h3>
-        <div className={styles.filtersGrid}>
+          <h3 className={styles.filtersTitle}>Filtros</h3>
+          <div className={styles.filtersGrid}>
           {/* Búsqueda */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Buscar
             </label>
             <input
@@ -279,7 +279,7 @@ export default function MessagesPage() {
 
           {/* Estado */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Estado
             </label>
             <select
@@ -297,7 +297,7 @@ export default function MessagesPage() {
 
           {/* Prioridad */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Prioridad
             </label>
             <select
@@ -315,7 +315,7 @@ export default function MessagesPage() {
 
           {/* Asignado a */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Asignado a
             </label>
             <select
@@ -335,8 +335,8 @@ export default function MessagesPage() {
 
       {/* Lista de mensajes */}
       <div className={styles.tableContainer}>
-        <div className={styles.tableHeader}>
-          <h3 className={styles.tableTitle}>
+          <div className={styles.tableHeader}>
+            <h3 className={styles.tableTitle}>
             Mensajes ({filteredMessages.length})
           </h3>
         </div>

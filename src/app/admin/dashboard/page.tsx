@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from '../dashboard.module.css';
+import styles from '../admin.module.css';
 
 interface DashboardData {
   overview: {

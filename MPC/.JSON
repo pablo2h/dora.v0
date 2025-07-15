@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "Postgrest": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-postgrest",
+        "--apiUrl",
+        "<POSTGREST_API_URL>",
+        "--schema",
+        "<SCHEMA>",
+        "--apiKey",
+        "postgresql://neondb_owner:npg_JBpltoO6DZk8@ep-odd-cloud-acmnz80q-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+      ],
+      "env": {}
+    }
+  }
+}

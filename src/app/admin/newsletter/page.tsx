@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from '../components.module.css';
+import styles from '../admin.module.css';
 
 interface Subscriber {
   id: string;
@@ -220,11 +220,11 @@ export default function NewsletterPage() {
 
       {/* Filtros */}
       <div className={styles.filtersContainer}>
-        <h3 className={styles.sectionTitle}>Filtros</h3>
-        <div className={styles.filtersGrid}>
+          <h3 className={styles.sectionTitle}>Filtros</h3>
+          <div className={styles.filtersGrid}>
           {/* Búsqueda */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Buscar por email
             </label>
             <input
@@ -241,7 +241,7 @@ export default function NewsletterPage() {
 
           {/* Fuente */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Fuente
             </label>
             <select
@@ -262,7 +262,7 @@ export default function NewsletterPage() {
 
           {/* Estado */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Estado
             </label>
             <select
@@ -281,7 +281,7 @@ export default function NewsletterPage() {
 
           {/* Frecuencia */}
           <div className={styles.filterGroup}>
-            <label className={styles.filterLabel}>
+              <label className={styles.filterLabel}>
               Frecuencia
             </label>
             <select

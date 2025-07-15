@@ -44,16 +44,51 @@ export function useFormHandler({
     setIsSubmitting(true);
 
     try {
+      // Determinar endpoint y payload según el tipo de formulario
+      let endpoint: string;
+      let payload: any;
+      
+      if (formType === 'discount') {
+        endpoint = '/api/subscriptions';
+        payload = {
+          email: formData.email,
+          source: 'form_discount',
+          subscription_type: 'discounts',
+          frequency: 'weekly'
+        };
+      } else {
+        endpoint = '/api/contact-messages';
+        const messageTypeMap: { [key: string]: string } = {
+          'sponsors': 'sponsorship',
+          'consulta': 'query',
+          'general': 'message'
+        };
+        const sourceMap: { [key: string]: string } = {
+          'sponsors': 'form_contacto_sponsor',
+          'consulta': 'form_consulta',
+          'general': 'form_contacto_general'
+        };
+        
+        payload = {
+          email: formData.email,
+          full_name: formData.name,
+          source: sourceMap[formType] || 'form_contacto_general',
+          message_type: messageTypeMap[formType] || 'message',
+          subject: formData.subject || '',
+          message: formData.message || '',
+          company_name: formData.empresa || null,
+          phone: formData.telefono || null,
+          category: formData.categoria || null
+        };
+      }
+      
       // Guardar en la base de datos
-      const dbResponse = await fetch('/api/contact', {
+      const dbResponse = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          formType: formType
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!dbResponse.ok) {

@@ -125,7 +125,7 @@ export const POST = withAuth(async (req: NextRequest, admin) => {
         ) VALUES (
           ${admin.id},
           ${JSON.stringify([])},
-          ${req.body ? JSON.parse(req.body).subject || 'Error antes de parsear' : 'Error de parsing'},
+          'Error durante el envío de email',
           'manual',
           'failed',
           ${error instanceof Error ? error.message : 'Error desconocido'},

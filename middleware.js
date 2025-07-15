@@ -6,16 +6,12 @@ const JWT_SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET || 'dora-admin-secret-key-2024'
 );
 
-// Rutas que requieren autenticación
-const protectedRoutes = ['/admin'];
+// Rutas que requieren autenticación (específicas, no la raíz)
+const protectedRoutes = ['/admin/dashboard', '/admin/messages', '/admin/newsletter', '/admin/email-tool'];
 
-// Rutas públicas dentro del área admin (como login)
-const publicAdminRoutes = ['/admin/login', '/admin/auth'];
+// Rutas públicas dentro del área admin
+const publicAdminRoutes = ['/admin', '/admin/auth'];
 
-/**
- * Middleware global de Next.js para proteger rutas administrativas
- * Se ejecuta antes de que las páginas sean renderizadas
- */
 export async function middleware(request) {
   const { pathname } = request.nextUrl;
 
@@ -25,7 +21,7 @@ export async function middleware(request) {
   }
 
   // Permitir acceso a rutas públicas del admin
-  if (publicAdminRoutes.some(route => pathname.startsWith(route))) {
+  if (publicAdminRoutes.some(route => pathname === route || pathname.startsWith(route + '/'))) {
     return NextResponse.next();
   }
 
@@ -42,8 +38,8 @@ export async function middleware(request) {
   const token = request.cookies.get('admin-token')?.value;
 
   if (!token) {
-    // Redirigir a login si no hay token
-    const loginUrl = new URL('/admin/login', request.url);
+    // Redirigir a la página de login (que está en /admin)
+    const loginUrl = new URL('/admin', request.url);
     loginUrl.searchParams.set('redirect', pathname);
     return NextResponse.redirect(loginUrl);
   }

@@ -59,16 +59,16 @@ export default function PopUpDiscountForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/subscriptions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ 
           email,
-          formType: 'discount',
-          subject: 'Solicitud de descuento',
-          message: 'Usuario solicitó descuento del 15%'
+          source: 'popup_discount',
+          subscription_type: 'discounts',
+          frequency: 'weekly'
         }),
       });
 

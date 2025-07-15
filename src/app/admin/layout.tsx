@@ -23,37 +23,47 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
-    try {
-      const response = await fetch('/api/admin/auth/verify');
-      const data = await response.json();
-
-      if (data.authenticated && data.admin) {
-        setIsAuthenticated(true);
-        setAdmin(data.admin);
+    const checkAuth = async () => {
+      try {
+        console.log('🔍 Verificando autenticación para:', pathname);
+        const response = await fetch('/api/admin/auth/verify', {
+          credentials: 'include'
+        });
         
-        // Si está en la página de login y está autenticado, redirigir al dashboard
-        if (pathname === '/admin') {
-          router.push('/admin/dashboard');
+        if (response.ok) {
+          const data = await response.json();
+          console.log('✅ Usuario autenticado:', data.admin.email);
+          setAdmin(data.admin);
+          setIsAuthenticated(true);
+          
+          // Redirigir a dashboard solo si está exactamente en /admin
+          if (pathname === '/admin') {
+            console.log('🔄 Redirigiendo a dashboard...');
+            // Pequeño delay para evitar bucles inmediatos
+            setTimeout(() => {
+              router.push('/admin/dashboard');
+            }, 100);
+          }
+        } else {
+          console.log('❌ No autenticado, respuesta:', response.status);
+          setIsAuthenticated(false);
+          // Redirigir a login si no está autenticado y no está ya en /admin
+          if (pathname !== '/admin') {
+            console.log('🔄 Redirigiendo a login...');
+            router.push('/admin');
+          }
         }
-      } else {
+      } catch (error) {
+        console.error('💥 Error verificando autenticación:', error);
         setIsAuthenticated(false);
-        
-        // Si no está autenticado y no está en la página de login, redirigir
         if (pathname !== '/admin') {
           router.push('/admin');
         }
       }
-    } catch (error) {
-      setIsAuthenticated(false);
-      if (pathname !== '/admin') {
-        router.push('/admin');
-      }
-    }
-  };
+    };
+
+    checkAuth();
+  }, [pathname, router]);
 
   // Mostrar loading mientras verifica autenticación
   if (isAuthenticated === null) {
@@ -84,6 +94,17 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     return <>{children}</>;
   }
 
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/admin/auth/logout', { method: 'POST' });
+      setIsAuthenticated(false);
+      setAdmin(null);
+      router.push('/admin');
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
   // Si está autenticado y en páginas protegidas, mostrar layout completo
   if (isAuthenticated && admin) {
     return (
@@ -91,41 +112,39 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         {/* Header */}
         <header className={styles.adminHeader}>
           <div className={styles.headerContainer}>
-            <div className={styles.headerContent}>
-              {/* Logo y título */}
-              <div className={styles.headerLeft}>
-                <div className="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm">
-                  <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h1 className={styles.headerTitle}>Festival Dora</h1>
-                  <p className="text-purple-100 text-sm">Panel de Administración</p>
-                </div>
+            {/* Logo y título */}
+            <div className={styles.logoSection}>
+              <div className={styles.logoIcon}>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clipRule="evenodd" />
+                </svg>
               </div>
+              <div className={styles.logoText}>
+                <h1>Festival Dora</h1>
+                <p>Panel de Administración</p>
+              </div>
+            </div>
 
-              {/* Usuario y logout */}
-              <div className={styles.headerRight}>
-                <div className="text-right">
-                  <div className="text-white font-medium">{admin.full_name}</div>
-                  <div className="text-purple-200 text-sm">@{admin.username}</div>
-                </div>
-                <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <button
-                  onClick={handleLogout}
-                  className={styles.logoutButton}
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd" />
-                  </svg>
-                  <span>Cerrar Sesión</span>
-                </button>
+            {/* Usuario y logout */}
+            <div className={styles.userSection}>
+              <div className={styles.userInfo}>
+                <div className={styles.userName}>{admin.full_name}</div>
+                <div className={styles.userHandle}>@{admin.username}</div>
               </div>
+              <div className={styles.userAvatar}>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <button
+                onClick={handleLogout}
+                className={styles.logoutButton}
+              >
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd" />
+                </svg>
+                <span>Cerrar Sesión</span>
+              </button>
             </div>
           </div>
         </header>
@@ -133,11 +152,11 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         {/* Navegación */}
         <nav className={styles.adminNav}>
           <div className={styles.navContainer}>
-            <div className={styles.navContent}>
+            <div className={styles.navLinks}>
               <Link
                 href="/admin/dashboard"
                 className={`${styles.navLink} ${
-                  pathname === '/admin/dashboard' ? styles.navLinkActive : ''
+                  pathname === '/admin/dashboard' ? styles.active : ''
                 }`}
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -148,7 +167,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Link
                 href="/admin/messages"
                 className={`${styles.navLink} ${
-                  pathname === '/admin/messages' ? styles.navLinkActive : ''
+                  pathname === '/admin/messages' ? styles.active : ''
                 }`}
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -160,7 +179,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Link
                 href="/admin/newsletter"
                 className={`${styles.navLink} ${
-                  pathname === '/admin/newsletter' ? styles.navLinkActive : ''
+                  pathname === '/admin/newsletter' ? styles.active : ''
                 }`}
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -171,7 +190,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Link
                 href="/admin/email-tool"
                 className={`${styles.navLink} ${
-                  pathname === '/admin/email-tool' ? styles.navLinkActive : ''
+                  pathname === '/admin/email-tool' ? styles.active : ''
                 }`}
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -184,28 +203,19 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         </nav>
 
         {/* Contenido principal */}
-        <main className={styles.adminMain}>
-          <div className={styles.mainContent}>
-            {children}
-          </div>
-        </main>
+        <div className={styles.adminContent}>
+          <main className={styles.adminMain}>
+            <div className={styles.mainContent}>
+              {children}
+            </div>
+          </main>
+        </div>
       </div>
     );
   }
 
   // Fallback
   return <>{children}</>;
-
-  async function handleLogout() {
-    try {
-      await fetch('/api/admin/auth/logout', { method: 'POST' });
-      setIsAuthenticated(false);
-      setAdmin(null);
-      router.push('/admin');
-    } catch (error) {
-      console.error('Error al cerrar sesión:', error);
-    }
-  }
 }
 
 // Componente para enlaces de navegación

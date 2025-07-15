@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "Todoist": {
+      "command": "npx -y @abhiz123/todoist-mcp-server",
+      "args": [],
+      "env": {
+        "TODOIST_API_TOKEN": "04ad098c70c52cc35a145c4f7570139f18879565"
+      }
+    }
+  }
+}
