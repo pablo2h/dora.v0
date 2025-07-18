@@ -1,0 +1,163 @@
+.playlistComponent {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--dora-blue, #0083CF);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.selectorButtons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.selectorButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.selectorButton.active.spotify {
+  background-color: var(--dora-green);
+  color: white;
+}
+
+.selectorButton.active.youtube {
+  background-color: var(--dora-red);
+  color: white;
+}
+
+.buttonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.3rem;
+}
+
+.buttonIcon img {
+  filter: brightness(0) invert(1);
+}
+
+.embedContainer {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  aspect-ratio: 16/9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 380px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.embedContainer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.externalLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 2rem auto 0;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, var(--dora-orange) 0%, var(--dora-red) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.externalLink:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.2));
+  background: linear-gradient(135deg, var(--dora-red) 0%, var(--dora-orange) 100%);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .selectorButtons {
+    /* Mantener los botones uno al lado del otro */
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .selectorButton {
+    width: auto;
+    min-width: 120px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .embedContainer {
+    /* Ajustar para que funcione bien con Spotify y YouTube */
+    aspect-ratio: auto;
+    min-height: 400px;
+    height: 400px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .embedContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .playlistComponent {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+}

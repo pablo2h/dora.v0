@@ -70,7 +70,7 @@ export const tickets: TicketProps[] = [
         "Precio promocional (35% OFF)"
       ],
       price: "$7.999",
-      isSoldOut: false,
+      isSoldOut: true,
       type: 'presale2',
       availability: {
         startDate: "2025-06-28",
@@ -91,7 +91,7 @@ export const tickets: TicketProps[] = [
       isSoldOut: false,
       type: 'general',
       availability: {
-        startDate: "2025-07-15",
+        startDate: "2023-07-15",
         isVisible: true
       }
     }

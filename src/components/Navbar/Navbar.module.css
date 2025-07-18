@@ -265,6 +265,19 @@
         width: 60px;
         height: 60px;
     }
+    
+    .abonosCta_button {
+        padding: 1rem 1.5rem;
+        min-width: 200px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .abonosCta {
+        font-size: 1.1rem;
+        text-align: center;
+    }
 }
 /* Remove the duplicate .navLogo at the bottom and keep only the main one */
 
@@ -320,7 +333,7 @@ text-decoration: none;
 transition: color 0.3s ease;
 }
 .abonosCta_button {
-    background: linear-gradient(135deg, var(--dora-orange), var(--dora-red));
+    background: var(--dora-red);
     border: none;
     border-radius: var(--radius-2xl);
     padding: 1.2rem 2.5rem;
@@ -331,12 +344,15 @@ transition: color 0.3s ease;
     min-width: 250px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .abonosCta_button:hover {
     transform: scale(1.05) translateY(-3px);
     box-shadow: var(--shadow-xl);
-    background: linear-gradient(135deg, var(--dora-red), var(--dora-pink));
+    background: var(--dora-orange);
 }
 
 .abonosCta_button:active {
@@ -351,8 +367,64 @@ transition: color 0.3s ease;
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     display: block;
     width: 100%;
-    height: 100%;
+}
+
+/* Estilos para los botones de playlist */
+.playlistTitle {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.playlistButtons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.playlistButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-xl);
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--dora-white);
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    width: 48%;
+    text-align: center;
+}
+
+.spotifyButton {
+    background: var(--dora-green);
+}
+
+.youtubeButton {
+    background: var(--dora-red);
+}
+
+.playlistButton:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.playlistIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.3rem;
+}
+
+.playlistIcon img {
+    filter: brightness(0) invert(1);
 }
 
 .abonosCta:hover {

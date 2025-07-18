@@ -143,6 +143,11 @@
   --background-card: #2A2A2A;
   --background-elevated: #333333;
   
+  /* Variables específicas para componentes en modo oscuro */
+  --dora-dark-bg: #121212;
+  --dora-dark-input-bg: #2A2A2A;
+  --dora-dark-border: #444;
+  
   /* Colores para inputs y formularios en modo oscuro */
   --input-bg: #2A2A2A;
   --border-color: rgba(255, 255, 255, 0.2);

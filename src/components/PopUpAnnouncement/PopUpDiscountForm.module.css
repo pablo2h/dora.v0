@@ -1,0 +1,369 @@
+.discountFormContent {
+  padding: 2rem;
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+  background: var(--dora-white);
+  border-radius: 15px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+:global(.dark-theme) .discountFormContent {
+  background-color: var(--dora-dark-bg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animateIn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.discountTitle {
+  font-family: var(--font-dynapuff, 'DynaPuff', cursive);
+  font-size: 2.2rem;
+  color: var(--dora-blue, #1e3a8a);
+  margin-bottom: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
+:global(.dark-theme) .discountTitle {
+  color: var(--dora-pink);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.discountMessage {
+  color: var(--text-primary, #333);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:global(.dark-theme) .discountMessage {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.discountHighlight {
+  display: inline-block;
+  background: var(--dora-green);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite;
+}
+
+:global(.dark-theme) .discountHighlight {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 165, 0, 0.3);
+  background: var(--dora-orange);
+}
+
+.discountForm {
+  width: 100%;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--border-color, #e5e7eb);
+  border-radius: 12px;
+  font-size: 1.05rem;
+  background-color: var(--input-bg, #ffffff);
+  color: var(--text-primary, #333);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+:global(.dark-theme) .emailInput {
+  background-color: var(--dora-dark-input-bg, #2a2a2a);
+  color: white;
+  border-color: var(--dora-dark-border, #444);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 0 3px rgba(255, 255, 255, 0.1) inset;
+}
+
+:global(.dark-theme) .emailInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.inputError {
+  border-color: #e53e3e;
+  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.1);
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  text-align: left;
+  animation: fadeIn 0.3s ease;
+}
+
+:global(.dark-theme) .errorMessage {
+  color: #ff8080;
+  text-shadow: 0 0 3px rgba(255, 107, 107, 0.3);
+}
+
+.emailInput:focus {
+  outline: none;
+  border-color: var(--dora-blue, #1e3a8a);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+  transform: translateY(-2px);
+}
+
+:global(.dark-theme) .emailInput:focus {
+  border-color: var(--dora-pink);
+  box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
+}
+
+.submitButton {
+  background: var(--dora-pink);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(244, 114, 182, 0.3);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+:global(.dark-theme) .submitButton {
+  background: linear-gradient(135deg, var(--dora-red) 0%, var(--dora-orange) 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(240, 91, 49, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loadingSpinner {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+.submitButton:hover {
+  transform: translateY(-3px);
+  background: var(--dora-red);
+  box-shadow: 0 6px 15px rgba(30, 58, 138, 0.3);
+}
+
+:global(.dark-theme) .submitButton:hover {
+  background: linear-gradient(135deg, var(--dora-orange) 0%, var(--dora-pink) 100%);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(250, 134, 50, 0.3);
+  transform: translateY(-4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitResult {
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.5s ease;
+}
+
+:global(.dark-theme) .submitResult {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #065f46;
+  border: 2px solid rgba(16, 185, 129, 0.3);
+}
+
+:global(.dark-theme) .success {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  text-shadow: 0 0 3px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+  border: 2px solid rgba(239, 68, 68, 0.3);
+}
+
+:global(.dark-theme) .error {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 2px solid rgba(239, 68, 68, 0.4);
+  text-shadow: 0 0 3px rgba(239, 68, 68, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(239, 68, 68, 0.1);
+}
+
+.discountLink {
+  color: var(--dora-blue, #1e3a8a);
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.discountLink:hover {
+  color: var(--dora-pink, #f472b6);
+}
+
+:global(.dark-theme) .discountLink {
+  color: var(--dora-pink);
+  text-decoration-color: rgba(244, 114, 182, 0.7);
+  text-shadow: 0 0 2px rgba(244, 114, 182, 0.2);
+  font-weight: 600;
+}
+
+:global(.dark-theme) .discountLink:hover {
+  color: var(--dora-orange);
+  text-decoration-color: var(--dora-orange);
+  text-shadow: 0 0 3px rgba(250, 134, 50, 0.3);
+  transition: all 0.2s ease;
+}
+
+.closeButton {
+  background: linear-gradient(135deg, var(--dora-blue, #1e3a8a) 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(30, 58, 138, 0.3);
+  letter-spacing: 0.5px;
+  font-size: 1.05rem;
+}
+
+.closeButton:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #2563eb 0%, var(--dora-pink, #f472b6) 100%);
+  box-shadow: 0 6px 15px rgba(244, 114, 182, 0.3);
+}
+
+:global(.dark-theme) .closeButton {
+  background: linear-gradient(135deg, var(--dora-blue, #1e3a8a) 0%, var(--dora-pink) 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(244, 114, 182, 0.2);
+  color: white;
+}
+
+:global(.dark-theme) .closeButton:hover {
+  background: linear-gradient(135deg, var(--dora-pink) 0%, var(--dora-orange) 100%);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 114, 182, 0.3);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .discountTitle {
+    font-size: 1.8rem;
+  }
+  
+  .discountMessage {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  .submitButton,
+  .closeButton {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .discountFormContent {
+    padding: 1.5rem;
+  }
+  
+  .discountTitle {
+    font-size: 1.6rem;
+  }
+  
+  .discountMessage {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .emailInput {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .submitButton,
+  .closeButton {
+    padding: 0.8rem 1rem;
+  }
+}
