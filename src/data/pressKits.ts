@@ -143,7 +143,7 @@ export const festivalInfo = {
     email: "hornodebarroer@gmail.com"
   },
   stats: {
-    artists: "+15",
+    artists: "+20",
     stages: "1",
     screens: "18m²",
     attendees: "+300",
