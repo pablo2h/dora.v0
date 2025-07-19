@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { InteractiveMapProps, MapHotspot } from '../../types/map';
 import { mapConfig } from '../../data/festivalHotspots';
-import MapHotspot from './MapHotspot';
+import MapHotspotComponent from './MapHotspot';
 import HotspotModal from './HotspotModal';
 import styles from './Mapa.module.css';
 
@@ -86,7 +86,7 @@ export default function InteractiveMap({
           
           {/* Render interactive hotspots */}
           {mapConfig.hotspots.map((hotspot) => (
-            <MapHotspot
+            <MapHotspotComponent
               key={hotspot.id}
               hotspot={hotspot}
               onClick={handleHotspotClick}
