@@ -6,6 +6,11 @@ interface MapProps {
     address?: string;
 }
 
+/**
+ * Main Map component that displays Google Maps iframe for venue location
+ * @param title - Map title (default: "Vieja Usina")
+ * @param address - Venue address
+ */
 export default function Map({ title = "Vieja Usina", address = "San Martín 861, Paraná, Entre Ríos" }: MapProps) {
     const googleMapsUrl = "https://maps.app.goo.gl/WoTxrpPCtWqMpbt3A";
     const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54300.468451174!2d-60.56490317987505!3d-31.721923825063513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b4526f78108c83%3A0xeb21544ed15a99a0!2sCentro%20Cultural%20Y%20De%20Convenciones%20La%20Vieja%20Usina!5e0!3m2!1sen!2sar!4v1740446334596!5m2!1sen!2sarhttps://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54300.468451174!2d-60.56490317987505!3d-31.721923825063513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b4526f78108c83%3A0xeb21544ed15a99a0!2sCentro%20Cultural%20Y%20De%20Convenciones%20La%20Vieja%20Usina!5e0!3m2!1sen!2sar!4v1740446334596!5m2!1sen!2sar";

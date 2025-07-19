@@ -18,7 +18,7 @@ export default function Footer() {
                 <a href="www.youtube.com/@BarroVT" className={`${styles.socialButton} ${styles.youtube}`}>
                     <Image src="./assets/social/youtube.svg" width={24} height={24} alt="YouTube" className={styles.socialIcon} />
                 </a>
-                <a href="#https://kick.com/barrovtimage.png" className={`${styles.socialButton} ${styles.kick}`}>
+                <a href="https://kick.com/barrovt" className={`${styles.socialButton} ${styles.kick}`}>
                     <Image src="./assets/social/kick.svg" width={24} height={24} alt="Kick" className={styles.socialIcon} />
                 </a>
             </div>
