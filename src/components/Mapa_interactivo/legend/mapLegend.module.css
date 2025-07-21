@@ -1,0 +1,213 @@
+/* Map Legend Container */
+.legendContainer {
+  background: var(--background-card);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.legendTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--dora-green);
+  margin: 0 0 var(--spacing-lg) 0;
+  text-align: center;
+}
+
+/* Legend Grid Layout */
+.legendGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Individual Legend Item */
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-normal);
+}
+
+.legendItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--dora-green);
+}
+
+/* Legend Icon */
+.legendIcon {
+  flex-shrink: 0;
+}
+
+.iconEmoji {
+  font-size: 1.2rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.svgIcon {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Legend Content */
+.legendContent {
+  flex: 1;
+}
+
+.legendCategory {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.legendDescription {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Legend Footer */
+.legendFooter {
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-md);
+  text-align: center;
+}
+
+.legendNote {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.legendNote strong {
+  color: var(--dora-green);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .legendContainer {
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+  }
+  
+  .legendTitle {
+    font-size: var(--font-size-xl);
+  }
+  
+  .legendGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .legendItem {
+    padding: var(--spacing-sm);
+  }
+  
+  .legendIcon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .iconEmoji {
+    font-size: var(--font-size-lg);
+  }
+  
+  .legendCategory {
+    font-size: var(--font-size-base);
+  }
+  
+  .legendDescription {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .legendContainer {
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .legendTitle {
+    font-size: var(--font-size-xl);
+  }
+  
+  .legendItem {
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+  }
+  
+  .legendIcon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .iconEmoji {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Dark mode support - Uses DORA dark theme tokens */
+.dark-theme .legendContainer {
+  background: var(--background-card);
+  border-color: var(--border-color);
+}
+
+.dark-theme .legendItem {
+  background: var(--background);
+  border-color: var(--border-color);
+}
+
+.dark-theme .legendItem:hover {
+  border-color: var(--dora-green);
+}
+
+.dark-theme .legendCategory {
+  color: var(--text-primary);
+}
+
+.dark-theme .legendDescription {
+  color: var(--text-secondary);
+}
+
+.dark-theme .legendNote {
+  color: var(--text-secondary);
+}
+
+.dark-theme .legendNote strong {
+  color: var(--dora-green);
+}
+
+.dark-theme .legendFooter {
+  border-color: var(--border-color);
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 480px) {
+  .legendContainer {
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+  }
+  
+  .legendTitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .legendGrid {
+    gap: var(--spacing-xs);
+  }
+  
+  .legendItem {
+    padding: var(--spacing-xs);
+  }
+}

@@ -1,0 +1,413 @@
+/* StreamViewer Component Styles */
+.streamViewer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--background-card);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-theme);
+}
+
+.streamViewer.darkTheme {
+  background: var(--background-elevated);
+  border-color: var(--border-color);
+}
+
+/* Platform Selector */
+.platformSelector {
+  margin-bottom: var(--spacing-xl);
+}
+
+.selectorTitle {
+  font-family: var(--font-baloo2, 'Baloo 2', cursive);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.platformButtons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.platformButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--background-light);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-family: var(--font-poppins, 'Poppins', sans-serif);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  min-width: 140px;
+  justify-content: center;
+}
+
+.platformButton:hover:not(.disabled) {
+  background: var(--background-hover);
+  border-color: var(--primary-color);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.platformButton.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--dora-white);
+  box-shadow: var(--shadow-lg);
+}
+
+.platformButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--background-disabled);
+  color: var(--text-disabled);
+}
+
+.darkTheme .platformButton {
+  background: var(--background-dark);
+  border-color: var(--border-color);
+  color: var(--text-light);
+}
+
+.darkTheme .platformButton:hover:not(.disabled) {
+  background: var(--background-elevated);
+}
+
+.darkTheme .platformButton.disabled {
+  background: var(--background-disabled);
+  color: var(--text-disabled);
+}
+
+/* Platform Icons */
+.platformIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtubeIcon {
+  color: #FF0000;
+}
+
+.kickIcon {
+  color: #53FC18;
+}
+
+.platformButton.active .youtubeIcon,
+.platformButton.active .kickIcon {
+  color: var(--dora-white);
+}
+
+.platformName {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Active Indicator */
+.activeIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: var(--dora-white);
+  border-radius: var(--radius-full);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 30px;
+    opacity: 1;
+  }
+}
+
+/* Viewer Container */
+.viewerContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+}
+
+.streamWrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background: var(--background-dark);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.streamIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-lg);
+}
+
+/* Loading Overlay */
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-family: var(--font-poppins, 'Poppins', sans-serif);
+  gap: var(--spacing-md);
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid var(--primary-color);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* No Stream Message */
+.noStreamMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: var(--spacing-2xl);
+  text-align: center;
+  background: var(--background-light);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-color);
+  color: var(--text-secondary);
+}
+
+.darkTheme .noStreamMessage {
+  background: var(--background-dark);
+  color: var(--text-light);
+}
+
+.noStreamIcon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.noStreamMessage h4 {
+  font-family: var(--font-baloo2, 'Baloo 2', cursive);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.noStreamMessage p {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-sm);
+  max-width: 400px;
+}
+
+.noStreamSubtext {
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Stream Info */
+.streamInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--background-light);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.darkTheme .streamInfo {
+  background: var(--background-dark);
+}
+
+.streamStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  justify-content: space-between;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-poppins, 'Poppins', sans-serif);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--dora-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background: var(--dora-red);
+  border-radius: var(--radius-full);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.platformInfo {
+  font-family: var(--font-poppins, 'Poppins', sans-serif);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .streamViewer {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md);
+  }
+  
+  .selectorTitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .platformButtons {
+    gap: var(--spacing-sm);
+  }
+  
+  .platformButton {
+    min-width: 120px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  .platformIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .noStreamMessage {
+    min-height: 250px;
+    padding: var(--spacing-xl);
+  }
+  
+  .noStreamIcon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .streamStatus {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .streamViewer {
+    padding: var(--spacing-md);
+    margin: var(--spacing-sm);
+  }
+  
+  .platformButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .platformButton {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .noStreamMessage {
+    min-height: 200px;
+    padding: var(--spacing-lg);
+  }
+  
+  .noStreamMessage h4 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .noStreamMessage p {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .loadingSpinner,
+  .liveDot,
+  .activeIndicator {
+    animation: none;
+  }
+  
+  .platformButton {
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.platformButton:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.streamIframe:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}

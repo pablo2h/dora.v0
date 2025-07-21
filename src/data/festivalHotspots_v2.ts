@@ -1,18 +1,33 @@
-import { MapHotspot, MapConfig } from '../types/map';
 import { schedule } from './schedule';
 import { artists } from './artists';
 import { kioskProducts } from './kiosk';
 
 /**
- * Festival DORA 2025 - Interactive Map Hotspots
- * Coordinates are based on the SVG viewBox: "0 0 1080.000000 1351.000000"
+ * Festival DORA 2025 - Interactive Map Hotspots Data (Version 2)
+ * This version contains only the essential data without coordinates
  */
-export const festivalHotspots: MapHotspot[] = [
+
+export interface HotspotInfo {
+  description: string;
+  schedule: string;
+  access: 'free' | 'ticket' | 'vip';
+  artists?: string[];
+  products?: string[];
+}
+
+export interface FestivalHotspot {
+  id: string;
+  name: string;
+  category: 'stage' | 'food' | 'service' | 'vip' | 'merchandise' | 'screen';
+  info: HotspotInfo;
+  icon: string;
+}
+
+export const festivalHotspots_v2: FestivalHotspot[] = [
   {
     id: 'escenario-principal',
     name: 'Escenario Principal',
     category: 'stage',
-    coordinates: { x: 540, y: 400 }, // Center-top area of the venue
     info: {
       description: 'Escenario principal del Festival DORA 2025. Aquí se presentarán los artistas principales del evento.',
       schedule: 'Zacaro y los Puerkos (18:00hs), La Tercera Fase del Plan (19:30hs), Rosario Smowing (20:45hs)',
@@ -25,7 +40,6 @@ export const festivalHotspots: MapHotspot[] = [
     id: 'zona-vip',
     name: 'Zona VIP',
     category: 'vip',
-    coordinates: { x: 300, y: 350 }, // Left side of main stage
     info: {
       description: 'Área techada exclusiva para abonados con servicios premium y mejor vista del escenario.',
       schedule: 'Acceso durante todo el evento (17:00hs - 23:00hs)',
@@ -37,7 +51,6 @@ export const festivalHotspots: MapHotspot[] = [
     id: 'puestos-comida',
     name: 'Puestos de Comida',
     category: 'food',
-    coordinates: { x: 200, y: 600 }, // Lower left area
     info: {
       description: 'Variedad de opciones gastronómicas del festival.',
       schedule: 'Abierto durante todo el evento (17:00hs - 23:00hs)',
@@ -50,7 +63,6 @@ export const festivalHotspots: MapHotspot[] = [
     id: 'puesto-pizza',
     name: 'Puesto de Pizza',
     category: 'food',
-    coordinates: { x: 350, y: 650 }, // Near other food stands
     info: {
       description: 'Deliciosas pizzas artesanales recién horneadas.',
       schedule: 'Abierto durante todo el evento (17:00hs - 23:00hs)',
@@ -63,7 +75,6 @@ export const festivalHotspots: MapHotspot[] = [
     id: 'kiosco-merchandising',
     name: 'Kiosco y Merchandising',
     category: 'merchandise',
-    coordinates: { x: 800, y: 600 }, // Lower right area
     info: {
       description: 'Kiosco oficial del festival con bebidas, snacks y merchandising exclusivo.',
       schedule: 'Abierto durante todo el evento (17:00hs - 22:45hs)',
@@ -83,7 +94,6 @@ export const festivalHotspots: MapHotspot[] = [
     id: 'zona-pantallas',
     name: 'Zona de Pantallas Exteriores',
     category: 'screen',
-    coordinates: { x: 540, y: 800 }, // Bottom center
     info: {
       description: 'Área de descanso con transmisión en vivo del escenario principal y presentaciones exteriores.',
       schedule: 'Stand Up Comedy Litoral (19:00hs), Presentación de JOA (20:15hs)',
@@ -96,7 +106,6 @@ export const festivalHotspots: MapHotspot[] = [
     id: 'servicios',
     name: 'Servicios',
     category: 'service',
-    coordinates: { x: 100, y: 400 }, // Left side
     info: {
       description: 'Servicios generales: baños, primeros auxilios, información y puntos de carga.',
       schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
@@ -107,20 +116,12 @@ export const festivalHotspots: MapHotspot[] = [
 ];
 
 /**
- * Map configuration with SVG viewBox and hotspots
- */
-export const mapConfig: MapConfig = {
-  viewBox: '0 0 1080 1351',
-  hotspots: festivalHotspots
-};
-
-/**
  * Get hotspots by category
  * @param category - The hotspot category to filter by
  * @returns Array of hotspots matching the category
  */
-export const getHotspotsByCategory = (category: MapHotspot['category']): MapHotspot[] => {
-  return festivalHotspots.filter(hotspot => hotspot.category === category);
+export const getHotspotsByCategory = (category: FestivalHotspot['category']): FestivalHotspot[] => {
+  return festivalHotspots_v2.filter(hotspot => hotspot.category === category);
 };
 
 /**
@@ -128,8 +129,8 @@ export const getHotspotsByCategory = (category: MapHotspot['category']): MapHots
  * @param id - The hotspot ID to find
  * @returns The hotspot or undefined if not found
  */
-export const getHotspotById = (id: string): MapHotspot | undefined => {
-  return festivalHotspots.find(hotspot => hotspot.id === id);
+export const getHotspotById = (id: string): FestivalHotspot | undefined => {
+  return festivalHotspots_v2.find(hotspot => hotspot.id === id);
 };
 
 /**
@@ -137,7 +138,7 @@ export const getHotspotById = (id: string): MapHotspot | undefined => {
  * @param access - The access level
  * @returns Human-readable access level
  */
-export const getAccessDisplayName = (access: MapHotspot['info']['access']): string => {
+export const getAccessDisplayName = (access: FestivalHotspot['info']['access']): string => {
   switch (access) {
     case 'free':
       return 'Acceso Libre';
@@ -155,7 +156,7 @@ export const getAccessDisplayName = (access: MapHotspot['info']['access']): stri
  * @param category - The hotspot category
  * @returns Human-readable category name
  */
-export const getCategoryDisplayName = (category: MapHotspot['category']): string => {
+export const getCategoryDisplayName = (category: FestivalHotspot['category']): string => {
   switch (category) {
     case 'stage':
       return 'Escenario';

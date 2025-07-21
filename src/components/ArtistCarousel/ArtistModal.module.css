@@ -1,0 +1,398 @@
+/* Artist Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--spacing-lg);
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  position: relative;
+  background: var(--background-card);
+  border-radius: var(--radius-xl);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-2xl);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-theme);
+}
+
+/* Close Button */
+.closeButton {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 40px;
+  height: 40px;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  z-index: var(--z-overlay);
+}
+
+.closeButton:hover {
+  background: var(--error-color);
+  color: var(--dora-white);
+  border-color: var(--error-color);
+  transform: scale(1.1);
+}
+
+.closeButton:active {
+  transform: scale(0.95);
+}
+
+/* Modal Header with Image */
+.modalHeader {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalImageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-xl);
+}
+
+.modalArtistName {
+  font-family: var(--font-dynapuff, 'DynaPuff', cursive);
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--dora-white);
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Body */
+.modalBody {
+  padding: var(--spacing-xl);
+}
+
+.modalGenre {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 var(--spacing-lg) 0;
+  display: inline-block;
+  background: var(--background-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.modalDescription {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xl) 0;
+  transition: var(--transition-theme);
+}
+
+/* Social Media Section */
+.socialSection {
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.socialTitle {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+  transition: var(--transition-theme);
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.875rem;
+  transition: var(--transition-normal);
+  min-width: 120px;
+  justify-content: center;
+}
+
+.socialLink:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.socialLink.spotify {
+  border-color: #1DB954;
+  color: #1DB954;
+}
+
+.socialLink.spotify:hover {
+  background: #1DB954;
+  color: var(--dora-white);
+}
+
+.socialLink.youtube {
+  border-color: #FF0000;
+  color: #FF0000;
+}
+
+.socialLink.youtube:hover {
+  background: #FF0000;
+  color: var(--dora-white);
+}
+
+.socialLink.instagram {
+  border-color: #E4405F;
+  color: #E4405F;
+}
+
+.socialLink.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: var(--dora-white);
+  border-color: #bc1888;
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Dark Theme Support */
+:global(.dark-theme) .modalContent {
+  background: var(--background-elevated);
+  border-color: var(--border-color);
+}
+
+:global(.dark-theme) .closeButton {
+  background: var(--background-secondary);
+  border-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+:global(.dark-theme) .closeButton:hover {
+  background: var(--error-color);
+  color: var(--dora-white);
+}
+
+:global(.dark-theme) .modalGenre {
+  background: var(--background-secondary);
+  border-color: var(--border-color);
+}
+
+:global(.dark-theme) .modalDescription {
+  color: var(--text-light);
+}
+
+:global(.dark-theme) .socialTitle {
+  color: var(--text-light);
+}
+
+:global(.dark-theme) .socialSection {
+  border-color: var(--border-color);
+}
+
+:global(.dark-theme) .socialLink {
+  background: var(--background-secondary);
+  border-color: var(--border-color);
+  color: var(--text-light);
+}
+
+:global(.dark-theme) .socialLink.spotify {
+  color: #1DB954;
+}
+
+:global(.dark-theme) .socialLink.youtube {
+  color: #FF0000;
+}
+
+:global(.dark-theme) .socialLink.instagram {
+  color: #E4405F;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: var(--spacing-md);
+  }
+  
+  .modalContent {
+    max-height: 95vh;
+  }
+  
+  .modalHeader {
+    height: 250px;
+  }
+  
+  .modalImageOverlay {
+    padding: var(--spacing-lg);
+  }
+  
+  .modalArtistName {
+    font-size: 1.5rem;
+  }
+  
+  .modalBody {
+    padding: var(--spacing-lg);
+  }
+  
+  .socialLinks {
+    flex-direction: column;
+  }
+  
+  .socialLink {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalOverlay {
+    padding: var(--spacing-sm);
+  }
+  
+  .modalHeader {
+    height: 200px;
+  }
+  
+  .modalImageOverlay {
+    padding: var(--spacing-md);
+  }
+  
+  .modalArtistName {
+    font-size: 1.25rem;
+  }
+  
+  .modalBody {
+    padding: var(--spacing-md);
+  }
+  
+  .closeButton {
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Animation for modal entrance */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalOverlay {
+  animation: overlayFadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  animation: modalSlideIn 0.4s ease-out;
+}
+
+/* Focus styles for accessibility */
+.closeButton:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.socialLink:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling for modal content */
+.modalContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Loading state */
+.modalContent.loading {
+  opacity: 0.7;
+}
+
+.modalContent.loading .modalImage {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

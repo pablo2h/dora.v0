@@ -1,0 +1,231 @@
+/* Artist Carousel Styles */
+.carouselContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--background-primary);
+  transition: var(--transition-theme);
+}
+
+/* Title Section */
+.titleContainer {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.carouselTitle {
+  font-family: var(--font-dynapuff, 'DynaPuff', cursive);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin: 0;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.titleUnderline {
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 0 auto;
+  border-radius: var(--radius-full);
+}
+
+/* Swiper Container */
+.swiperWrapper {
+  position: relative;
+  padding: var(--spacing-lg) 0;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: var(--spacing-xl);
+  overflow: visible;
+}
+
+.swiperSlide {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Navigation */
+.navigationContainer {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: var(--z-overlay);
+}
+
+.navButton {
+  position: absolute;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--background-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  pointer-events: auto;
+  box-shadow: var(--shadow-md);
+  z-index: var(--z-overlay);
+}
+
+.navButton:hover {
+  background: var(--primary-color);
+  color: var(--dora-white);
+  border-color: var(--primary-color);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.navButton:active {
+  transform: scale(0.95);
+}
+
+.swiperButtonPrev {
+  left: -24px;
+}
+
+.swiperButtonNext {
+  right: -24px;
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Pagination */
+.swiperPagination {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-lg);
+}
+
+/* Override Swiper default pagination styles */
+::global(.swiper-pagination-bullet) {
+  width: 12px;
+  height: 12px;
+  background: var(--border-color);
+  opacity: 1;
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+::global(.swiper-pagination-bullet-active) {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+::global(.swiper-pagination-bullet:hover) {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Dark Theme Support */
+:global(.dark-theme) .carouselContainer {
+  background: var(--background-dark);
+}
+
+:global(.dark-theme) .navButton {
+  background: var(--background-elevated);
+  border-color: var(--border-color);
+  color: var(--text-light);
+}
+
+:global(.dark-theme) .navButton:hover {
+  background: var(--primary-color);
+  color: var(--dora-white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carouselContainer {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .titleContainer {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .carouselTitle {
+    font-size: 2rem;
+  }
+  
+  .swiperButtonPrev {
+    left: -16px;
+  }
+  
+  .swiperButtonNext {
+    right: -16px;
+  }
+  
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carouselContainer {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .swiperButtonPrev,
+  .swiperButtonNext {
+    display: none;
+  }
+  
+  .swiperWrapper {
+    padding: var(--spacing-md) 0;
+  }
+}
+
+/* Loading State */
+.carouselContainer.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Animation for carousel entrance */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carouselContainer {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Focus styles for accessibility */
+.navButton:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+::global(.swiper-pagination-bullet:focus) {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
