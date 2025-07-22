@@ -8,14 +8,18 @@ export async function POST(req: NextRequest) {
       message: 'Logout exitoso'
     });
 
-    // Eliminar cookie de autenticación
-    response.cookies.set('admin-token', '', {
+    // Eliminar cookie de autenticación con configuración mejorada
+    const isProduction = process.env.NODE_ENV === 'production';
+    const cookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'strict',
       maxAge: 0, // Expira inmediatamente
-      path: '/'
-    });
+      path: '/',
+      ...(isProduction && { domain: '.dora.com.ar' })
+    };
+    
+    response.cookies.set('admin-token', '', cookieOptions);
 
     return response;
 

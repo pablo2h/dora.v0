@@ -110,29 +110,34 @@ export async function GET(req: NextRequest) {
 
     const sql = neon(process.env.NEON_DATABASE_URL!);
 
-    let query = `
-      SELECT 
-        id,
-        source,
-        subscription_type,
-        frequency,
-        is_active,
-        created_at,
-        unsubscribed_at
-      FROM subscriptions 
-      WHERE email = $1
-    `;
-    
-    const params = [email];
-    
-    if (source) {
-      query += ` AND source = $2`;
-      params.push(source);
-    }
-    
-    query += ` ORDER BY created_at DESC`;
-
-    const subscriptions = await sql(query, params);
+    // Usar template literals de Neon
+    const subscriptions = source 
+      ? await sql`
+          SELECT 
+            id,
+            source,
+            subscription_type,
+            frequency,
+            is_active,
+            created_at,
+            unsubscribed_at
+          FROM subscriptions 
+          WHERE email = ${email} AND source = ${source}
+          ORDER BY created_at DESC
+        `
+      : await sql`
+          SELECT 
+            id,
+            source,
+            subscription_type,
+            frequency,
+            is_active,
+            created_at,
+            unsubscribed_at
+          FROM subscriptions 
+          WHERE email = ${email}
+          ORDER BY created_at DESC
+        `
 
     return NextResponse.json({ 
       subscriptions,

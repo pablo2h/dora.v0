@@ -70,14 +70,18 @@ export async function middleware(request) {
     
     const response = NextResponse.redirect(loginUrl);
     
-    // Limpiar cookie de autenticación
-    response.cookies.set('admin-token', '', {
+    // Limpiar cookie de autenticación con la misma configuración
+    const isProduction = process.env.NODE_ENV === 'production';
+    const cookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'strict',
       maxAge: 0,
-      path: '/'
-    });
+      path: '/',
+      ...(isProduction && { domain: '.dora.com.ar' })
+    };
+    
+    response.cookies.set('admin-token', '', cookieOptions);
     
     return response;
   }

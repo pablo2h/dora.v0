@@ -79,14 +79,27 @@ export async function POST(req: NextRequest) {
       }
     });
 
-    // Configurar cookie HTTP-only
-    response.cookies.set('admin-token', token, {
+    // Configurar cookie HTTP-only con configuración mejorada para producción
+    const isProduction = process.env.NODE_ENV === 'production';
+    const cookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isProduction, // Solo HTTPS en producción
+      sameSite: isProduction ? 'none' : 'strict', // 'none' para cross-site en producción
       maxAge: 24 * 60 * 60 * 1000, // 24 horas
-      path: '/'
-    });
+      path: '/',
+      ...(isProduction && { domain: '.dora.com.ar' }) // Dominio específico en producción
+    };
+    
+    response.cookies.set('admin-token', token, cookieOptions);
+    
+    // Log para debugging en desarrollo
+    if (!isProduction) {
+      console.log('Cookie configurada:', {
+        secure: cookieOptions.secure,
+        sameSite: cookieOptions.sameSite,
+        domain: cookieOptions.domain || 'localhost'
+      });
+    }
 
     return response;
 

@@ -156,71 +156,79 @@ export async function GET(req: NextRequest) {
 
     const sql = neon(process.env.NEON_DATABASE_URL!);
 
-    let whereConditions = [];
-    let params = [];
-    let paramIndex = 1;
+    // Variables de filtro ya están disponibles desde searchParams
 
-    if (email) {
-      whereConditions.push(`user_email = $${paramIndex}`);
-      params.push(email);
-      paramIndex++;
+    // Construir la consulta usando template literals de Neon
+    let messages;
+    let countResult;
+
+    // Aplicar filtros usando condicionales en template literals
+    if (!email && !message_type && !source && !status) {
+      // Sin filtros
+      messages = await sql`
+        SELECT 
+          id,
+          user_email,
+          user_name,
+          message_type,
+          source,
+          subject,
+          message_content,
+          query_type,
+          company_name,
+          phone,
+          category,
+          media_outlet,
+          status,
+          priority,
+          created_at
+        FROM contact_messages 
+        ORDER BY created_at DESC
+        LIMIT ${limit} OFFSET ${offset}
+      `;
+      
+      countResult = await sql`SELECT COUNT(*) as total FROM contact_messages`;
+    } else {
+      // Con filtros - usar template literals con condicionales
+      messages = await sql`
+        SELECT 
+          id,
+          user_email,
+          user_name,
+          message_type,
+          source,
+          subject,
+          message_content,
+          query_type,
+          company_name,
+          phone,
+          category,
+          media_outlet,
+          status,
+          priority,
+          created_at
+        FROM contact_messages 
+        WHERE (
+          ${email ? sql`user_email = ${email}` : sql`1=1`}
+          AND ${message_type ? sql`message_type = ${message_type}` : sql`1=1`}
+          AND ${source ? sql`source = ${source}` : sql`1=1`}
+          AND ${status ? sql`status = ${status}` : sql`1=1`}
+        )
+        ORDER BY created_at DESC
+        LIMIT ${limit} OFFSET ${offset}
+      `;
+      
+      countResult = await sql`
+        SELECT COUNT(*) as total
+        FROM contact_messages 
+        WHERE (
+          ${email ? sql`user_email = ${email}` : sql`1=1`}
+          AND ${message_type ? sql`message_type = ${message_type}` : sql`1=1`}
+          AND ${source ? sql`source = ${source}` : sql`1=1`}
+          AND ${status ? sql`status = ${status}` : sql`1=1`}
+        )
+      `;
     }
-
-    if (message_type) {
-      whereConditions.push(`message_type = $${paramIndex}`);
-      params.push(message_type);
-      paramIndex++;
-    }
-
-    if (source) {
-      whereConditions.push(`source = $${paramIndex}`);
-      params.push(source);
-      paramIndex++;
-    }
-
-    if (status) {
-      whereConditions.push(`status = $${paramIndex}`);
-      params.push(status);
-      paramIndex++;
-    }
-
-    const whereClause = whereConditions.length > 0 ? `WHERE ${whereConditions.join(' AND ')}` : '';
-
-    const query = `
-      SELECT 
-        id,
-        user_email,
-        user_name,
-        message_type,
-        source,
-        subject,
-        message_content,
-        query_type,
-        company_name,
-        phone,
-        category,
-        media_outlet,
-        status,
-        priority,
-        created_at
-      FROM contact_messages 
-      ${whereClause}
-      ORDER BY created_at DESC
-      LIMIT $${paramIndex} OFFSET $${paramIndex + 1}
-    `;
-
-    params.push(limit, offset);
-
-    const messages = await sql(query, params);
-
-    // Obtener total de registros para paginación
-    const countQuery = `
-      SELECT COUNT(*) as total
-      FROM contact_messages 
-      ${whereClause}
-    `;
-    
-    const countResult = await sql(countQuery, params.slice(0, -2)); // Remover limit y offset
     const total = parseInt(countResult[0].total);
 
     return NextResponse.json({ 
