@@ -7,7 +7,7 @@ return(
   <div className={styles.statsGrid}>
   <div className={styles.statCard}>
     <div className={styles.statNumber}>{festivalInfo.stats.artists}</div>
-    <div className={styles.statLabel}>Musicos</div>
+    <div className={styles.statLabel}>Artistas</div>
   </div>
   <div className={styles.statCard}>
     <div className={styles.statNumber}>{festivalInfo.stats.duration}</div>

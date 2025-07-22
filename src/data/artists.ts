@@ -23,12 +23,35 @@ export const artists = [
         spotifyId: "0laV1xchpqQ9rCoooWioos",
         image: "/assets/Artistas/Zacaroylospuerkos-logo.jpg"
     },
-   /* {
+    {
         id: 4,
-        name: "Shows sorpresas",
-        description: "",
-        instagram: "",
-        youtubeId:",
-        image: "/assets/images/placeholder.png"
-    },*/
+        name: "Stand Up Comedy Litoral",
+        description: "🎭 Comedia, Stand Up, Nacho Koornstra y Belisario Ruiz 😂",
+        instagram: "https://www.instagram.com/litoral_standupcomedy/",
+        youtubeId: "UCwh2PHOeGNNowBKCzW2zSYQ",
+        image: "/assets/Artistas/Logo_Litoral_Stand_Up_img.png"
+    },
+    {
+        id: 5,
+        name: "Joa Atencio",
+        description: "🎵 Solista Pop, Rock, Acústico, Romántico 💕",
+        instagram: "https://www.instagram.com/joaquiatencio/",
+        spotifyId: "6HUniIUWSwSqJSRAWJ5UEt",
+        image: "/assets/Artistas/joa_atencio_img.jpg"
+    },
+    {
+        id: 6,
+        name: "Delpo DJ",
+        description: "🎧 House, DJ Set, Dance, Mix 🕺",
+        instagram: "https://www.instagram.com/delpo_dj/",
+        youtubeId: "UC0BbWQHrAuJi2VRaECG0Z7w",
+        image: "/assets/Artistas/delpodj_img.jpg"
+    },
+    {
+        id: 7,
+        name: "Facu Halle",
+        description: "🎤 Host Vergoragico Actor 🎭",
+        instagram: "https://www.instagram.com/facu_halle/",
+        image: "/assets/Artistas/Facundo_host_image.jpg"
+    }
 ];
