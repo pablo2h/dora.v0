@@ -1,18 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { artists } from '@/data/artists';
 import ArtistCardWithPhoto from './ArtistCardWithPhoto';
 import ArtistModal from './ArtistModal';
+import { useSwipeGesture } from '@/hooks/useSwipeGesture';
 import styles from './ArtistCarousel.module.css';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+const AUTO_PLAY_INTERVAL = 4000; // 4 seconds
 
 export interface Artist {
   id: number;
@@ -32,9 +28,9 @@ interface ArtistCarouselProps {
 }
 
 /**
- * Interactive artist carousel component using Swiper.js
+ * Interactive artist carousel component with responsive design
  * Displays artist cards with photos, names, and genres
- * Supports responsive breakpoints and modal interactions
+ * Features autoplay, swipe gestures, and dot indicators
  */
 const ArtistCarousel: React.FC<ArtistCarouselProps> = ({
   title = "Lineup Festival DORA",
@@ -44,6 +40,25 @@ const ArtistCarousel: React.FC<ArtistCarouselProps> = ({
 }) => {
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  /**
+   * Navigate to next artist
+   */
+  const nextArtist = useCallback(() => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === artists.length - 1 ? 0 : prevIndex + 1
+    );
+  }, []);
+
+  /**
+   * Navigate to previous artist
+   */
+  const prevArtist = useCallback(() => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? artists.length - 1 : prevIndex - 1
+    );
+  }, []);
 
   /**
    * Handle artist card click to open modal
@@ -61,6 +76,29 @@ const ArtistCarousel: React.FC<ArtistCarouselProps> = ({
     setIsModalOpen(false);
     setSelectedArtist(null);
   };
+
+  /**
+   * Handle indicator click
+   * @param index - Target artist index
+   */
+  const handleIndicatorClick = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Swipe gesture hook
+  const { elementRef: swipeRef } = useSwipeGesture({
+    onSwipeLeft: nextArtist,
+    onSwipeRight: prevArtist,
+    minSwipeDistance: 50
+  });
+
+  // Auto-play effect
+  useEffect(() => {
+    if (!autoplay) return;
+    
+    const timer = setInterval(nextArtist, AUTO_PLAY_INTERVAL);
+    return () => clearInterval(timer);
+  }, [nextArtist, autoplay]);
 
   return (
     <motion.section 
@@ -82,90 +120,48 @@ const ArtistCarousel: React.FC<ArtistCarouselProps> = ({
       )}
 
       <motion.div 
-        className={styles.swiperWrapper}
+        className={styles.carouselWrapper}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={24}
-          slidesPerView={1}
-          navigation={{
-            nextEl: `.${styles.swiperButtonNext}`,
-            prevEl: `.${styles.swiperButtonPrev}`,
-          }}
-          pagination={{
-            el: `.${styles.swiperPagination}`,
-            clickable: true,
-            dynamicBullets: true,
-          }}
-          autoplay={autoplay ? {
-            delay: 4000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          } : false}
-          loop={true}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 24,
-            },
-          }}
-          className={styles.swiper}
-        >
-          {artists.map((artist, index) => (
-            <SwiperSlide key={artist.id} className={styles.swiperSlide}>
+        {/* Unified: Single artist carousel for all devices */}
+        <div className={styles.artistsCarouselContainer}>
+          <div className={styles.artistAndIndicatorsContainer}>
+            <div 
+              className={styles.artistsCarousel}
+              ref={swipeRef}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
                   duration: 0.5, 
-                  delay: 0.6 + (index * 0.1),
+                  delay: 0.6,
                   ease: "easeOut" 
                 }}
               >
                 <ArtistCardWithPhoto
-                  artist={artist}
-                  onClick={() => handleArtistClick(artist)}
+                  artist={artists[currentIndex]}
+                  onClick={() => handleArtistClick(artists[currentIndex])}
+                  index={currentIndex}
                 />
               </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* Custom Navigation Buttons */}
-        <div className={styles.navigationContainer}>
-          <button className={`${styles.swiperButtonPrev} ${styles.navButton}`}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path 
-                d="M15 18L9 12L15 6" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-          <button className={`${styles.swiperButtonNext} ${styles.navButton}`}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path 
-                d="M9 18L15 12L9 6" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+            </div>
+            
+            {/* Carousel Indicators */}
+            <div className={styles.carouselIndicators}>
+              {artists.map((_, index) => (
+                <button
+                  key={index}
+                  className={`${styles.indicator} ${index === currentIndex ? styles.active : ''}`}
+                  onClick={() => handleIndicatorClick(index)}
+                  aria-label={`Ir a artista ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-
-        {/* Custom Pagination */}
-        <div className={styles.swiperPagination}></div>
       </motion.div>
 
       {/* Artist Modal */}

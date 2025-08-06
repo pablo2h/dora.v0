@@ -29,13 +29,13 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       <polygon id="servicios" points="133.78 107.18 255.32 96.77 260.01 222.47 314.65 218.3 319.22 283.43 262.47 288.54 144.74 299.13 133.78 107.18" fill="#fa94b9" stroke="#000" strokeMiterlimit="10" strokeWidth="2" onClick={handleElementClick} style={{cursor: 'pointer'}}/>
       
       {/* Zona de descanso abonados */}
-      <g id="zona_descanso_abonados">
+      <g id="zona_descanso_abonados" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="contenedor_zona_descanso_abonados" cx="739.76" cy="240.34" r="29.02" fill="#ef5d34"/>
         <path id="zona_descanso_abonados-2" d="M746,233.32l3.12,14.04M733.51,233.32l-3.12,14.04M728.83,233.32h21.85M753.8,241.12h-28.09" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"/>
       </g>
       
       {/* Pantalla abonados */}
-      <g id="pantalla_abonados">
+      <g id="pantalla_abonados" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <g id="contenedor_pantalla_abonados">
           <circle id="v" cx="640.72" cy="135.53" r="29.02" fill="#ef5d34"/>
         </g>
@@ -57,7 +57,7 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       </g>
       
       {/* Baño sector exterior */}
-      <g id="baño_sectorexterior">
+      <g id="baño_sectorexterior" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <g id="contenedor_baño_sectorexterior">
           <circle id="v-3" cx="195.93" cy="202.08" r="29.02" fill="#ef5d34"/>
         </g>
@@ -69,7 +69,7 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       </g>
       
       {/* Baño abonados */}
-      <g id="baño_abonados">
+      <g id="baño_abonados" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <g id="contenedor_baño_abonados">
           <circle id="v-4" cx="647.97" cy="230.06" r="29.02" fill="#ef5d34"/>
         </g>
@@ -81,18 +81,18 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       </g>
       
       {/* Zonas de descanso sector exterior */}
-      <g id="zona_descanso_sectore_exterior_1">
+      <g id="zona_descanso_sectore_exterior_1" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="contenedor_zona_descanso_sectore_exterior_1" cx="461.1" cy="379.02" r="29.02" fill="#ef5d34"/>
         <path id="zona_descanso_sectore_exterior_1-2" d="M467.34,372l3.12,14.04M454.86,372l-3.12,14.04M450.18,372h21.85M475.14,379.8h-28.09" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"/>
       </g>
       
-      <g id="zona_descanso_sectore_exterior_2">
+      <g id="zona_descanso_sectore_exterior_2" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="contenedor-zona_descanso_sectore_exterior_2" cx="346.31" cy="367.37" r="29.02" fill="#ef5d34"/>
         <path id="zona_descanso_sectore_exterior_2-2" d="M352.55,360.35l3.12,14.04M340.06,360.35l-3.12,14.04M335.38,360.35h21.85M360.35,368.15h-28.09" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"/>
       </g>
       
       {/* Información acreditación */}
-      <g id="informacion_acreeditacion">
+      <g id="informacion_acreeditacion" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <g id="contenedor._informaciom_acreditacion">
           <g id="pantalla_abonados-3">
             <circle id="v-5" cx="799.32" cy="358.05" r="29.02" fill="#ef5d34"/>
@@ -120,7 +120,7 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       </g>
       
       {/* Puesto cafetería */}
-      <g id="puesto_cafeteria">
+      <g id="puesto_cafeteria" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="v-8" cx="147.81" cy="354.8" r="25.63" fill="#ef5d34"/>
         <path d="M133.41,358c1.33,1.03,3.33,1.63,5.6,1.6,2.28.03,4.27-.57,5.6-1.6s3.33-1.63,5.6-1.6c2.28-.03,4.27.57,5.6,1.6" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
         <path d="M141.41,340.39c-1.03.74-1.63,1.94-1.6,3.2-.03,1.27.57,2.46,1.6,3.2" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
@@ -130,7 +130,7 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       </g>
       
       {/* Puesto hamburguesas */}
-      <g id="puesto_hamburgesas">
+      <g id="puesto_hamburgesas" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="v-9" cx="201.14" cy="369.21" r="25.63" fill="#ef5d34"/>
         <path d="M197.64,362.48l2.4,5.6" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
         <path d="M192.83,367.29l2.4,5.6" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
@@ -146,27 +146,27 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       </g>
       
       {/* Puntos interactivos adicionales */}
-      <g id="punto_interactivo_2">
+      <g id="punto_interactivo_2" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="v-11" cx="792.75" cy="173.06" r="29.02" fill="#ef5d34"/>
         <path d="M790.03,183.93v-27.19l12.69,7.25-12.69,7.25" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
         <path d="M784.6,183.34c-1.12.65-1.81,1.49-1.81,2.41,0,1.99,3.26,3.62,7.25,3.62s7.25-1.63,7.25-3.62c0-.91-.69-1.76-1.81-2.41" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
       </g>
       
-      <g id="punto_interactivo_3">
+      <g id="punto_interactivo_3" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="v-12" cx="706.01" cy="43.66" r="29.02" fill="#ef5d34"/>
         <path d="M703.29,54.54v-27.19l12.69,7.25-12.69,7.25" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
         <path d="M697.85,53.94c-1.12.65-1.81,1.49-1.81,2.41,0,1.99,3.26,3.62,7.25,3.62s7.25-1.63,7.25-3.62c0-.91-.69-1.76-1.81-2.41" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
       </g>
       
       {/* Barra */}
-      <g id="barra">
+      <g id="barra" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="contenedor_barra" cx="538.82" cy="297.22" r="29.02" fill="#ef5d34"/>
         <path d="M533.39,313.54h10.87c1,0,1.81-.81,1.81-1.81v-6.57c0-2.53.53-5.03,1.53-7.3l.56-1.27c1.01-2.27,1.53-4.08,1.53-6.62v-7.25c0-1-.81-1.81-1.81-1.81h-18.12c-1,0-1.81.81-1.81,1.81v7.25c0,2.53.53,4.35,1.53,6.62l.56,1.27c1.01,2.3,1.54,4.78,1.53,7.3v6.57c0,1,.81,1.81,1.81,1.81Z" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"/>
         <path d="M527.95,289.97h21.75" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"/>
       </g>
       
       {/* Puesto pochoclos */}
-      <g id="pueso_pochoclos">
+      <g id="pueso_pochoclos" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="contenedor_puesto_gastronomico-3" cx="256.03" cy="376.36" r="25.63" fill="#ef5d34"/>
         <path d="M268.49,363.79c-.06-1.66-1.15-3.12-2.78-3.78-.79-1.41-2.37-2.3-4.11-2.3-1.37,0-2.67.57-3.54,1.52-.53-.19-1.1-.29-1.68-.29-1.09,0-2.12.35-2.95.98-.73-.42-1.58-.65-2.46-.65-2.25,0-4.14,1.49-4.55,3.47-.12,0-.25-.01-.37-.01-2.55,0-4.63,1.92-4.63,4.28,0,1.66,1.04,3.11,2.54,3.82l2.48,21.05c.07.63.55,1.16,1.21,1.33.15.04,3.57.92,8.3.97.02,0,.04,0,.06,0,.01,0,.03,0,.04,0,.12,0,.24,0,.37,0,2.93,0,5.73-.33,8.32-.97.68-.17,1.17-.71,1.23-1.36l2.07-20.63c1.51-.7,2.56-2.15,2.56-3.82,0-1.46-.82-2.81-2.12-3.6ZM247.67,372.66c1.56.12,3.89.24,6.68.29v1.8c-3.1.97-5.34,2.74-5.94,4.52l-.74-6.61ZM254.35,391.01c-2.02-.12-3.68-.37-4.69-.57l-.99-8.8c.79,1.22,2.6,1.93,5.02,1.93.21,0,.43,0,.65-.02v7.45h0ZM262.76,390.47c-1.6.33-3.3.52-5.06.59v-8.08c1.94-.57,3.64-1.48,4.81-2.57.66-.62,1.12-1.26,1.36-1.9l-1.12,11.97ZM264.02,376.91c-.02-.1-.05-.2-.08-.29-.53-1.6-2.52-2.55-5.32-2.55-.3,0-.61.01-.92.03v-1.14c2.34-.03,4.59-.1,6.72-.29l-.39,4.23ZM267.48,368.94c-.68.22-3.7,1.02-11.58,1.02-4.7,0-7.6-.28-9.31-.55,0,0-.09-.02-.14-.02-.3-.05-.57-.1-.79-.14-1.03-.34-1.76-1.22-1.76-2.26,0-1.33,1.21-2.41,2.7-2.41.29,0,.58.04.86.12l1.18.35-.06-1.11s0-.08,0-.13c0-1.33,1.21-2.41,2.7-2.41.68,0,1.33.23,1.83.64l.65.54.57-.61c.51-.55,1.27-.87,2.07-.87.5,0,.99.12,1.42.36l.75.41.44-.68c.48-.75,1.38-1.22,2.34-1.22,1.09,0,2.07.58,2.49,1.48l.15.32.36.11c1.1.33,1.83,1.25,1.83,2.28,0,.08,0,.15-.01.23l-.06.53.54.23c.94.4,1.54,1.25,1.54,2.18,0,.61-.26,1.18-.69,1.6Z" fill="#fff"/>
       </g>
@@ -175,17 +175,17 @@ const FestivalSvgInteractive: React.FC<FestivalSvgInteractiveProps> = ({ onHotsp
       <path id="flecha_ingreso_sector_baño_sectore_exterior" d="M284.21,291.67l-.69-13.59-5.77.29c-.89.04-1.65-.68-1.69-1.62-.02-.45.12-.89.41-1.22l10.02-11.72c.59-.69,1.61-.75,2.27-.11l11.15,10.65c.66.63.72,1.71.12,2.4-.29.33-.69.53-1.11.55l-5.77.29.69,13.59c.05.94-.63,1.73-1.52,1.78l-6.43.32c-.89.04-1.65-.68-1.69-1.62Z" fill="#ef5d34" stroke="#ef5d34" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
       
       {/* Sectores de abonados */}
-      <g id="sector_abonados_salon">
+      <g id="sector_abonados_salon" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="contenedor_abonados_1" cx="722.59" cy="135.53" r="33.71" fill="#ef5d34"/>
         <path id="abonados_1" d="M722.59,124.65l7.25,10.87,9.06-7.25-3.62,18.12h-25.37l-3.62-18.12,9.06,7.25,7.25-10.87Z" fill="#fff" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33"/>
       </g>
       
-      <g id="sector_abonados_escenarios">
+      <g id="sector_abonados_escenarios" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="Contenedor_abonados_2" cx="413.55" cy="195.03" r="33.71" fill="#ef5d34"/>
         <path id="abonados_2" d="M413.55,184.16l7.25,10.87,9.06-7.25-3.62,18.12h-25.37l-3.62-18.12,9.06,7.25,7.25-10.87Z" fill="#fff" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33"/>
       </g>
       
-      <g id="escenario_interior">
+      <g id="escenario_interior" onClick={handleElementClick} style={{cursor: 'pointer'}}>
         <circle id="contenedor_escenario" cx="549.7" cy="183.93" r="33.71" fill="#ef5d34"/>
         <path d="M535.2,198.43h29" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33"/>
         <path d="M564.2,191.18v-18.12c0-2-1.62-3.62-3.62-3.62h-21.75c-2,0-3.62,1.62-3.62,3.62v18.12l7.25-10.87c4.83,2.42,9.67,2.42,14.5,0l7.25,10.87Z" fill="#fff" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.33"/>

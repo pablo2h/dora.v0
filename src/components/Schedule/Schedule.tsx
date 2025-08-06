@@ -23,7 +23,7 @@ const Schedule: React.FC<ScheduleProps> = ({ className = '' }) => {
   const { filteredItems, activeFilter, setActiveFilter } = useFilter({
     items: schedule,
     filterKey: 'location',
-    defaultFilter: 'all'
+    defaultFilter: 'general'
   });
 
   // Update current time every minute
@@ -75,12 +75,30 @@ const Schedule: React.FC<ScheduleProps> = ({ className = '' }) => {
   };
 
   /**
+   * Get the current live show or thank you message
+   * @returns String with current show info or thank you message
+   */
+  const getCurrentShow = (): string => {
+    const liveEvent = schedule.find(item => isEventLive(item.time));
+    
+    if (liveEvent) {
+      const showName = liveEvent.artist || liveEvent.activity;
+      return `Ahora: ${showName}`;
+    }
+    
+    return "Muchas gracias";
+  };
+
+  /**
    * Get CSS classes for schedule item based on its state
    * @param item - Schedule item
+   * @param index - Item index for color variation
    * @returns String of CSS classes
    */
-  const getItemClasses = (item: ScheduleItem): string => {
-    const baseClasses = `${styles.scheduleItem} ${styles[`${item.location}Location`]}`;
+  const getItemClasses = (item: ScheduleItem, index: number): string => {
+    const colorClasses = ['escenarioLocation', 'exteriorLocation', 'generalLocation'];
+    const colorClass = colorClasses[index % colorClasses.length];
+    const baseClasses = `${styles.scheduleItem} ${styles[colorClass]}`;
     const liveClass = isEventLive(item.time) ? styles.liveEvent : '';
     return `${baseClasses} ${liveClass}`.trim();
   };
@@ -103,12 +121,6 @@ const Schedule: React.FC<ScheduleProps> = ({ className = '' }) => {
 
       {/* Location Filters */}
       <div className={styles.filterContainer}>
-        <button
-          className={`${styles.filterButton} ${activeFilter === 'all' ? styles.active : ''}`}
-          onClick={() => handleLocationFilter('all')}
-        >
-          Todos los Escenarios
-        </button>
         {locations.map((location) => (
           <button
             key={location}
@@ -125,7 +137,7 @@ const Schedule: React.FC<ScheduleProps> = ({ className = '' }) => {
         <div className={styles.timelineLine}></div>
         
         {filteredItems.map((item, index) => (
-          <div key={`${item.time}-${index}`} className={getItemClasses(item)}>
+          <div key={`${item.time}-${index}`} className={getItemClasses(item, index)}>
             {/* Timeline Dot */}
             <div className={styles.timelineDot}>
               {isEventLive(item.time) && (
@@ -159,11 +171,7 @@ const Schedule: React.FC<ScheduleProps> = ({ className = '' }) => {
       {/* Live Status Footer */}
       <div className={styles.liveStatus}>
         <div className={styles.currentTime}>
-          Hora actual: {currentTime.toLocaleTimeString('es-AR', { 
-            hour: '2-digit', 
-            minute: '2-digit',
-            timeZone: 'America/Argentina/Buenos_Aires'
-          })}
+          {getCurrentShow()}
         </div>
         {schedule.some(item => isEventLive(item.time)) && (
           <div className={styles.liveNotification}>

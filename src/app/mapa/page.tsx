@@ -1,4 +1,6 @@
 import Map from '../../components/Mapa/Mapa';
+import InteractiveMap from '../../components/MapaLegacy/InteractiveMap';
+import MapLegend from '../../components/MapaLegacy/legend/MapLegend';
 import styles from './page.module.css';
 
 /**
@@ -10,14 +12,31 @@ export default function MapaPage() {
         <div className={styles.pageContainer}>
             <div className={styles.content}>
                 <header className={styles.header}>
-                    <h1>Ubicación del Festival</h1>
-                    <p>Encuentra el Centro Cultural La Vieja Usina</p>
+                    <h1>Mapa del Festival</h1>
+                    <p>Explora el mapa interactivo y encuentra la ubicación del festival</p>
                 </header>
                 
-                <Map 
-                    title="Festival DORA 2025"
-                    address="San Martín 861, Paraná, Entre Ríos"
-                />
+                {/* Interactive Festival Map Section */}
+                <section className={styles.interactiveSection}>
+                    <div className={styles.sectionHeader}>
+                        <h2>Mapa Interactivo del Festival</h2>
+                        <p>Haz clic en los puntos naranjas para ver información detallada</p>
+                    </div>
+                    <InteractiveMap />
+                    <MapLegend />
+                </section>
+                
+                {/* Festival Location Section */}
+                <section className={styles.locationSection}>
+                    <div className={styles.sectionHeader}>
+                        <h2>Ubicación del Festival</h2>
+                        <p>Centro Cultural La Vieja Usina</p>
+                    </div>
+                    <Map 
+                        title="Festival DORA 2025"
+                        address="San Martín 861, Paraná, Entre Ríos"
+                    />
+                </section>
                 
                 <div className={styles.info}>
                     <h2>Información Adicional</h2>

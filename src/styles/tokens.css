@@ -11,6 +11,11 @@
   --dora-black: #000000;
   --dora-white: #F7F5F6;
 
+  /* Colores específicos para redes sociales */
+  --dora-instagram-pink: #E4405F;
+  --dora-spotify-green: #1DB954;
+  --dora-youtube-red: #FF0000;
+
   /* Colores principales del proyecto basados en DORA */
   --primary-color: var(--dora-green);
   --green-color: var(--dora-green);

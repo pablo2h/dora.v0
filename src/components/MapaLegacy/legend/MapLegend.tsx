@@ -1,5 +1,4 @@
 import React from 'react';
-import { svgHotspots } from '../svgHotspots';
 import SvgIcon from './SvgIcon';
 import styles from './mapLegend.module.css';
 

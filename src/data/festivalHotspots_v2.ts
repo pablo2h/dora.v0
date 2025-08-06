@@ -73,7 +73,7 @@ export const festivalHotspots_v2: FestivalHotspot[] = [
   },
   {
     id: 'kiosco-merchandising',
-    name: 'Kiosco y Merchandising',
+    name: 'Puesto Interactuable 1',
     category: 'merchandise',
     info: {
       description: 'Kiosco oficial del festival con bebidas, snacks y merchandising exclusivo.',
@@ -112,6 +112,198 @@ export const festivalHotspots_v2: FestivalHotspot[] = [
       access: 'free'
     },
     icon: '🚻'
+  },
+  {
+    id: 'puesto_hamburgesas',
+    name: 'Puesto de Hamburguesas',
+    category: 'food',
+    info: {
+      description: 'Deliciosas hamburguesas gourmet con ingredientes frescos y papas fritas.',
+      schedule: 'Abierto durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free',
+      products: ['Hamburguesa Clásica', 'Hamburguesa Doble', 'Hamburguesa Vegetariana', 'Papas Fritas']
+    },
+    icon: '🍔'
+  },
+  {
+    id: 'informacion_acreeditacion',
+    name: 'Puesto de Información',
+    category: 'service',
+    info: {
+      description: 'Punto de información general del festival y acreditación para prensa y personal autorizado.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free'
+    },
+    icon: 'ℹ️'
+  },
+  {
+    id: 'barra',
+    name: 'Barra de Bebidas',
+    category: 'food',
+    info: {
+      description: 'Barra principal con amplia variedad de bebidas alcohólicas y sin alcohol.',
+      schedule: 'Abierto durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free',
+      products: ['Cerveza Artesanal', 'Fernet', 'Gin Tonic', 'Bebidas Sin Alcohol', 'Tragos Especiales']
+    },
+    icon: '🍺'
+  },
+  {
+    id: 'puesto_cafeteria',
+    name: 'Cafetería',
+    category: 'food',
+    info: {
+      description: 'Puesto de cafetería con bebidas calientes, frías y snacks ligeros.',
+      schedule: 'Abierto durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free',
+      products: ['Café Espresso', 'Cappuccino', 'Té', 'Chocolate Caliente', 'Medialunas', 'Cookies']
+    },
+    icon: '☕'
+  },
+  {
+    id: 'pueso_pochoclos',
+    name: 'Puesto de Pochoclos',
+    category: 'food',
+    info: {
+      description: 'Pochoclos dulces y salados, ideal para disfrutar durante los shows.',
+      schedule: 'Abierto durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free',
+      products: ['Pochoclos Dulces', 'Pochoclos Salados', 'Pochoclos Caramelo', 'Pochoclos Queso']
+    },
+    icon: '🍿'
+  },
+  {
+    id: 'sector_abonados_salon',
+    name: 'Sector Abonados - Salón',
+    category: 'vip',
+    info: {
+      description: 'Área VIP tipo salón con servicios premium y vista privilegiada del escenario.',
+      schedule: 'Acceso durante todo el evento (17:00hs - 23:00hs)',
+      access: 'vip'
+    },
+    icon: '👑'
+  },
+  {
+    id: 'sector_abonados_escenarios',
+    name: 'Sector Abonados - Escenario',
+    category: 'vip',
+    info: {
+      description: 'Zona VIP frente al escenario principal con acceso preferencial.',
+      schedule: 'Acceso durante todo el evento (17:00hs - 23:00hs)',
+      access: 'vip'
+    },
+    icon: '👑'
+  },
+  {
+    id: 'escenario_interior',
+    name: 'Escenario Interior',
+    category: 'stage',
+    info: {
+      description: 'Escenario secundario para presentaciones íntimas y actividades especiales.',
+      schedule: 'Presentaciones especiales (18:30hs - 22:00hs)',
+      access: 'ticket',
+      artists: ['Artistas Invitados', 'Presentaciones Acústicas']
+    },
+    icon: '🎤'
+  },
+  {
+    id: 'baño_sectorexterior',
+    name: 'Baños Sector Exterior',
+    category: 'service',
+    info: {
+      description: 'Servicios sanitarios de acceso libre ubicados en el sector exterior del festival.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free'
+    },
+    icon: '🚻'
+  },
+  {
+    id: 'baño_abonados',
+    name: 'Baños VIP',
+    category: 'service',
+    info: {
+      description: 'Servicios sanitarios exclusivos para portadores de abonos con mayor comodidad.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'vip'
+    },
+    icon: '🚻'
+  },
+  {
+    id: 'zona_descanso_abonados',
+    name: 'Zona de Descanso VIP',
+    category: 'service',
+    info: {
+      description: 'Área exclusiva de descanso para portadores de abonos con asientos cómodos y sombra.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'vip'
+    },
+    icon: '🛋️'
+  },
+  {
+    id: 'zona_descanso_sectore_exterior_1',
+    name: 'Zona de Descanso 1',
+    category: 'service',
+    info: {
+      description: 'Primera área de descanso en el sector exterior con bancos y sombra.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free'
+    },
+    icon: '🪑'
+  },
+  {
+    id: 'zona_descanso_sectore_exterior_2',
+    name: 'Zona de Descanso 2',
+    category: 'service',
+    info: {
+      description: 'Segunda área de descanso en el sector exterior con espacios verdes.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free'
+    },
+    icon: '🪑'
+  },
+  {
+    id: 'pantalla_abonados',
+    name: 'Pantalla Interior VIP',
+    category: 'screen',
+    info: {
+      description: 'Pantalla gigante exclusiva para la zona de abonados con la mejor vista del escenario.',
+      schedule: 'Transmisión en vivo durante todo el evento (17:00hs - 23:00hs)',
+      access: 'vip'
+    },
+    icon: '📺'
+  },
+  {
+    id: 'punto_interactivo_1',
+    name: 'Punto Interactivo 1',
+    category: 'service',
+    info: {
+      description: 'Estación interactiva con juegos y actividades para toda la familia.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free'
+    },
+    icon: '🎮'
+  },
+  {
+    id: 'punto_interactivo_2',
+    name: 'Punto Interactivo 2',
+    category: 'service',
+    info: {
+      description: 'Segunda estación interactiva con experiencias digitales y realidad aumentada.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free'
+    },
+    icon: '🎮'
+  },
+  {
+    id: 'punto_interactivo_3',
+    name: 'Punto Interactivo 3',
+    category: 'service',
+    info: {
+      description: 'Tercera estación interactiva con actividades educativas y culturales.',
+      schedule: 'Disponible durante todo el evento (17:00hs - 23:00hs)',
+      access: 'free'
+    },
+    icon: '🎮'
   }
 ];
 

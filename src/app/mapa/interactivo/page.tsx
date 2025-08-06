@@ -1,5 +1,5 @@
-import FestivalMap from '../../../components/Mapa_interactivo/FestivalMap';
-import MapLegend from '../../../components/Mapa_interactivo/legend/MapLegend';
+import InteractiveMap from '../../../components/MapaLegacy/InteractiveMap';
+import MapLegend from '../../../components/MapaLegacy/legend/MapLegend';
 import styles from './page.module.css';
 
 /**
@@ -16,7 +16,7 @@ export default function MapaInteractivoPage() {
                     <p className={styles.mapInstructions}>Haz click en los puntos del mapa para ver información detallada de cada ubicación</p>
                 </header>
                 
-                <FestivalMap />
+                <InteractiveMap />
                 
                 <MapLegend />
             </div>

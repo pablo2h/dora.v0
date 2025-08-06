@@ -1,0 +1,53 @@
+/* ImageCard - Full-screen image display for rewind cards */
+.imageCard {
+  @apply relative;
+}
+
+.imageContainer {
+  @apply relative w-full h-full;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  @apply transition-transform duration-700 ease-out;
+  z-index: 1;
+}
+
+/* Subtle zoom effect on hover for desktop */
+@media (hover: hover) {
+  .imageContainer:hover .image {
+    transform: scale(1.05);
+  }
+}
+
+/* Optional overlay for better contrast with action buttons */
+.overlay {
+  @apply absolute inset-0 pointer-events-none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 2;
+}
+
+/* Loading state */
+.imageContainer::before {
+  content: '';
+  @apply absolute inset-0 bg-gray-200 animate-pulse;
+  z-index: 0;
+}
+
+/* Error state fallback */
+.imageContainer[data-error="true"] {
+  @apply flex items-center justify-center;
+  background: linear-gradient(135deg, var(--dora-pink), var(--dora-orange));
+}
+
+.imageContainer[data-error="true"]::after {
+  content: 'Imagen no disponible';
+  @apply text-white text-lg font-medium;
+  font-family: 'Poppins', sans-serif;
+}
