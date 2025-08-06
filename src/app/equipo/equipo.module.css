@@ -1,0 +1,430 @@
+/**
+ * Team page styles
+ * Uses design tokens from tokens.css for consistency
+ */
+
+/* Page Container */
+.pageContainer {
+  min-height: 100vh;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  padding: var(--spacing-xl) 0;
+}
+
+/* Page Header */
+.pageHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  padding: 0 var(--spacing-md);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--color-primary-600);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pageDescription {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Section Styles */
+.artistsSection,
+.teamSection {
+  margin-bottom: var(--spacing-4xl);
+  padding: 0 var(--spacing-md);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-primary-500);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
+}
+
+.sectionDescription {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Artists Carousel */
+.artistsCarousel {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: linear-gradient(135deg, var(--background-light) 0%, rgba(252, 149, 187, 0.05) 100%);
+  border-radius: var(--radius-xl);
+  margin: var(--spacing-2xl) 0;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--dora-pink);
+}
+
+.swiper {
+  padding-bottom: var(--spacing-xl);
+  overflow: visible;
+}
+
+.swiperSlide {
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.artistCard {
+  width: 100%;
+  height: 100%;
+  transition: transform var(--transition-normal) ease;
+}
+
+.artistCard:hover {
+  transform: translateY(-8px);
+}
+
+/* Custom Swiper Navigation */
+.swiperNavigation {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.swiperButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-background-secondary);
+  border: 2px solid var(--color-border-primary);
+  color: var(--color-primary-600);
+  cursor: pointer;
+  transition: all var(--transition-normal) ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.swiperButton:hover {
+  background: var(--color-primary-500);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.swiperButton:active {
+  transform: scale(0.95);
+}
+
+.swiperButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.swiperButton:disabled:hover {
+  background: var(--color-background-secondary);
+  color: var(--color-primary-600);
+  transform: none;
+}
+
+/* Custom Swiper Pagination */
+.swiperPagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+}
+
+.swiperPagination :global(.swiper-pagination-bullet) {
+  width: 12px;
+  height: 12px;
+  background: var(--color-border-primary);
+  opacity: 0.5;
+  transition: all var(--transition-fast) ease;
+}
+
+.swiperPagination :global(.swiper-pagination-bullet-active) {
+  background: var(--color-primary-500);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Team Section */
+.teamSection {
+  background: linear-gradient(135deg, var(--background-light) 0%, rgba(128, 199, 217, 0.05) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl) var(--spacing-md);
+  margin: var(--spacing-2xl) var(--spacing-md);
+  box-shadow: var(--shadow-lg);
+  border-left: 4px solid var(--dora-light-blue);
+}
+
+.organigramContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.organigram {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+/* Dark theme support for artist carousel */
+.darkTheme .artistsCarousel {
+  background: linear-gradient(135deg, var(--background-elevated) 0%, rgba(252, 149, 187, 0.1) 100%);
+}
+
+/* Dark theme support for team section */
+.darkTheme .teamSection {
+  background: linear-gradient(135deg, var(--background-elevated) 0%, rgba(128, 199, 217, 0.1) 100%);
+}
+
+/* Call to Action Section */
+.ctaSection {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-600) 100%
+  );
+  color: white;
+  text-align: center;
+  padding: var(--spacing-3xl) var(--spacing-md);
+  margin: var(--spacing-2xl) var(--spacing-md) 0;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.3;
+}
+
+.ctaDescription {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal) ease;
+  min-width: 200px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctaPrimary {
+  background: white;
+  color: var(--color-primary-600);
+  box-shadow: var(--shadow-md);
+}
+
+.ctaPrimary:hover {
+  background: var(--color-background-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.ctaSecondary:hover {
+  background: white;
+  color: var(--color-primary-600);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .ctaButtons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .pageHeader {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .artistsSection,
+  .teamSection {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  .pageContainer {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .artistsCarousel {
+    padding: 0 var(--spacing-xl);
+  }
+  
+  .swiperNavigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    justify-content: space-between;
+    margin-top: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  .swiperButton {
+    pointer-events: all;
+  }
+  
+  .swiperButtonPrev {
+    margin-left: -24px;
+  }
+  
+  .swiperButtonNext {
+    margin-right: -24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pageHeader {
+    padding: 0 var(--spacing-xl);
+  }
+  
+  .artistsSection,
+  .teamSection {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Dark Theme Support */
+.dark-theme .pageContainer {
+  background: var(--color-background-primary-dark);
+  color: var(--color-text-primary-dark);
+}
+
+.dark-theme .mainTitle {
+  color: var(--color-primary-400);
+}
+
+.dark-theme .sectionTitle {
+  color: var(--color-primary-400);
+}
+
+.dark-theme .pageDescription,
+.dark-theme .sectionDescription {
+  color: var(--color-text-secondary-dark);
+}
+
+.dark-theme .teamSection {
+  background: var(--color-background-secondary-dark);
+}
+
+.dark-theme .swiperButton {
+  background: var(--color-background-secondary-dark);
+  border-color: var(--color-border-primary-dark);
+  color: var(--color-primary-400);
+}
+
+.dark-theme .swiperButton:hover {
+  background: var(--color-primary-400);
+  color: var(--color-background-primary-dark);
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .swiperButton {
+    border-width: 3px;
+  }
+  
+  .ctaPrimary,
+  .ctaSecondary {
+    border-width: 3px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .artistCard,
+  .swiperButton,
+  .ctaPrimary,
+  .ctaSecondary {
+    transition: none;
+  }
+  
+  .artistCard:hover,
+  .swiperButton:hover,
+  .ctaPrimary:hover,
+  .ctaSecondary:hover {
+    transform: none;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.swiperButton:focus-visible,
+.ctaPrimary:focus-visible,
+.ctaSecondary:focus-visible {
+  outline: 3px solid var(--color-primary-300);
+  outline-offset: 2px;
+}
+
+.dark-theme .swiperButton:focus-visible,
+.dark-theme .ctaPrimary:focus-visible,
+.dark-theme .ctaSecondary:focus-visible {
+  outline-color: var(--color-primary-400);
+}

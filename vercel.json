@@ -1,0 +1,42 @@
+{
+  "crons": [
+    {
+      "path": "/api/set-live-status",
+      "schedule": "0 21 26 7 *",
+      "description": "Activar festival DORA - Sábado 26 de Julio 18:00 ARG (21:00 UTC)"
+    },
+    {
+      "path": "/api/set-live-status",
+      "schedule": "0 5 28 7 *",
+      "description": "Desactivar festival DORA - Lunes 28 de Julio 02:00 ARG (05:00 UTC)"
+    }
+  ],
+  "functions": {
+    "app/api/set-live-status/route.ts": {
+      "maxDuration": 10
+    },
+    "app/api/live-status/route.ts": {
+      "maxDuration": 5
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/set-live-status",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/api/live-status",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=30"
+        }
+      ]
+    }
+  ]
+}

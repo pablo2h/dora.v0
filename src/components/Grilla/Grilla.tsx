@@ -1,28 +1,43 @@
 import styles from './Grilla.module.css';
+import { schedule, getLocationClassWithStyles, getLocationDisplayName } from '../../data/schedule';
 
-const schedule = [
-    { time: "18:00hs", activity: "Apertura de puertas" },
-    { time: "18:15hs", activity: "DJ" },
-    { time: "19:30hs", activity: "" },
-    { time: "20:15hs", activity: "Zacaro y los puerkos" },
-    { time: "21:00hs", activity: "" },
-    { time: "22:15hs", activity: "Rosario Smowing" },
-    { time: "23:30hs", activity: "Cierre del evento" }
-];
+// Functions are now imported from schedule.ts
 
 export default function Schedule() {
     return (
         <div className={styles.scheduleContainer}>
             <h3>Horarios del Evento</h3>
+            
+            {/* Legend for locations */}
+            <div className={styles.legend}>
+                <div className={styles.legendItem}>
+                    <span className={`${styles.legendColor} ${styles.escenarioColor}`}></span>
+                    <span>Escenario Principal (Interior)</span>
+                </div>
+                <div className={styles.legendItem}>
+                    <span className={`${styles.legendColor} ${styles.exteriorColor}`}></span>
+                    <span>Sector Exterior</span>
+                </div>
+                <div className={styles.legendItem}>
+                    <span className={`${styles.legendColor} ${styles.generalColor}`}></span>
+                    <span>General</span>
+                </div>
+            </div>
+
             <div className={styles.scheduleGrid}>
                 <div className={styles.headers}>
                     <span>Hora</span>
                     <span>Actividad</span>
+                    <span>Ubicación</span>
                 </div>
                 {schedule.map((item, index) => (
-                    <div key={index} className={styles.scheduleRow}>
+                    <div key={index} className={`${styles.scheduleRow} ${getLocationClassWithStyles(item.location, styles)}`}>
                         <span className={styles.time}>{item.time}</span>
-                        <span className={styles.activity}>{item.activity}</span>
+                        <span className={styles.activity}>
+                            {item.activity}
+                            {item.artist && <span className={styles.artistName}> - {item.artist}</span>}
+                        </span>
+                        <span className={styles.location}>{getLocationDisplayName(item.location)}</span>
                     </div>
                 ))}
             </div>

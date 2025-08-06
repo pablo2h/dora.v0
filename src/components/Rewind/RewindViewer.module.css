@@ -1,0 +1,145 @@
+/* RewindViewer - Main container for the rewind experience */
+.rewindViewer {
+  @apply relative w-full h-screen overflow-hidden;
+  background: var(--dora-black);
+  user-select: none;
+}
+
+/* Background audio (hidden) */
+.backgroundAudio {
+  display: none;
+}
+
+/* Progress indicators at the top */
+.progressContainer {
+  @apply absolute top-4 left-4 right-4 flex gap-1 z-20;
+}
+
+.progressBar {
+  @apply flex-1 h-1 bg-white/30 rounded-full overflow-hidden;
+  transition: all 0.3s ease;
+}
+
+.progressBar.active {
+  @apply bg-white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Audio control button */
+.audioButton {
+  @apply absolute top-4 left-4 z-20;
+  @apply w-12 h-12 rounded-full flex items-center justify-center;
+  @apply text-white text-xl;
+  @apply transition-all duration-300 ease-in-out;
+  @apply backdrop-blur-sm;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.audioButton:hover:not(:disabled) {
+  @apply scale-110;
+  background: rgba(0, 0, 0, 0.8);
+  border-color: var(--dora-green);
+  color: var(--dora-green);
+}
+
+.audioButton:disabled {
+  @apply opacity-30 cursor-not-allowed;
+}
+
+/* Swiper container */
+.swiperContainer {
+  @apply w-full h-full absolute top-0 left-0;
+}
+
+.swiperSlide {
+  @apply w-full h-full flex items-center justify-center relative;
+}
+
+/* Card counter */
+.counter {
+  @apply absolute bottom-6 left-6 z-20;
+  @apply text-white text-sm font-medium;
+  @apply px-3 py-1 rounded-full backdrop-blur-sm;
+  background: rgba(0, 0, 0, 0.6);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Touch/click zones for navigation */
+.contentArea::before {
+  content: '';
+  @apply absolute inset-y-0 left-0 w-1/3 z-10;
+  /* Left third for previous */
+}
+
+.contentArea::after {
+  content: '';
+  @apply absolute inset-y-0 right-0 w-1/3 z-10;
+  /* Right third for next */
+}
+
+/* Visual feedback for touch zones (development only) */
+@media (hover: hover) {
+  .contentArea:hover::before {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), transparent);
+  }
+  
+  .contentArea:hover::after {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.05), transparent);
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .progressContainer {
+    @apply top-2 left-2 right-2;
+  }
+  
+  .controls {
+    @apply bottom-16 gap-3;
+  }
+  
+  .navButton {
+    @apply w-10 h-10 text-xl;
+  }
+  
+  .playButton {
+    @apply w-12 h-12 text-lg;
+  }
+  
+  .counter {
+    @apply bottom-4 left-4 text-xs px-2;
+  }
+}
+
+/* Landscape mobile adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .controls {
+    @apply bottom-8;
+  }
+  
+  .counter {
+    @apply bottom-2;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .navButton,
+  .playButton,
+  .progressBar {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .navButton,
+  .playButton {
+    border-width: 3px;
+  }
+  
+  .progressBar {
+    @apply h-2;
+  }
+}

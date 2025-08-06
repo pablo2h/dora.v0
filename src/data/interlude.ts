@@ -3,7 +3,7 @@ const phrases = [
     "EDICIÓN GROOVE",
     "VIEJA USINA",
     "PARANÁ",
-    "Desde 18hs",
+    "Desde 17hs",
     "Sábado 26 de Julio",
     "Entrada Libre",
     "Sector VIP",

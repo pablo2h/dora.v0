@@ -1,0 +1,235 @@
+/* ProfileCard Component Styles */
+
+.profileCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  border: 1px solid var(--border-color);
+  height: 100%;
+  min-height: 320px;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.profileCard:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.profileCard:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--background-light);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.profileImage {
+  object-fit: cover;
+  object-position: center;
+  transition: var(--transition-normal);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* Content Container */
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-sm);
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+}
+
+/* Typography */
+.profileName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileRole {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Category Badge */
+.categoryBadge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--primary-color);
+  color: var(--text-light);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+  margin-top: var(--spacing-sm);
+}
+
+/* Decorative Accent */
+.accentLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--dora-light-blue) 50%,
+    var(--dora-pink) 100%
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal) ease-out;
+}
+
+.profileCard:hover .accentLine {
+  transform: scaleX(1);
+}
+
+/* Dark Theme Adjustments */
+.dark-theme .profileCard {
+  background: var(--background-card);
+  border-color: var(--border-color);
+}
+
+.dark-theme .imageOverlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.dark-theme .categoryBadge {
+  background: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profileCard {
+    min-height: 280px;
+    max-width: 100%;
+  }
+  
+  .imageContainer {
+    height: 160px;
+  }
+  
+  .contentContainer {
+    padding: var(--spacing-md);
+  }
+  
+  .profileName {
+    font-size: var(--font-size-base);
+  }
+  
+  .profileRole {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .profileCard {
+    min-height: 240px;
+  }
+  
+  .imageContainer {
+    height: 140px;
+  }
+  
+  .contentContainer {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .profileCard {
+    border: 2px solid var(--text-primary);
+  }
+  
+  .categoryBadge {
+    border: 1px solid var(--text-primary);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .profileCard,
+  .profileImage,
+  .accentLine {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .profileCard {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .accentLine {
+    display: none;
+  }
+}

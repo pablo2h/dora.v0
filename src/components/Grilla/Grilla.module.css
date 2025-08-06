@@ -9,7 +9,42 @@
     color: var(--blue-color);
     font-family: var(--font-primary);
     font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Legend styles */
+.legend {
+    display: flex;
+    gap: 1.5rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.legendColor {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.escenarioColor {
+    background: var(--dora-pink);
+}
+
+.exteriorColor {
+    background: var(--dora-yellow);
+}
+
+.generalColor {
+    background: var(--blue-color);
 }
 
 .scheduleGrid {
@@ -20,7 +55,7 @@
 
 .headers {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 100px 1fr 150px;
     padding: 1rem;
     background: var(--blue-color);
     color: white;
@@ -31,10 +66,11 @@
 
 .scheduleRow {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 100px 1fr 150px;
     padding: 1rem;
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 
 .scheduleRow:nth-child(odd) {
@@ -43,6 +79,23 @@
 
 .scheduleRow:hover {
     background: rgba(var(--blue-color-rgb), 0.1);
+    transform: translateX(4px);
+}
+
+/* Location-based styling */
+.escenarioLocation {
+    border-left-color: var(--dora-pink);
+    background: rgba(255, 20, 147, 0.05);
+}
+
+.exteriorLocation {
+    border-left-color: var(--dora-yellow);
+    background: rgba(255, 193, 7, 0.05);
+}
+
+.generalLocation {
+    border-left-color: var(--blue-color);
+    background: rgba(0, 123, 255, 0.05);
 }
 
 .time {
@@ -54,4 +107,31 @@
 .activity {
     color: var(--text-color);
     font-family: var(--font-text);
+}
+
+.artistName {
+    font-weight: 600;
+    color: var(--blue-color);
+}
+
+.location {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .headers,
+    .scheduleRow {
+        grid-template-columns: 80px 1fr;
+    }
+    
+    .location {
+        display: none;
+    }
+    
+    .legend {
+        justify-content: center;
+    }
 }

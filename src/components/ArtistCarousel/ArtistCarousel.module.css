@@ -1,0 +1,295 @@
+/* Carousel Container */
+.carouselContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--background-primary);
+  transition: var(--transition-theme);
+  overflow: hidden;
+  position: relative;
+  contain: layout style;
+}
+
+/* Title Section */
+.titleContainer {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.carouselTitle {
+  font-family: var(--font-dynapuff, 'DynaPuff', cursive);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin: 0;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.titleUnderline {
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 0 auto;
+  border-radius: var(--radius-full);
+}
+
+/* Carousel Container */
+.carouselWrapper {
+  position: relative;
+  padding: var(--spacing-lg) 0;
+}
+
+/* Desktop Carousel Layout */
+.artistsGridDesktop {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.desktopCarouselContainer {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.desktopArtistsCarousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: calc(100% * var(--total-artists, 6));
+  will-change: transform;
+}
+
+.desktopArtistCard {
+  flex: 0 0 calc(100% / 3);
+  padding: 0 var(--spacing-md);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  max-width: 33.333%;
+  min-height: 400px;
+}
+
+/* Alternating background colors for artist cards */
+.desktopArtistCard:nth-child(odd) {
+  background: var(--background-secondary, rgba(0, 0, 0, 0.02));
+}
+
+.desktopArtistCard:nth-child(even) {
+  background: var(--background-tertiary, rgba(0, 0, 0, 0.05));
+}
+
+:global(.dark-theme) .desktopArtistCard:nth-child(odd) {
+  background: var(--background-secondary-dark, rgba(255, 255, 255, 0.02));
+}
+
+:global(.dark-theme) .desktopArtistCard:nth-child(even) {
+  background: var(--background-tertiary-dark, rgba(255, 255, 255, 0.05));
+}
+
+/* Mobile Carousel Layout */
+.artistsCarouselContainer {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 var(--spacing-md);
+}
+
+.artistAndIndicatorsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.artistsCarousel {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  touch-action: pan-x;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: grab;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  position: relative;
+  will-change: transform, opacity;
+  min-height: 400px;
+}
+
+.artistsCarousel:active {
+  cursor: grabbing;
+}
+
+/* Carousel Indicators */
+.carouselIndicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-color);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  border: none;
+  opacity: 1;
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Desktop breakpoint */
+@media (min-width: 769px) {
+  .artistsCarouselContainer {
+    display: none;
+  }
+  
+  .artistsGridDesktop {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .desktopArtistCard {
+    flex: 0 0 calc(100% / 3);
+    max-width: 33.333%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselContainer {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .artistsGridDesktop {
+    display: none;
+  }
+  
+  .artistsCarouselContainer {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+
+
+/* Dark Theme Support */
+:global(.dark-theme) .carouselContainer {
+  background: var(--background-dark);
+}
+
+:global(.dark-theme) .indicator {
+  background: var(--border-color);
+}
+
+:global(.dark-theme) .indicator.active {
+  background: var(--primary-color);
+}
+
+:global(.dark-theme) .indicator:hover {
+  background: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carouselContainer {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .titleContainer {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .carouselTitle {
+    font-size: 2rem;
+  }
+  
+  .artistsGridDesktop {
+    display: none;
+  }
+  
+  .artistsCarouselContainer {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .artistsCarousel {
+    display: flex;
+    max-width: 100%;
+    padding: 0 var(--spacing-md);
+    width: 100%;
+  }
+  
+  .artistsCarousel > div {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0 var(--spacing-sm);
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .carouselContainer {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .artistsCarousel {
+    padding: 0;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Loading State */
+.carouselContainer.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Animation for carousel entrance */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carouselContainer {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Focus styles for accessibility */
+.indicator:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}

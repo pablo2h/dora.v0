@@ -13,7 +13,7 @@ export const faqData = [
     },
     {
         question: '¿Cuál es la ubicación y horario del festival?',
-        answer: 'El festival se realizará en la Vieja Usina de Paraná, Entre Rios. El Sabado 26 de Julio. De 18:00 a 23:00 .'
+        answer: 'El festival se realizará en la Vieja Usina de Paraná, Entre Rios. El Sabado 26 de Julio. De 17:00 a 23:00 .'
     },
     {
         question: '¿Donde puedo comprar mis abonos?',

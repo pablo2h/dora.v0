@@ -105,8 +105,8 @@ export const defaultPressRelease = {
 **Una nueva experiencia musical llega a Paraná, Entre Ríos**
 
 **FECHA Y HORARIO:**
-Sábado 26 de Julio de 2024
-De 18:00 a 23:00 horas
+Sábado 26 de Julio de 2025
+De 17:00 a 23:00 horas
 
 **UBICACIÓN:**
 Vieja Usina - Paraná, Entre Ríos

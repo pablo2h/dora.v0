@@ -1,0 +1,73 @@
+/* VideoCard - Full-screen video display for rewind cards */
+.videoCard {
+  @apply relative;
+}
+
+.videoContainer {
+  @apply relative w-full h-full overflow-hidden;
+}
+
+.video {
+  @apply w-full h-full object-cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Optional overlay for better contrast with action buttons */
+.overlay {
+  @apply absolute inset-0 pointer-events-none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 2;
+}
+
+/* Fallback text for unsupported browsers */
+.fallbackText {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply text-white text-lg font-medium text-center px-4;
+  background: linear-gradient(135deg, var(--dora-blue), var(--dora-green));
+  font-family: 'Poppins', sans-serif;
+  z-index: 0;
+}
+
+/* Loading state */
+.videoContainer::before {
+  content: '';
+  @apply absolute inset-0 bg-gray-900 animate-pulse;
+  z-index: 0;
+}
+
+/* Video controls styling (hidden by default for autoplay) */
+.video::-webkit-media-controls {
+  display: none;
+}
+
+.video::-webkit-media-controls-enclosure {
+  display: none;
+}
+
+/* Show controls on hover for desktop */
+@media (hover: hover) {
+  .videoContainer:hover .video::-webkit-media-controls {
+    display: flex;
+  }
+  
+  .videoContainer:hover .video::-webkit-media-controls-enclosure {
+    display: flex;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .video {
+    /* Ensure video covers full screen on mobile */
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
