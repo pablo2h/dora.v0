@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle';
+import { enablePlaytime } from '@/config/featureFlags'
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -96,6 +97,13 @@ export default function Navbar() {
           </button>
         </Link>
         <Link href="/inicio" className={styles.navLink} onClick={toggleMenu}>Inicio</Link>
+        <Link href="/ediciongroove" className={styles.navLink} onClick={toggleMenu}>Edición Groove</Link>
+        {enablePlaytime && (
+          <>
+            <Link href="/playtime" className={styles.navLink} onClick={toggleMenu}>Playtime</Link>
+            <Link href="/playtime-test" className={styles.navLink} onClick={toggleMenu}>Playtime Test</Link>
+          </>
+        )}
         <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up</Link>
         <Link href="/entradas" className={styles.navLink} onClick={toggleMenu}>Entradas</Link>
         <Link href="/faq" className={styles.navLink} onClick={toggleMenu}>FAQ</Link>

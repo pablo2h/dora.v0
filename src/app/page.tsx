@@ -1,5 +1,9 @@
-import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation'
+import { defaultEvent } from '@/config/featureFlags'
 
 export default function RootPage() {
-  redirect('/bienvenida');
+  if (defaultEvent) {
+    redirect(`/${defaultEvent}`)
+  }
+  redirect('/bienvenida')
 }

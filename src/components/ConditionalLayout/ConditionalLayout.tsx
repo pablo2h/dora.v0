@@ -8,7 +8,7 @@ export default function ConditionalLayout({ children }: { children: React.ReactN
   const pathname = usePathname()
   
   // Páginas que NO deben mostrar navbar y footer
-  const pagesWithoutNavbar = ['/bienvenida', '/envivo']
+  const pagesWithoutNavbar = ['/bienvenida', '/envivo', '/ediciongroove']
   // Páginas de admin que tienen su propio layout
   const isAdminPage = pathname.startsWith('/admin')
   const showNavbar = !pagesWithoutNavbar.includes(pathname) && !isAdminPage
