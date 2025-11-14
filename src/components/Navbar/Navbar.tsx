@@ -102,6 +102,8 @@ export default function Navbar() {
           <>
             <Link href="/playtime" className={styles.navLink} onClick={toggleMenu}>Playtime</Link>
             <Link href="/playtime-test" className={styles.navLink} onClick={toggleMenu}>Playtime Test</Link>
+            <Link href="/demo" className={styles.navLink} onClick={toggleMenu}>Demo</Link>
+            <Link href="/inicio-demo" className={styles.navLink} onClick={toggleMenu}>Inicio Demo</Link>
           </>
         )}
         <Link href="/lineup" className={styles.navLink} onClick={toggleMenu}>Line Up</Link>
